@@ -1,0 +1,138 @@
+/* Variables */
+:root {
+    --primary-color: #f70303;
+    --heading-color: #f70303;
+    --text-color: #faf6f6;
+    --bg-color: #f4f4f4;
+    --bg-shade-color: rgba(14, 13, 13, 0.1);
+    --spacing: 8.75rem;
+    --heading-h1: 4rem;
+    --heading-h2: 2.375rem;
+    --heading-h3: 1.75rem;
+    --subheading: 1.25rem;
+    --body-text-lg: 1.125rem;
+    --body-text-sm: 1rem;
+    --body-text-xsm: 0.875rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Nav */
+.logo img {
+    width: 100px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 0;
+    z-index: 1000;
+    margin-bottom: var(--spacing);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.125rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* hero section */
+.hero-section {
+    background: linear-gradient(rgba(14, 13, 13, 0.7), rgba(14, 13, 13, 0.7)), url('/images/ACTIVATE\ UNILORIN\ PIX\ \ 1.jpg') no-repeat center center/cover;
+    background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    color: var(--heading-color);
+    font-size: var(--heading-h1);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.hero-section h2 {
+    font-size: var(--heading-h2);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    margin-bottom: 1rem;
+    line-height: 30px;
+    font-size: var(--body-text-sm);
+    color: var(--text-color);
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: whitesmoke;
+    color: var(--primary-color);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.stats p {
+    font-size: var(--body-text-lg);
+    color: var(--text-color);
+}
+
+.stats span {
+    font-size: var(--heading-h2);
+    color: var(--text-color);
+}
+
+.stat-item {
+    text-align: center;
+    margin: 0 1rem;
+}

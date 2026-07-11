@@ -2,8 +2,8 @@
 :root {
     --primary-color: #f70303;
     --heading-color: #f70303;
-    --text-color: #faf6f6;
-    --bg-color: #f4f4f4;
+    --text-color: black;
+    --bg-color: #110303;
     --bg-shade-color: rgba(14, 13, 13, 0.1);
     --spacing: 8.75rem;
     --heading-h1: 4rem;
@@ -135,4 +135,56 @@ body {
 .stat-item {
     text-align: center;
     margin: 0 1rem;
+}
+
+.mission-cards{
+    justify-content:center;
+    align-items:stretch;
+    gap:0;
+    margin-top:-80px;      /* Makes it float over the hero section */
+    position:relative;
+    z-index:10;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.mission-cards h2{
+    text-align: center;
+}
+
+.missionitems{
+display: flex;
+justify-content: center;
+align-items: stretch;
+}
+
+.mission-card{
+    flex:1;
+    padding:40px 30px;
+    text-align:center;
+    border-right:1px solid #ececec;
+}
+
+.mission-card:last-child{
+    border-right:none;
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:20px;
+    color: navy;
+}
+
+.mission-card h3{
+    color:#840c31;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.mission-card p{
+    color:#666;
+    line-height:1.8;
+    font-size:16px;
 }

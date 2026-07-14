@@ -1,0 +1,182 @@
+/* Base styles and typography resetting */
+body {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif; /* Matches the clean geometric look */
+  margin: 0;
+  background-color: color-mix(in srgb, black 50%, white 50%);
+};
+
+.cohort-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography styles */
+.subtitle {
+  color: #9e1b32; /* Deep red crimson color */
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  
+  
+
+  
+  /* Gradient Magic */
+  background: linear-gradient(to right, #9e1b32, #0056b3); /* Blends Red to Blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+   /* Crucial for the gradient background bounding box */
+}
+
+/* Flexbox Layout Configuration */
+.cohort-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Aligns logos perfectly along the bottom row line */
+  gap: 40px; /* Adjust spacing between the cards */
+  flex-wrap: wrap; /* Allows wrap-around for responsiveness */
+}
+
+.cohort-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 110px;
+}
+
+/* Image sizing constraint */
+.cohort-item img {
+  width: auto;
+  max-width: 100px; /* Caps the logo sizes cleanly */
+  height: 90px;     /* Keeps uniform height rows */
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease; /* Smooth hover animations */
+}
+
+/* Optional hover interaction for polish */
+.cohort-item img:hover {
+  transform: translateY(-5px);
+}
+
+.cohort-item h3 {
+  font-size: 16px;
+  color: #222222;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  
+  /* Gradient Magic */
+  background: linear-gradient(to right, #9e1b32, #0056b3); /* Blends Red to Blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block; /* Crucial for the gradient background bounding box */
+}
+
+.partner-title{
+    font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #9e1b32; 
+}
+
+/* STREAMING_CHUNK: Building Infinite Carousel animation /
+/ ==========================================================================
+PARTNERS ROTATING SLIDESHOW (TICKER)
+========================================================================== */
+
+.partners-section {
+padding: 60px 20px;
+text-align: center;
+}
+
+/* Hides scroll margins and defines viewport bounds */
+.carousel-wrapper {
+position: relative;
+width: 100%;
+overflow: hidden;
+padding: 20px 0;
+}
+
+/* Elegant left/right visual blends */
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+content: "";
+height: 100%;
+position: absolute;
+top: 0;
+width: 100px;
+z-index: 2;
+pointer-events: none;
+}
+.carousel-wrapper::before {
+left: 0;
+background: linear-gradient(to right, rgba(127,127,127,1) 0%, rgba(127,127,127,0) 100%);
+}
+.carousel-wrapper::after {
+right: 0;
+background: linear-gradient(to left, rgba(127,127,127,1) 0%, rgba(127,127,127,0) 100%);
+}
+
+/* Slide track wrapper */
+.carousel-track {
+display: flex;
+width: max-content;
+gap: 60px; / Space between partner logo items /
+animation: scrollContinuous 25s linear infinite; / Smooth, continuous crawl animation */
+}
+
+/* Gracefully pauses slide-rotation when users hover over partner logos */
+.carousel-wrapper:hover .carousel-track {
+animation-play-state: paused;
+}
+
+/* Single partner logo dimensions container */
+.partner-logo-item {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 90px;
+width: 180px;
+}
+
+.partner-logo-item img {
+max-height: 100%;
+max-width: 100%;
+object-fit: contain;
+transition: all 0.3s ease;
+}
+
+.partner-logo-item img:hover {
+transform: scale(1.08); /* Sophisticated hover swell */
+}
+
+ 

@@ -1,0 +1,758 @@
+/* ==========================================================================
+   1. RESET & VARIABLES
+   ========================================================================== */
+:root {
+  --primary: #FF9F1C;        /* Hive Amber Accent */
+  --primary-dark: #E68A00;   /* Hover Amber */
+  --dark-bg: #0F172A;        /* Navy/Charcoal Black Hero */
+  --light-bg: #F8FAFC;       /* Off-White Section Background */
+  --card-bg: #FFFFFF;        /* Pure White Cards */
+  --text-main: #1E293B;      /* Off-Black body text */
+  --text-muted: #64748B;     /* Gray descriptive text */
+  --border-color: #E2E8F0;   /* Crisp borders */
+  --success: #10B981;        /* Active Status Green */
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text-main);
+  background-color: #FFF;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. REUSABLE COMPONENTS & UTILITIES
+   ========================================================================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+header.hero .container {
+  padding: 100px 0 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 12px 0;
+  color: var(--dark-bg);
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(255, 159, 28, 0.1);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 100px;
+}
+
+.badge-hero {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 24px;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background: var(--border-color);
+}
+
+.status-badge.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--dark-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary-dark:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background-color: #FFF;
+  color: var(--dark-bg);
+}
+
+.btn-white:hover {
+  background-color: #F1F5F9;
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFF;
+  border: 2px solid #FFF;
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero {
+  background: radial-gradient(circle at top right, #1E293B, #0F172A);
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #94A3B8;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+
+.stat-number {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. NETWORK HISTORY (TIMELINE)
+   ========================================================================== */
+.history-section {
+  background-color: #FFF;
+}
+
+.timeline-container {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 120px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timeline-date {
+  width: 90px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 2px;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-left: 60px;
+  position: relative;
+}
+
+/* Interactive Timeline Marker Pin */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -35px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 3px solid #FFF;
+  box-shadow: 0 0 0 4px rgba(255, 159, 28, 0.2);
+}
+
+.timeline-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark-bg);
+}
+
+.timeline-content p {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   5. ACTIVE CHAPTERS ARCHIVE
+   ========================================================================== */
+.archive {
+  background-color: var(--light-bg);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.archive-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.archive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  border-color: rgba(255, 159, 28, 0.3);
+}
+
+.logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cohort-logo {
+  max-height: 100%;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.archive-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.archive-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark-bg);
+}
+
+.chapter-location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.archive-card p:not(.chapter-location) {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.cohort-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark-bg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.cohort-btn:hover {
+  color: var(--primary-dark);
+  padding-left: 4px;
+}
+
+/* ==========================================================================
+   6. ONGOING PROGRAMMES Framework
+   ========================================================================== */
+.programmes-section {
+  background-color: #FFF;
+}
+
+.programmes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.programme-card {
+  padding: 40px;
+  border-radius: var(--radius);
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.programme-card:hover {
+  border-color: var(--primary);
+  background-color: #FFF;
+  box-shadow: 0 10px 25px rgba(255, 159, 28, 0.05);
+}
+
+.programme-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.programme-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.programme-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. COHORT OPERATIONS (HOW IT FUNCTIONS)
+   ========================================================================== */
+.journey {
+  background-color: var(--light-bg);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.step-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 32px;
+  border-radius: var(--radius);
+}
+
+.step-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.step-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. APPLICATION INSTRUCTIONS
+   ========================================================================== */
+.application-section {
+  background-color: #FFF;
+}
+
+.app-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.app-step h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+  margin-bottom: 10px;
+  border-left: 3px solid var(--primary);
+  padding-left: 12px;
+}
+
+.app-step p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding-left: 15px;
+}
+
+.center-action {
+  text-align: center;
+}
+
+/* ==========================================================================
+   9. ALUMNI SPOTLIGHTS & TESTIMONIALS
+   ========================================================================== */
+.alumni-section {
+  background-color: var(--light-bg);
+}
+
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 32px;
+}
+
+.alumni-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.alumni-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  font-size: 5rem;
+  color: rgba(15, 23, 42, 0.03);
+  font-family: serif;
+  line-height: 1;
+}
+
+.alumni-card .quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-main);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.alumni-bio h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+}
+
+.alumni-bio span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   10. LAUNCH CALL-TO-ACTION (PARTNER CTA)
+   ========================================================================== */
+.partner-cta-wrapper {
+  background-color: #FFF;
+  padding: 40px 0 80px 0;
+}
+
+.partner-cta {
+  background: linear-gradient(135deg, #FF9F1C, #E68A00);
+  padding: 60px 40px;
+  border-radius: calc(var(--radius) * 1.5);
+  text-align: center;
+  color: var(--dark-bg);
+}
+
+.partner-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: #0F172A;
+}
+
+.partner-cta p {
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  color: #1E293B;
+  font-weight: 500;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   11. MOBILE & RESPONSIVE COMPASS MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 60px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .timeline-container::before {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+  }
+  
+  .timeline-date {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 45px;
+    margin-bottom: 8px;
+  }
+  
+  .timeline-content {
+    padding-left: 45px;
+  }
+  
+  .timeline-content::before {
+    left: -30px;
+    top: -26px;
+  }
+
+  .alumni-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+
+.site-footer {
+  background-color: #0b1120;
+  color: #94a3b8;
+  padding: 4.5rem 0 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Brand Column */
+.footer-brand p {
+  margin-top: 1.25rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 320px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-icon:hover {
+  background: #f59e0b;
+  color: #0f172a;
+  transform: translateY(-3px);
+}
+
+/* Footer Link Columns */
+.footer-heading {
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+  list-style: none !important;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #f59e0b;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-legal a {
+  color: #64748b;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: #94a3b8;
+}
+
+/* Footer Responsive Breakpoints */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

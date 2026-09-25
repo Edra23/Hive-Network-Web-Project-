@@ -948,4 +948,215 @@ strong, b {
 body {
     padding-top: 80px; 
 }
-   /* This is the Cohort css page
+   
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+}
+
+/* Hide menu by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+/* Dropdown link styling */
+.dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f4f4f4;
+    color: #d9534f; /* Adjust to match your theme hover color */
+}
+
+/* Show menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* ==========================================================================
+   8. FOOTER STYLES
+   ========================================================================== */
+.site-footer {
+    background-color: var(--primary-color);
+    color: #94a3b8;
+    padding-top: 4rem;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--accent-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+}
+
+.footer-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1); /* Turns dark logos white for contrast */
+}
+
+.footer-about {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+}
+
+.footer-heading {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin-top: 0.4rem;
+}
+
+.footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color var(--transition-fast), padding-left var(--transition-fast);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    padding-left: 4px;
+}
+
+.footer-links span {
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+.footer-contact li {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.footer-contact strong {
+    color: #ffffff;
+}
+
+.footer-contact a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Social Icons */
+.footer-socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.footer-social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social-icon:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.25rem 1.5rem;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.footer-legal a {
+    color: #cbd5e1;
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    color: var(--accent-color);
+}
+
+.dot-separator {
+    margin: 0 0.5rem;
+    color: #64748b;
+}
+
+/* Footer Responsive Layout */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

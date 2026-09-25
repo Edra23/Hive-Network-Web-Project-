@@ -6,7 +6,7 @@
   <title>Our Programmes | The Hive Network Africa</title>
   <link rel="stylesheet" href="programmes.css">
   <!-- Font Awesome CDN for Social Media Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -19,15 +19,23 @@
 
       <ul class="nav-links">
         <li><a href="#overview" class="active">Overview</a></li>
-        <li><a href="cohort.html">Cohort Programme</a></li>
-        <li><a href="skills.html">Skills & Capacity</a></li>
-        <li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="#our-programmes">Cohort Programme</a></li>
         
+        <!-- SKILLS & CAPACITY MENTORSHIP DROPDOWN -->
+        <li class="dropdown">
+          <a href="#hive-skills-hub" class="dropdown-trigger">Skills & Capacity Mentorship <span class="arrow"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#hive-skills-hub">Overview</a></li>
+            <li><a href="#hub-services">Our Services</a></li>
+            <li><a href="#hub-impact">Impact Metrics</a></li>
+            <li><a href="#hub-testimonials">Testimonials</a></li>
+            <li><a href="#hub-contact">Partner With Us</a></li>
+          </ul>
+        </li>
+       
         <!-- NESTED CAMPUS TOURS DROPDOWN -->
         <li class="dropdown">
-          <a href="#tours-hero" class="dropdown-trigger">
-            Campus Tours <span class="arrow"></span>
-          </a>
+          <a href="#tours-hero" class="dropdown-trigger">Campus Tours <span class="arrow"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#tours-hero">Tours Overview</a></li>
             <li><a href="#tours-history">Tour History</a></li>
@@ -56,7 +64,7 @@
   </header>
 
   <!-- ALL PROGRAMMES GRID SECTION -->
-  <section class="all-programmes-section">
+  <section class="all-programmes-section" id="our-programmes">
     <div class="container">
       <div class="section-title-block">
         <h2>Explore Our Pillars of Impact</h2>
@@ -65,68 +73,212 @@
 
       <div class="programmes-grid">
         
-        <!-- CARD 1: Flagship Cohort -->
+        <!-- CARD 1: Campus Training Tour -->
         <div class="programme-card">
           <div class="card-image-wrapper">
-            <img src="/images/CTT PIC.jpg" alt="Students collaborating during Hive Cohort" class="card-img">
-            <span class="status-tag status-upcoming">Upcoming (Q4)</span>
+            <img src="/images/CTT .jpeg" alt="CTT" class="card-img">
+            <!-- <span class="status-tag status-upcoming">Upcoming (Q4)</span> -->
           </div>
           <div class="card-body">
             <h3>Campus Training Tour</h3>
             <p>Our flagship annual national conference. To provide a high-intensity, immersive experience in leadership, entrepreneurship, and personal development for university students and young professionals.</p>
             <div class="card-footer">
-              <a href="cohort.html" class="learn-more-link">Learn more <span>→</span></a>
+              <a href="#tours-hero" class="learn-more-link">Learn more </a>
             </div>
           </div>
         </div>
 
-        <!-- CARD 2: Skills & Capacity Building -->
+        <!-- CARD 2: Creative Youth Mentoring Program -->
         <div class="programme-card">
           <div class="card-image-wrapper">
-            <img src="/images/CYMP PIC.jpg" alt="Technical training workshop session" class="card-img">
-            <span class="status-tag status-completed">Completed</span>
+            <img src="/images/CYMP PIC.jpg" alt="CYMP" class="card-img">
+          
           </div>
           <div class="card-body">
             <h3>Creative Youth Mentoring Program</h3>
-            <p> To provide foundational leadership, values, and career guidance to senior secondary school students, shaping their character and ambitions before university.</p>
-            <div class="card-footer">
-              <a href="skills.html" class="learn-more-link">Learn more <span>→</span></a>
-            </div>
+            <p>To provide foundational leadership, values, and career guidance to senior secondary school students, shaping their character and ambitions before university.</p>
+            <!-- <div class="card-footer"> -->
+              <!-- <a href="#hive-skills-hub" class="learn-more-link">Learn more <span>→</span></a>
+            </div> -->
           </div>
         </div>
 
-        <!-- CARD 3: Ecosystem Mentorship -->
+        <!-- CARD 3: African Business Summit  -->
         <div class="programme-card">
           <div class="card-image-wrapper">
-            <img src="/images/ABS.jpeg" alt="One-on-one professional mentorship" class="card-img">
-            <span class="status-tag status-upcoming">Completed</span>
+            <img src="/images/ABS.jpeg" alt="ABS" class="card-img">
           </div>
           <div class="card-body">
-            <h3>Ecosystem Mentorship</h3>
+            <h3>African Business Summit</h3>
             <p>Brings together the profiled achievers, established CEOs, policymakers, and SMEs for panel discussions, masterclasses, and deal-making.</p>
             <div class="card-footer">
-              <a href="mentorship.html" class="learn-more-link">Learn more <span>→</span></a>
+              <!-- <a href="mentorship.html" class="learn-more-link">Learn more <span>→</span></a> -->
             </div>
           </div>
         </div>
 
-        <!-- CARD 4: Campus Training Tours -->
+        <!-- CARD 4: Creative Youth Arts and Science Fair -->
         <div class="programme-card">
           <div class="card-image-wrapper">
-            <img src="/images/campus-tours.jpg" alt="Massive student crowd at REVOLT conference" class="card-img">
-            <span class="status-tag status-completed">Completed</span>
+            <img src="/images/CYASF.jpeg" alt="CYASF" class="card-img">
           </div>
           <div class="card-body">
-            <h3>Campus Training Tours</h3>
-            <p>Our high-impact physical ecosystem outreach series. Featuring events like the <strong>"REVOLT" Conference Track</strong>, disruptive panel strategies, and live talent hunts.</p>
+            <h3>Creative Youth Arts and Science Fair</h3>
+            <p>A biennial platform to identify, showcase, and fund the most innovative entrepreneurial ideas from young creatives and scientists.</p>
             <div class="card-footer">
-              <a href="#tours-hero" class="learn-more-link">Learn more <span>→</span></a>
+              <!-- <a href="#tours-hero" class="learn-more-link">Learn more <span>→</span></a> -->
             </div>
           </div>
         </div>
 
       </div>
     </div>
+  </section>
+
+  <!-- SKILLS & CAPACITY MENTORSHIP (HIVE SKILLS HUB) SECTION -->
+  <section id="hive-skills-hub" class="skills-hub-section">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-title-block">
+        <span class="badge">CAPACITY BUILDING & MENTORSHIP</span>
+        <h2>Hive Skills Hub</h2>
+        <p>Empowering organizations, student communities, and teams with custom capacity-building frameworks, technical upskilling, and structured mentorship programs.</p>
+      </div>
+<!-- Services Offered Grid -->
+<div class="services-grid" id="hub-services">
+  
+  <div class="service-card">
+    <div class="service-image">
+      <img src="/images/COOPERATE ACADEMY (3).png" alt="THNA CORPORATE ACADEMY">
+    </div>
+    <h3>CORPORATE ACADEMY</h3>
+    <p>Accelerate your organization’s growth with <strong>The Hive Skills Hub: Corporate Academy.</strong> We engineer custom, high-impact learning tracks—spanning  <strong>project management, adaptive leadership, workplace relations, and essential power skills</strong> —to upskill your talent, optimize team performance, and drive long-term organization's success.</p>
+  </div>
+
+  <div class="service-card">
+    <div class="service-image">
+      <img src="/images/BGS ACADEMY.png" alt="Structured Peer Mentorship">
+    </div>
+    <h3>BUSINESS GROWTH & SUSTAINABILITY ACADEMY</h3>
+    <p> <strong> The Hive Skills Hub: Business Growth & Sustainability Academy </strong>acts as an execution-focused growth catalyst. It equips business leaders, founders, and key operators with <strong>actionable strategies, frameworks, and 1-on-1 expert mentorship </strong> to scale operations while building resilient, future-proof organizations.</p>
+  </div>
+
+  <div class="service-card">
+    <div class="service-image">
+      <img src="/images/DSUA.png" alt="Technical Bootcamps & Leadership">
+    </div>
+    <h3>DIGITAL SKILL-UP ACADEMY </h3>
+    <p> <strong>Unlock high-demand digital skills with The Hive Skills Hub: Digital Skill-Up Academy.</strong>We deliver intensive, project-driven learning tracks—spanning <strong>web programming, social media management, brand photography, and financial tech</strong> —to turn passion into production-ready expertise and launch rewarding digital careers.</p>
+  </div>
+
+</div>
+
+      <!-- Skills Hub Impact Numbers -->
+      <div class="hub-impact-box" id="hub-impact">
+        <h3>Skills Hub Impact at a Glance</h3>
+        <div class="impact-stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">2,500+</div>
+            <div class="stat-label">Mentees Upskilled</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Partner Organizations</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Program Completion Rate</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Industry Mentors</div>
+          </div>
+        </div>
+      </div>
+
+<!-- Skills Hub Testimonials & Media -->
+<div class="hub-testimonials" id="hub-testimonials">
+  <div class="center-title">
+    <h3>Partner & Mentee Feedback</h3>
+  </div>
+
+  <!-- YouTube Video Showcase -->
+<div class="video-showcase">
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/tPJe0t0behE" 
+      title="Hive Skills Hub Video" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div class="video-cta">
+    <a href="https://www.youtube.com/@thnafrica" target="_blank" rel="noopener noreferrer" class="youtube-btn">
+      <i class="fab fa-youtube"></i> Watch More on YouTube
+    </a>
+  </div>
+</div>
+<!-- Testimonials Grid -->
+<div class="testimonials-grid">
+  
+  <div class="testimonial-card">
+    <p class="testimonial-quote">"Thank you to Mr. Alex Adams and to everyone involved in the Benin Skills Fest program. I'm highly honoured to be a part of this great movement and I pray that God Almighty reward and bless you for the time you all took in making this possible."</p>
+    <div class="author-meta">
+      <strong>Nosakhare.</strong>
+      <span>Participant, Benin Skills Fest.</span>
+    </div>
+  </div>
+
+  <div class="testimonial-card">
+    <p class="testimonial-quote">"Giving value is building the future. Thank you for thinking of me and 99 others. The seminar was a huge one and I'm truly grateful for this great opportunity to be a part of this program and I pray that there be a continuity of their increase"</p>
+    <div class="author-meta">
+      <strong>Precious.</strong>
+      <span>Participant, Benin Skills Fest.</span>
+    </div>
+  </div>
+
+</div>
+<!-- Skills Hub Engagement & Action Section -->
+<div class="hub-engagement-section" id="hub-actions">
+  <div class="center-title">
+    <h3>Get Involved with Hive Skills Hub</h3>
+  </div>
+
+  <div class="engagement-grid">
+    <!-- Card 1: Bring to Organization -->
+    <div class="engagement-card">
+      <div class="card-icon"><i class="fas fa-building"></i></div>
+      <h3>Bring Hive Skill Hub to Your Organization</h3>
+      <p>Empower your corporate team, campus association, or student community with custom capacity-building frameworks, technical upskilling, and structured mentorship programs.</p>
+     <div class="modal-cta">
+      <a href="https://wa.me/2349061132003?text=Good%20evening%2C%20I%20want%20to%20make%20more%20enquiries%20of%20Hive%20Skills%20Hub" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+    </div>
+
+    <!-- Card 2: Partner With Us -->
+    <div class="engagement-card">
+      <div class="card-icon"><i class="fas fa-handshake"></i></div>
+      <h3>Partner With Us</h3>
+      <p>Collaborate with us to scale impact across university campuses and youth communities through joint initiatives, event sponsorships, and resource sharing.</p>
+      <div class="modal-cta">
+      <a href="https://wa.me/234XXXXXXXXXX?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20partnership%20with%20The%20Hive%20Network%20Africa." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+    </div>
+  </div>
+</div>
+
+  
+
+    
+  </div>
+</div>
+
   </section>
 
   <!-- CAMPUS TOURS HERO SECTION -->
@@ -145,10 +297,10 @@
         <h2>From Idea to Movement</h2>
         <p>Launched as an experimental push to deliver industry-standard technical paradigms straight to lecture theaters, our Campus Training Tours have evolved into a massive ecosystem staple. Every year, we establish a core operational theme to systematically focus student talent development pipelines on emerging digital paradigms.</p>
         
-        <div class="gallery-cta-box" id="#gallery">
+        <div class="gallery-cta-box" id="gallery">
           <h3>Relive Past Tour Moments</h3>
           <p>See the massive energy, fully packed crowds, and intensive workshops from our previous stops.</p>
-          <a href="https://drive.google.com/drive/folders/1EfwPb2K7ICM_qK_HgWZB2-r1MRjkE6ni?usp=drive_link" class="btn btn-outline" target="_blank">View Photo Gallery <span>↗</span></a>
+          <a href="https://drive.google.com/drive/folders/1sdgttL4geLYCZPg69QA7LftuEpXI9VHs?usp=drive_link" class="btn btn-outline" target="_blank">View Photo Gallery <span>↗</span></a>
         </div>
       </div>
 
@@ -156,105 +308,93 @@
       <div class="themes-timeline">
         <h3>Tour Theme History</h3>
         
-        <!-- NEW SLIDER FRAMEWORK WRAPPERS -->
         <div class="timeline-slider-window">
           <div class="timeline-slider-track">
             
-            <!-- ITEM 1 -->
             <div class="theme-card-node">
               <span class="node-year">2026</span>
               <div class="node-body">
-                <h4>"REVOLT" </h4>
-                <p>Challenging passive campus learning modules. Focused on deploying decentralized open-source sprints and introducing civic tech frameworks directly within active multi-campus chapters.</p>
+                <h4>"REVOLT"</h4>
+                <p>CHALLENGE. CHANGE. CONQUER</p>
               </div>
             </div>
 
-            <!-- ITEM 2 -->
             <div class="theme-card-node">
               <span class="node-year">2025</span>
               <div class="node-body">
                 <h4>ELEVATE</h4>
-                <p>Bridging corporate networks and core developer tools. The tour standardized local peer mentorship frameworks and matched top talents to global enterprise pipelines.</p>
+                <p>Strategize. Network. Skill-Up</p>
               </div>
             </div>
 
-            <!-- ITEM 3 -->
             <div class="theme-card-node">
               <span class="node-year">2024</span>
               <div class="node-body">
                 <h4>ACTIVATE</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <p>Vision to Venture</p>
               </div>
             </div>
 
-            <!-- ITEM 4 -->
+            
             <div class="theme-card-node">
               <span class="node-year">2023</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>SURGE</h4>
+                <p>High Impact Leadership</p>
               </div>
             </div>
 
-            <!-- ITEM 5 -->
             <div class="theme-card-node">
-              <span class="node-year">2021</span>
+              <span class="node-year">2022</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>EMERGE</h4>
+                <p>Raising Global Leaders</p>
               </div>
             </div>
 
-            <!-- ITEM 6 -->
             <div class="theme-card-node">
-              <span class="node-year">2020</span>
+              <span class="node-year">2020/2021</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>EVOLVE</h4>
+                <p>Mindshift. Impact. Results</p>
               </div>
             </div>
 
-            <!-- ITEM 7 -->
             <div class="theme-card-node">
               <span class="node-year">2019</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>ACCELERATE</h4>
               </div>
             </div>
-            
-            <!-- ITEM 8 -->
+
             <div class="theme-card-node">
               <span class="node-year">2018</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>YouCan</h4>
               </div>
             </div>
-
-            <!-- ITEM 9 -->
+            
             <div class="theme-card-node">
               <span class="node-year">2017</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>Hello, Fear</h4>
               </div>
             </div>
 
-            <!-- ITEM 10 -->
+
             <div class="theme-card-node">
               <span class="node-year">2016</span>
               <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                <h4>The Creative Mind</h4>
               </div>
             </div>
 
-            <!-- DUPLICATED ITEMS FOR SEAMLESS LOOPING -->
+
+            <!-- DUPLICATED ITEMS FOR SEAMLESS INFINITE LOOP -->
             <div class="theme-card-node" aria-hidden="true">
-              <span class="node-year">2015</span>
+              <span class="node-year">2026</span>
               <div class="node-body">
-                <h4>"REVOLT" </h4>
+                <h4>"REVOLT"</h4>
                 <p>Challenging passive campus learning modules. Focused on deploying decentralized open-source sprints and introducing civic tech frameworks directly within active multi-campus chapters.</p>
               </div>
             </div>
@@ -263,22 +403,14 @@
               <span class="node-year">2025</span>
               <div class="node-body">
                 <h4>ELEVATE</h4>
-                <p>Bridging corporate networks and core developer tools. The tour standardized local peer mentorship frameworks and matched top talents to global enterprise pipelines.</p>
-              </div>
-            </div>
-
-            <div class="theme-card-node" aria-hidden="true">
-              <span class="node-year">2016</span>
-              <div class="node-body">
-                <h4>Foundational Launch Tour</h4>
-                <p>Where it all began. Activating student clusters at the University of Benin and surrounding regional hubs to baseline digital capabilities and technical literacy models.</p>
+                 <p> Strategize. Network. Skill-Up</p>
               </div>
             </div>
 
           </div>
         </div>
       </div>
-    </div> <!-- Fixed missing closing container div -->
+    </div>
   </section>
 
   <!-- IMPACT DATA NUMBERS SECTION -->
@@ -295,11 +427,11 @@
         </div>
         <div class="stat-box">
           <div class="stat-number">70+</div>
-          <div class="stat-label">Active Volunteers </div>
+          <div class="stat-label">Active Volunteers</div>
         </div>
         <div class="stat-box">
           <div class="stat-number">10+</div>
-          <div class="stat-label">Campus Training Tours Organized </div>
+          <div class="stat-label">Campus Training Tours Organized</div>
         </div>
         <div class="stat-box">
           <div class="stat-number">7</div>
@@ -313,30 +445,29 @@
   <section id="testimonials" class="testimonials-section">
     <div class="container">
       <div class="center-title">
-        <h2>Direct From Our Community </h2>
+        <h2>Direct From Our Community</h2>
         <p>What students and student community leaders say about the tour experiences.</p>
       </div>
 
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p class="testimonial-quote">"The REVOLT campus tour fundamentally shifted how we viewed technical leadership in school. It wasn’t just talk—we literally spent hours writing functional code and looking at scalable frameworks."</p>
+          <p class="testimonial-quote">Campus tour Evolve was mind blowing. It was more than my expectations. The speakers dished out values and every words made sense. Glad I didn't miss it. Looking forward to the next one!</p>
           <div class="author-meta">
-            <strong>Chidi Egwu</strong>
-            <span>Campus Lead, UNIBEN Hub</span>
+            <strong>Johnson E.</strong>
+            <span>Participant, Evolve.</span>
           </div>
         </div>
 
         <div class="testimonial-card">
-          <p class="testimonial-quote">"Before The Hive arrived on our campus, finding industry professionals with zero filters was almost impossible. The Ecosystem Sync Tour directly gave me access to the mentor who guided me into my first remote role."</p>
+          <p class="testimonial-quote">Campus Training Tour is an environment to be experienced, if you are not here, I don't know where else you want to be.</p>
           <div class="author-meta">
-            <strong>Blessing Amadi</strong>
-            <span>Product Designer</span>
+            <strong>Ejovwoke Victory</strong>
+            <span>Event Participant.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- FOOTER SECTION -->
   <footer class="main-footer">
@@ -351,19 +482,19 @@
           BELIEVE. ACHIEVE. SUCCEED.
         </p>
 
-             <!-- Contact Details -->
-       <div class="contact-info">
-        <p><i class="fas fa-envelope"></i> <a href="thnafrica@gmail.com">thnafrica@gmail.com</a></p>
-       <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">+234 906 113 2003</a></p>
-       </div>
-       <br>
+        <!-- Contact Details -->
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> <a href="mailto:thnafrica@gmail.com">thnafrica@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+2349061132003">+234 906 113 2003</a></p>
+        </div>
+        <br>
+
         <!-- Social Media Links -->
         <div class="social-links">
           <p>Connect With Us:</p> 
-          
-          <a href="https://www.linkedin.com/company/thnafrica/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> <hr>
-          <a href="https://www.instagram.com/thnafrica?igsi=dXl3cTJqdjdsYWZ5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a> <hr>
-          <a href="https://www.facebook.com/thnafrica" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <hr>
+          <a href="https://www.linkedin.com/company/thnafrica/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/thnafrica?igsi=dXl3cTJqdjdsYWZ5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/thnafrica" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
           <a href="http://www.youtube.com/@thnafrica" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>  
         </div>
       </div>
@@ -373,9 +504,8 @@
         <h4>Navigation</h4>
         <ul>
           <li><a href="#overview">Overview</a></li>
-          <li><a href="cohort.html">Cohort Programme</a></li>
-          <li><a href="skills.html">Skills & Capacity</a></li>
-          <li><a href="mentorship.html">Mentorship</a></li>
+          <li><a href="#our-programmes">Cohort Programme</a></li>
+          <li><a href="#hive-skills-hub">Skills & Capacity</a></li>
           <li><a href="#tours-hero">Campus Tours</a></li>
         </ul>
       </div>
@@ -387,7 +517,7 @@
           <li><a href="#tours-history">Tour History</a></li>
           <li><a href="#impact">Impact Metrics</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#">Photo Gallery</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1sdgttL4geLYCZPg69QA7LftuEpXI9VHs?usp=drive_link">Photo Gallery</a></li>
         </ul>
       </div>
 
@@ -395,8 +525,15 @@
       <div class="footer-cta">
         <h4>Get Involved</h4>
         <p>Ready to join or partner with the next campus cohort?</p>
-        <a href="https://forms.gle/sWG5v69bNKXqP93R7" class="btn btn-primary-sm" target="_blank" rel="noopener noreferrer">
-          Apply Now
+
+        <div class="cta-buttons">
+          <a href="https://forms.gle/sWG5v69bNKXqP93R7" class="btn btn-primary-sm" target="_blank" rel="noopener noreferrer">
+            Apply Now
+          </a>
+        </div>
+        <br>
+        <a href="https://chat.whatsapp.com/GYVg5ymTWtjJziKOuH6UTS" class="btn btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> Join Community
         </a>
       </div>
 

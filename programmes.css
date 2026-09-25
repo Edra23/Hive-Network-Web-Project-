@@ -1033,3 +1033,413 @@ body {
 .contact-info a:hover {
   text-decoration: underline;
 }
+.btn-whatsapp-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: #25D366;
+    color: #ffffff;
+    border: 1px solid #25D366;
+    transition: all 0.2s ease;
+}
+
+.btn-whatsapp-sm:hover {
+    background-color: #1ea952;
+    border-color: #1ea952;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp-sm svg {
+    display: block;
+}
+/* Skills Hub Section Styling */
+.skills-hub-section {
+  padding: 5rem 0;
+  background-color: #f9fafb;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: #ffb703; /* Match your brand primary color */
+  margin-bottom: 1rem;
+}
+
+.hub-impact-box {
+  margin: 4rem 0 2rem;
+  text-align: center;
+}
+
+.hub-testimonials {
+  margin-top: 3rem;
+}
+
+/* Dark Call-to-Action Box */
+.hub-cta-box {
+  background-color: var(--clr-dark, #0F172A); /* Deep slate navy */
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.hub-cta-box h3 {
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.cta-philosophy {
+  max-width: 720px;
+  margin: 1rem auto 2rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #94A3B8; /* Muted soft gray for readable text */
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.hub-cta-box {
+  background-color: #f9f9fb;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.cta-philosophy {
+  max-width: 720px;
+  margin: 1rem auto 2rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.cta-contact-details {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  font-size: 0.88rem;
+  color: #718096;
+  margin-top: 1rem;
+}
+
+.btn-whatsapp-sm {
+  background-color: #25D366;
+  color: #ffffff;
+}
+
+.btn-whatsapp-sm:hover {
+  background-color: #1eb956;
+}
+
+/* Update grid to fit 3 items cleanly across desktop screens */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Ensure the card hides overflowing image edges if using border-radius */
+.service-card {
+  overflow: hidden; 
+  /* Add your existing card styling here (e.g., background-color, border-radius, padding) */
+}
+.service-card {
+  padding: 0; /* Ensures the image stretches flush to the card's outer edges */
+  overflow: hidden; /* Clips image corners to match card border-radius */
+}
+
+.service-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Keep perfect square proportions */
+  margin: 0;
+  padding: 0; /* Remove internal margins/padding */
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Forces the graphic to expand and completely fill the square */
+  display: block;
+}
+
+/* Add padding back to text elements so content isn't flush with edges */
+.service-card h3,
+.service-card p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.service-card p {
+  padding-bottom: 20px;
+}
+/* Video Showcase */
+.video-showcase {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-cta {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.youtube-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Testimonials Slider */
+.testimonials-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slides-container {
+  position: relative;
+  min-height: 180px;
+}
+
+/* Engagement Grid Layout */
+.hub-engagement-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.engagement-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 35px 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engagement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #f0a500; /* Adjust to match brand color */
+  margin-bottom: 15px;
+}
+
+.engagement-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #111111;
+}
+
+.engagement-card p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* Action Buttons */
+.action-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.primary-btn:hover {
+  background-color: #333333;
+}
+
+.secondary-btn {
+  background-color: #f0a500;
+  color: #ffffff;
+}
+
+.secondary-btn:hover {
+  background-color: #d99400;
+}
+
+/* Modal Overlay Styling */
+.modal-overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888888;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #111111;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.criteria-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.criteria-list li {
+  font-size: 0.95rem;
+  color: #333333;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.criteria-list i {
+  color: #25d366;
+  margin-top: 3px;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebc57;
+}

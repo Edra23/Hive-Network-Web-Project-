@@ -1,539 +1,1216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Cohorts & Chapters | The Hive Network Africa</title>
-  <link rel="stylesheet" href="cohort.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* ==========================================================================
-       INTERNAL NAVBAR OVERRIDES (Fixes missing layouts & default spacing)
-       ========================================================================== */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: rgba(15, 23, 42, 0.95) !important; /* Force dark background */
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.85rem 0;
-      width: 100%;
-    }
+    <title>Cohorts | The Hive Network Africa</title>
 
-    .nav-container {
-      display: flex !important;
-      align-items: center;
-      justify-content: space-between;
-    }
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="cohort.css">
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .logo-img {
-      height: 42px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex !important;
-      align-items: center;
-      list-style: none !important; /* Forces removal of browser bullets */
-      padding: 0;
-      margin: 0;
-      gap: 2.25rem;
-    }
-
-    .nav-item {
-      list-style: none !important;
-    }
-
-    .nav-item a {
-      font-size: 0.925rem;
-      color: #94a3b8 !important; /* Muted slate gray text */
-      font-weight: 500;
-      text-decoration: none !important;
-      position: relative;
-      padding: 0.25rem 0;
-      transition: color 0.2s ease;
-      display: inline-block;
-    }
-
-    .nav-item a:hover {
-      color: #f59e0b !important; /* Vibrant Amber Hover */
-    }
-
-    /* Modern animated underline effect on hover */
-    .nav-item a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #d97706;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-item a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-    }
-  </style>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-<!-- ================= Navigation Bar ================= -->
-<nav class="navbar">
-  <div class="container nav-container">
-    
-    <!-- Logo Section -->
-    <a href="index.html" class="nav-logo">
-      <img src="/images/THNA LOGO 1.png" alt="The Hive Network Africa Logo" class="logo-img">
+<body>
+<!-- =========================
+     NAVIGATION
+========================== -->
+<header class="navbar">
+    <div class="container nav-container">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo">
+            <img
+                src="/images/THNA LOGO 1.png"
+                alt="The Hive Network Africa"
+                class="logo-img"
+            >
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+
+            <a href="#journey">Our Journey</a>
+
+            <a href="#cohorts">Active Cohorts</a>
+
+            <!-- Cohort Framework -->
+             <ul class="nav-menu">
+  
+
+  <!-- Cohort Framework Dropdown -->
+  <li class="dropdown">
+    <a href="#framework" class="dropdown-trigger">
+      Cohort Framework
+      <span class="arrow" aria-hidden="true"></span>
     </a>
     
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-      <li class="nav-item"><a href="#history">Our Journey</a></li>
-      <li class="nav-item"><a href="#cohorts">Active Cohorts</a></li>
-      <li class="nav-item"><a href="#programmes">Frameworks</a></li>
-      <li class="nav-item"><a href="#alumni">Impact Stories</a></li>
+<ul class="dropdown-menu">
+    <li>
+        <a href="#how-cohorts-function">How We Operate</a>
+    </li>
+    <li>
+        <a href="#programmes">Our Programs</a>
+    </li>
+    <li>
+        <a href="#cohort-stats">Cohort Stats</a>
+    </li>
+</ul>
+</li>
+
+  <!-- Impact Metrics Dropdown -->
+  <li class="dropdown">
+    <a href="#impact" class="dropdown-trigger">
+      Impact Metrics
+      <span class="arrow" aria-hidden="true"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#impact">Impact Stories</a></li>
+      <li><a href="#alumni-spotlight">Alumni Spotlight</a></li>
     </ul>
+  </li>
 
-    <!-- Navigation Actions -->
-    <div class="nav-actions">
-      <a href="https://forms.gle/rwqQNkpCnB7ekiNJ7" class="btn btn-primary-sm" target="_blank" rel="noopener noreferrer">Join a Cohort</a>
+  <!-- CTA Button -->
+  <li>
+    <a href="https://forms.gle/sWG5v69bNKXqP93R7" class="nav-button">Join a Cohort</a>
+  </li>
+</ul>
+       </div>
+        </header>
+
+    <!-- =========================
+     HERO SECTION
+========================== -->
+<section class="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="container hero-content">
+        <!-- Hero Text Column -->
+        <div class="hero-text">
+
+            <!-- Main Brand Heading -->
+            <h1 class="hero-title">
+                THE HIVE NETWORK AFRICA
+            </h1>
+
+            <!-- Brand Tagline -->
+            <p class="hero-motto">
+                Believe. Achieve. <span class="highlight">Succeed.</span>
+            </p>
+
+            <!-- Community Vision Statement -->
+            <p class="hero-description">
+                Where ideas become communities. Our cohorts bring together students, innovators, creators, and changemakers across universities in Nigeria to learn, build, and create meaningful impact.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#cohorts" class="btn btn-primary">
+                    <span>Explore Our Cohorts</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+
+                <a href="#journey" class="btn btn-secondary">
+                    <span>Our Journey</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+    <!-- Hero Visual Column -->
+<div class="hero-visual">
+    <div class="hive-card">
+        <!-- Main Image Inside Container -->
+        <img 
+            src="/PICS AND VIDOES/COHORT LOGOS/combined cohort logos.jpeg" 
+            alt="The Hive Network Africa Community" 
+            class="hive-card-img"
+        />
+
+        <!-- Floating "7 Active Cohorts" Badge inside the card -->
+        <div class="hive-info">
+            <div class="hive-shape">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+            </div>
+            <div class="info-text">
+                <strong>7</strong>
+                <span>Active Cohorts</span>
+            </div>
+        </div>
     </div>
-    
-  </div>
-</nav>
+</div>
+        </div>
+    </div>
+</section>
+<!-- =========================
+     JOURNEY / HISTORY SECTION
+     ========================== -->
+<section class="journey section" id="journey">
 
-  <!-- 1. HERO SECTION & STATS -->
-  <header class="hero">
+    <!-- Background Slideshow Container -->
+    <div class="journey-slideshow">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="slide-overlay"></div>
+    </div>
+
     <div class="container">
-      <span class="badge badge-hero">INSTITUTIONAL FOOTPRINT • NATIONAL REACH</span>
-      <h1>Our University Cohorts</h1>
-      <p>The Hive Network Africa operates through structured institutional cohorts across major higher institutions, empowering student leaders and driving innovation on the ground.</p>
-      
-      <div class="hero-actions">
-        <a href="#cohorts" class="btn btn-primary">Explore Campus Cohorts</a>
-        <a href="#launch" class="btn btn-secondary-dark">Launch a Cohort on Your Campus</a>
-      </div>
 
-      <div class="hero-stats">
-        <div>
-          <div class="stat-number">7</div>
-          <div class="stat-label">Active University Cohorts</div>
-        </div>
-        <div>
-          <div class="stat-number">300+</div>
-          <div class="stat-label">Active Campus Members</div>
-        </div>
-        <div>
-          <div class="stat-number">12+</div>
-          <div class="stat-label">Annual Campus Tours</div>
-        </div>
-        <div>
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Student-Led Leadership</div>
-        </div>
-      </div>
-    </div>
-  </header>
+        <!-- Section Heading -->
+        <div class="section-heading">
+            <h1 class="main-title">OUR JOURNEY</h1>
 
-  <!-- 2. NETWORK HISTORY -->
-  <section id="history" class="history-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">OUR TIMELINE</span>
-        <h2>The Journey So Far</h2>
-        <p>From a singular campus hub to a national student-led innovation network.</p>
-      </div>
-      <div class="timeline-container">
-        <div class="timeline-item">
-          <div class="timeline-date">2015</div>
-          <div class="timeline-content">
-            <h3>The Genesis at UNIBEN</h3>
-            <p>Launched as a pilot community project at the University of Benin with 40 visionary students, focusing on technical skill-sharing and peer-led ecosystem building.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2024</div>
-          <div class="timeline-content">
-            <h3>Regional Expansion</h3>
-            <p>Expanded into UNILAG, OAU, and UI, standardizing our executive operational frameworks and establishing our corporate internship program.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2025</div>
-          <div class="timeline-content">
-            <h3>Pan-Nigerian Footprint</h3>
-            <p>Welcomed UNN, ABU, and FUTA into the network, deploying our signature decentralized campus build-athons and securing cross-border venture capital partnerships.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <h2 class="sub-title">
+                From One Campus Ground to a Growing Network.
+            </h2>
 
-  <!-- 3. COHORT LOCATIONS & ARCHIVE (THE 7 UNIVERSITY CHAPTERS) -->
-  <section id="cohorts" class="archive">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">OUR CHAPTERS</span>
-        <h2>Active Campus Cohorts</h2>
-        <p>Discover where The Hive Network Africa is currently rooted, building talent, and executing institutional programs.</p>
-      </div>
+            <p class="description">
+                The Hive Network Africa began with a simple idea:
+                create a space where young people could connect,
+                collaborate, and build solutions together.
+            </p>
+        </div>
 
-      <div class="archive-grid">
-        <!-- Cohort 1: UNIBEN -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/UNIBEN.png" alt="UNIBEN Cohort Logo" class="cohort-logo">
+        <!-- Geometric Shape Timeline Grid -->
+        <div class="timeline-shapes">
+
+            <!-- Card 1: Triangle / Pennant Shape -->
+            <div class="shape-card triangle-card">
+                <div class="shape-inner">
+                    <span class="shape-number">01</span>
+                    <span class="shape-eyebrow">THE BEGINNING</span>
+                    <h3>University of Benin</h3>
+                    <p>
+                        The University of Benin became the founding
+                        cohort of The Hive Network Africa, creating
+                        the foundation for our university community.
+                    </p>
+                </div>
             </div>
-            <div class="archive-meta">
-              <span>Cohort 01 • Founding Chapter</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>University of Benin (UNIBEN)</h3>
-            <p class="chapter-location">📍 Benin City, Edo State</p>
-            <p>Our foundational campus hub. Home to regular innovation labs, digital literacy workshops, and regional incubation programs.</p>
-          </div>
-          <a href="uniben.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
 
-        <!-- Cohort 2: UNILAG -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/UNILAG.png" alt="UNILAG Cohort Logo" class="cohort-logo">
+            <!-- Card 2: Rhombus / Diamond Cut Shape -->
+            <div class="shape-card rhombus-card">
+                <div class="shape-inner">
+                    <span class="shape-number">02</span>
+                    <span class="shape-eyebrow">EXPANDING THE HIVE</span>
+                    <h3>New Universities Joined</h3>
+                    <p>
+                        The network expanded beyond its founding
+                        university, welcoming new communities and
+                        creating opportunities for students to connect
+                        across campuses.
+                    </p>
+                </div>
             </div>
-            <div class="archive-meta">
-              <span>Cohort 02</span>
-              <span class="status-badge active">Active</span>
+
+            <!-- Card 3: Hexagon / Shield Shape -->
+            <div class="shape-card hexagon-card">
+                <div class="shape-inner">
+                    <span class="shape-number">03</span>
+                    <span class="shape-eyebrow">TODAY</span>
+                    <h3>Seven Active Cohorts</h3>
+                    <p>
+                        Today, The Hive Network Africa has seven
+                        cohort locations across Nigerian universities,
+                        with more communities continuing to grow.
+                    </p>
+                </div>
             </div>
-            <h3>University of Lagos (UNILAG)</h3>
-            <p class="chapter-location">📍 Akoka, Lagos State</p>
-            <p>Driving tech-entrepreneurship, industry bridge programs, and corporate mentorship pipelines in the commercial capital.</p>
-          </div>
-          <a href="unilag.html" class="cohort-btn">Learn More &rarr;</a>
         </div>
+         </div>
+      </section>
+      <br>
 
-        <!-- Cohort 3: OAU -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/OAU.png" alt="OAU Cohort Logo" class="cohort-logo">
-            </div>
-            <div class="archive-meta">
-              <span>Cohort 03</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>Obafemi Awolowo University (OAU)</h3>
-            <p class="chapter-location">📍 Ile-Ife, Osun State</p>
-            <p>Focused on student deep-tech innovation, product accelerators, and peer-to-peer open-source research tracks.</p>
-          </div>
-          <a href="oau.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
-
-        <!-- Cohort 4: UI -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/UI.png" alt="UI Cohort Logo" class="cohort-logo">
-            </div>
-            <div class="archive-meta">
-              <span>Cohort 04</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>University of Ibadan (UI)</h3>
-            <p class="chapter-location">📍 Ibadan, Oyo State</p>
-            <p>Leading civic tech engagements, corporate development bootcamps, and soft skill capacity building for undergraduates.</p>
-          </div>
-          <a href="ui.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
-
-        <!-- Cohort 5: UNN -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/UNN.png" alt="UNN Cohort Logo" class="cohort-logo">
-            </div>
-            <div class="archive-meta">
-              <span>Cohort 05</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>University of Nigeria, Nsukka (UNN)</h3>
-            <p class="chapter-location">📍 Nsukka, Enugu State</p>
-            <p>Expanding our Eastern footprint through hardware design, data science tracks, and local community outreach programs.</p>
-          </div>
-          <a href="unn.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
-
-        <!-- Cohort 6: ABU -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/ABU.png" alt="ABU Cohort Logo" class="cohort-logo">
-            </div>
-            <div class="archive-meta">
-              <span>Cohort 06</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>Ahmadu Bello University (ABU)</h3>
-            <p class="chapter-location">📍 Zaria, Kaduna State</p>
-            <p>Our Northern anchor chapter equipping youth with digital economy skills, tech toolkits, and local enterprise systems.</p>
-          </div>
-          <a href="abu.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
-
-        <!-- Cohort 7: FUTA -->
-        <div class="archive-card">
-          <div>
-            <div class="logo-container">
-              <img src="/PICS AND VIDOES/COHORT LOGOS/FUTA.png" alt="FUTA Cohort Logo" class="cohort-logo">
-            </div>
-            <div class="archive-meta">
-              <span>Cohort 07</span>
-              <span class="status-badge active">Active</span>
-            </div>
-            <h3>Federal University of Technology, Akure (FUTA)</h3>
-            <p class="chapter-location">📍 Akure, Ondo State</p>
-            <p>Specializing in comprehensive technical build-athons, STEM optimization, and student-run project incubators.</p>
-          </div>
-          <a href="futa.html" class="cohort-btn">Learn More &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. ONGOING PROGRAMMES -->
-  <section id="programmes" class="programmes-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">WHAT WE DO</span>
-        <h2>Ongoing Cohort Frameworks</h2>
-        <p>Standardized learning tracks actively running across all university chapters simultaneously.</p>
-      </div>
-      <div class="programmes-grid">
-        <div class="programme-card">
-          <div class="programme-icon">💡</div>
-          <h3>The Campus Training Tour</h3>
-          <p>Our flagship annual national conference. To provide a high-intensity, immersive experience in leadership, entrepreneurship, and personal development for university students and young professionals.</p>
-        </div>
-        <div class="programme-card">
-          <div class="programme-icon">🚀</div>
-          <h3>The Creative Youth Mentoring Program</h3>
-          <p>To provide foundational leadership, values, and career guidance to senior secondary school students, shaping their character and ambitions before university.</p>
-        </div>
-        <div class="programme-card">
-          <div class="programme-icon">🤝</div>
-          <h3>The Creative Youth Arts & Science Fairs</h3>
-          <p>A biennial platform to identify, showcase, and fund the most innovative entrepreneurial ideas from young creatives and scientists.</p>
-        </div>
-        <div class="programme-card">
-          <div class="programme-icon">🏆</div>
-          <h3>The African Achiever & African Business Summit</h3>
-          <p>To celebrate role models and facilitate high-level strategic knowledge exchange.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. HOW A CAMPUS COHORT OPERATES -->
-  <section class="journey">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">STRUCTURE</span>
-        <h2>How Campus Cohorts Function</h2>
-        <p>Every university cohort operates under a standardized governance and delivery model managed by trained student executive leads.</p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <h3>Executive Leadership</h3>
-          <p>Each campus cohort is governed by an elected Student Executive Board guided by a national director.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <h3>Bi-Weekly Hub Meets</h3>
-          <p>Regular physical and virtual learning sessions, peer reviews, and skill-building modules on campus.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <h3>Campus Interventions</h3>
-          <p>Campus tours and leadership projects executed directly by cohort members.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">04</div>
-          <h3>National Network Link</h3>
-          <p>Direct integration into nationwide funding and cross-university events.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. APPLICATION INSTRUCTIONS SECTION -->
-  <section id="join-cohort" class="application-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">JOIN US</span>
-        <h2>How to Join an Active Cohort</h2>
-        <p>Applications for our general membership tracks open once at the beginning of each academic semester.</p>
-      </div>
-      <div class="app-steps-grid">
-        <div class="app-step">
-          <h4>1. Verify Status</h4>
-          <p>Ensure you are a registered student at one of the universities where our cohorts are located.</p>
-        </div>
-        <div class="app-step">
-          <h4>2. Submit Form</h4>
-          <p>Click the track link below during active recruitment cycles and fill out the details in the form.</p>
-        </div>
-        <div class="app-step">
-          <h4>3. Evaluation Interview</h4>
-          <p>Shortlisted applicants participate in a leadership assessment session and orientation before formally becoming a full-fledged Hiver.</p>
-        </div>
-      </div>
-      <div class="center-action">
-        <a href="https://forms.gle/sWG5v69bNKXqP93R7" 
-           class="btn btn-primary" 
-           target="_blank" 
-           rel="noopener noreferrer">Open Application Portal</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. ALUMNI SPOTLIGHTS & IMPACT STORIES -->
-  <section id="alumni" class="alumni-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge">PROUD ALUMNI</span>
-        <h2>Impact Stories & Spotlights</h2>
-        <p>See how passing through our structured campus ecosystems shapes early career engineering, leadership, and entrepreneurship tracks.</p>
-      </div>
-      <div class="alumni-grid">
-        <div class="alumni-card">
-          <p class="quote">"The Hive UNIBEN was where I built my first real-world decentralized project. The network connected me straight to an early-stage team in Berlin before my final year exams."</p>
-          <div class="alumni-bio">
-            <h5>Chioma Nwabueze</h5>
-            <span>UNIBEN Cohort '23 • Blockchain Architect</span>
-          </div>
-        </div>
-        <div class="alumni-card">
-          <p class="quote">"Leading the operations board at UNILAG gave me critical ecosystem infrastructure experience that books don't teach. I managed large teams, projects, and corporate partners."</p>
-          <div class="alumni-bio">
-            <h5>Tunde Olatunji</h5>
-            <span>UNILAG Cohort '24 • Operations Analyst</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. START A NEW COHORT CTA -->
-  <section id="launch" class="partner-cta-wrapper">
-    <div class="container">
-      <div class="partner-cta">
-        <h2>Want The Hive Network on Your Campus?</h2>
-        <p>We are expanding into select higher institutions across Africa. Apply to become a Campus Ambassador or secure institutional support to bring a new cohort to your university.</p>
-        <div class="cta-buttons">
-          <a href="https://forms.gle/DPb9s9FyxqtHMaM2A" class="btn btn-white" target="_blank" rel="noopener noreferrer">Apply to Launch New Cohort</a>
-          <a href="/PICS AND VIDOES/COHORT LOGOS/THE COHORT EXPANSION PROTOCOL_ LAUNCHING A NEW HIVE.pdf" class="btn btn-outline-white" target="_blank">Read Launch Criteria</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- ================= Navigation / Site Footer ================= -->
-<footer class="site-footer">
+      <!-- ACTIVE COHORTS SECTION -->
+<section class="cohorts-section" id="cohorts">
   <div class="container">
-    <div class="footer-grid">
-      
-      <!-- Brand & Mission Column -->
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
-          <img src="/images/THNA LOGO 1.png" alt="The Hive Network Africa Logo" class="logo-img">
-        </a>
-        <p>Empowering the next generation of leaders, innovators, and builders through student-led institutional university cohorts across Africa.</p>
-        
-        <!-- Social Media Icons -->
-        <div class="footer-socials">
-          <a href="#" class="social-icon" aria-label="LinkedIn">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26Z"/></svg>
+   <header class="section-heading centered">
+  <div class="eyebrow-badge">
+    <span class="badge-dot"></span>
+    <span class="eyebrow-text">Active Cohorts</span>
+  </div>
+
+  <h2 class="heading-title">
+    Seven Campuses. <span class="highlight-text">One Unified Network.</span>
+  </h2>
+
+  <p class="heading-description">
+   Transforming African campuses into launchpads for talent, connected through one unified powerhouse of resources and mentorship.
+  </p>
+
+      <!-- Optional Sub-Stat Strip -->
+       <div class="heading-stats">
+       <div class="stat-item">
+      <span class="stat-number">7</span>
+      <span class="stat-label">University Cohorts </span>
+     </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+      <span class="stat-number">1</span>
+      <span class="stat-label">Hive Network Africa</span>
+     </div>
+    </div>
+      </header>
+
+    <div class="cohort-grid">
+
+      <!-- Cohort 01 (Featured/Founding) -->
+      <article class="cohort-card featured">
+        <div class="cohort-header">
+          <span class="cohort-tag">Founding Cohort</span>
+          <span class="cohort-number" aria-hidden="true">01</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa Logo" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="University of Benin">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/UNIBEN.png" alt="University of Benin Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>University of Benin</h3>
+          <p>The founding home of The Hive Network Africa and the community where the journey began.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#ub-cohort" class="card-link" aria-label="Explore University of Benin Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-          <a href="#" class="social-icon" aria-label="X (Twitter)">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div> -->
+      </article>
+
+      <!-- Cohort 02 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">02</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="Ambrose Alli University">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/AAU.jpg" alt="Ambrose Alli University Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>Ambrose Alli University</h3>
+          <p>A growing community of students building connections and creating impact.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#aau-cohort" class="card-link" aria-label="Explore Ambrose Alli University Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div> -->
+      </article>
+
+      <!-- Cohort 03 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">03</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="University of Lagos">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/UNILAG.png" alt="University of Lagos Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>University of Lagos</h3>
+          <p>Connecting ambitious students and young changemakers in Lagos.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#unilag-cohort" class="card-link" aria-label="Explore University of Lagos Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
+        </div> -->
+      </article>
+
+      <!-- Cohort 04 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">04</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="Lagos State University">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/LASU.png" alt="Lagos State University Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>Lagos State University</h3>
+          <p>A campus community focused on learning, collaboration, and innovation.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#lasu-cohort" class="card-link" aria-label="Explore Lagos State University Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div> -->
+      </article>
+
+      <!-- Cohort 05 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">05</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="University of Ibadan">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/UNIBADAN.png" alt="University of Ibadan Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>University of Ibadan</h3>
+          <p>Building a community of curious minds and emerging leaders.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#ui-cohort" class="card-link" aria-label="Explore University of Ibadan Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div> -->
+      </article>
+
+      <!-- Cohort 06 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">06</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="University of Ilorin">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/UNILORIN.jpg" alt="University of Ilorin Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>University of Ilorin</h3>
+          <p>Growing a culture of collaboration and student-led impact.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#unilorin-cohort" class="card-link" aria-label="Explore University of Ilorin Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div> -->
+      </article>
+
+      <!-- Cohort 07 -->
+      <article class="cohort-card">
+        <div class="cohort-header">
+          <span class="cohort-tag">Active</span>
+          <span class="cohort-number" aria-hidden="true">07</span>
+        </div>
+
+        <!-- Circular Co-branded Logos -->
+        <div class="cohort-logos-row">
+          <div class="logo-circle hive-logo" title="Hive Network Africa">
+            <img src="/images/THNA LOGO 1.png" alt="Hive Network Africa" loading="lazy">
+          </div>
+          <span class="logo-connector" aria-hidden="true">&times;</span>
+          <div class="logo-circle university-logo" title="Federal University of Dutse">
+            <img src="/PICS AND VIDOES/COHORT LOGOS/FUD.png" alt="Federal University of Dutse Logo" loading="lazy">
+          </div>
+        </div>
+
+        <div class="cohort-content">
+          <h3>Federal University of Dutse</h3>
+          <p>Extending the Hive community to more students and emerging changemakers.</p>
+        </div>
+
+        <!-- <div class="cohort-footer">
+          <a href="#fud-cohort" class="card-link" aria-label="Explore Federal University of Dutse Cohort">
+            Explore Cohort <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div> -->
+      </article>
+
+       </div>
+     </div>
+    </section>
+      <br>
+ 
+      <!-- cohort framwwork section  -->
+ <!-- COHORT GOVERNANCE & DELIVERY SECTION -->
+<section class="cohort-function-section" id="how-cohorts-function">
+  <div class="container">
+
+    <!-- Section Header -->
+    <header class="section-heading centered">
+      <div class="eyebrow-badge">
+        <span class="badge-dot"></span>
+        <span class="eyebrow-text">OPERATIONAL MODEL</span>
+      </div>
+
+      <h2 class="heading-title">
+        How Campus Cohorts <span class="highlight-text">Function.</span>
+      </h2>
+
+      <p class="heading-description">
+        Every university chapter runs on a unified operational blueprint, driven by dedicated student leaders and connected to a nationwide network.
+      </p>
+    </header>
+
+    <!-- 4-Card Operational Grid -->
+    <div class="function-grid" id="#framework">
+
+      <!-- 01: Executive Leadership -->
+      <article class="function-card">
+        <div class="card-header">
+          <span class="step-index">01</span>
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Executive Leadership</h3>
+          <p>Local chapters are steered by student executive boards operating under national oversight to maintain alignment and quality standard.</p>
+        </div>
+      </article>
+
+      <!-- 02: Bi-Weekly Hub Meets -->
+      <article class="function-card">
+        <div class="card-header">
+          <span class="step-index">02</span>
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Bi-Weekly Hub Meets</h3>
+          <p>Regular hybrid workshops deliver practical skills development, collaborative project reviews, and peer-to-peer knowledge exchanges.</p>
+        </div>
+      </article>
+
+      <!-- 03: Campus Interventions -->
+      <article class="function-card">
+        <div class="card-header">
+          <span class="step-index">03</span>
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Campus Interventions</h3>
+          <p>Cohort members plan and deploy local outreach, community initiatives, and hands-on leadership projects directly across campus.</p>
+        </div>
+      </article>
+
+      <!-- 04: National Network Link -->
+      <article class="function-card">
+        <div class="card-header">
+          <span class="step-index">04</span>
+          <div class="icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          </div>
+          <div class="card-body">
+          <h3>National Network Link</h3>
+          <p>Chapters gain direct access to central resource pools, seed funding avenues, and inter-university summits across the broader network.</p>
+           </div>
+           </article>
+
+          </div>
+         </div>
+        </section>
+    
+     <section class="initiatives-section" id="programmes">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-heading centered">
+      <div class="eyebrow-badge">
+        <span class="badge-dot"></span>
+        <span class="eyebrow-text">Flagship Initiatives</span>
+      </div>
+      <h2 class="heading-title">
+        Empowering the Next Generation of <span class="highlight-text">Leaders.</span>
+      </h2>
+      <p class="heading-description">
+        Our core national programs designed to foster leadership, entrepreneurship, and intellectual growth across university campuses.
+      </p>
+    </div>
+
+    <!-- Initiatives Grid -->
+    <div class="initiatives-grid">
+
+       <!-- Card 01 (Featured) -->
+<div class="initiative-card featured">
+  <div class="card-top">
+    <span class="status-badge featured-badge">FLAGSHIP</span>
+    <span class="card-number">01</span>
+  </div>
+
+  <!-- Card Image -->
+  <div class="card-image-wrapper">
+    <img src="/images/CTT .jpeg" alt="Campus Training Tour" class="card-image">
+  </div>
+
+  <h3 class="card-title">The Campus Training Tour</h3>
+  <p class="card-description">
+    Our flagship annual national conference providing a high-intensity, immersive experience in leadership, entrepreneurship, and personal development.
+  </p>
+
+  <a href="programmes.html#tours-hero" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</div>
+
+    <!-- Card 02 -->
+<div class="initiative-card">
+  <div class="card-top">
+    <span class="status-badge">ACTIVE</span>
+    <span class="card-number">02</span>
+  </div>
+
+  <div class="card-image-wrapper">
+    <img src="/images/CYMP PIC.jpg" alt="The Creative Youth Mentoring Program" class="card-image">
+  </div>
+
+  <h3 class="card-title">The Creative Youth Mentoring Program</h3>
+  <p class="card-description">
+    Foundational leadership, values, and career guidance for senior secondary school students, shaping their character before university.
+  </p>
+
+  <!-- <a href="#" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a> -->
+</div>
+
+<!-- Card 03 -->
+<div class="initiative-card">
+  <div class="card-top">
+    <span class="status-badge">BIENNIAL</span>
+    <span class="card-number">03</span>
+  </div>
+
+  <div class="card-image-wrapper">
+    <img src="/images/CYASF.jpeg" alt="The Creative Youth Arts & Science Fairs" class="card-image">
+  </div>
+
+  <h3 class="card-title">The Creative Youth Arts & Science Fairs</h3>
+  <p class="card-description">
+    A biennial platform to identify, showcase, and fund the most innovative entrepreneurial ideas from young creatives and scientists.
+  </p>
+
+  <!-- <a href="#" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a> -->
+</div>
+
+<!-- Card 04 -->
+<div class="initiative-card">
+  <div class="card-top">
+    <span class="status-badge">ANNUAL</span>
+    <span class="card-number">04</span>
+  </div>
+
+  <div class="card-image-wrapper">
+    <img src="/images/ABS.jpeg" alt="African Achiever & Business Summit" class="card-image">
+  </div>
+
+  <h3 class="card-title">African Achiever & Business Summit</h3>
+  <p class="card-description">
+    Celebrating inspiring role models and facilitating high-level strategic knowledge exchange across executive leadership networks.
+  </p>
+
+  <!-- <a href="#" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a> -->
+</div>
+
+<!-- Card 05 -->
+<div class="initiative-card">
+  <div class="card-top">
+    <span class="status-badge">ACTIVE</span>
+    <span class="card-number">05</span>
+  </div>
+
+  <div class="card-image-wrapper">
+    <img src="path/to/roundtable-image.jpg" alt="The Roundtable Conference" class="card-image">
+  </div>
+
+  <h3 class="card-title">The Roundtable Conference</h3>
+  <p class="card-description">
+    An interactive forum bringing together student executives and industry experts to deliberate on key policy and operational challenges.
+  </p>
+<!-- 
+  <a href="#" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a> -->
+</div>
+
+<!-- Card 06 -->
+<div class="initiative-card">
+  <div class="card-top">
+    <span class="status-badge">ACTIVE</span>
+    <span class="card-number">06</span>
+  </div>
+
+  <div class="card-image-wrapper">
+    <img src="path/to/debate-image.jpg" alt="Inter-Cohort Debate" class="card-image">
+  </div>
+
+  <h3 class="card-title">Inter-Cohort Debate</h3>
+  <p class="card-description">
+    A competitive platform where campus chapters engage in structured debates to sharpen critical thinking, public speaking, and policy analysis.
+  </p>
+
+  <!-- <a href="#" class="btn btn-primary card-btn">
+    <span>Explore Initiative</span>
+    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</div> -->
+
+    </div><!-- End initiatives-grid -->
+  </div><!-- End initiatives container -->
+</section><!-- End initiatives-section -->
+
+<!-- COHORT STATISTICS SECTION -->
+<section class="framework-section" id="cohort-stats">
+  <div class="container">
+    <div class="framework-block stats-block">
+      <div class="framework-title">
+        <span class="framework-number">03</span>
+        <div>
+          <span class="eyebrow">COHORT STATS</span>
+          <h3>The network at a glance.</h3>
         </div>
       </div>
 
-      <!-- Quick Navigation -->
-      <div>
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#history">Our Journey</a></li>
-          <li><a href="#cohorts">Campus Cohorts</a></li>
-          <li><a href="#programmes">Frameworks</a></li>
-          <li><a href="#alumni">Impact Stories</a></li>
-          <li><a href="#launch">Start a Chapter</a></li>
-        </ul>
-      </div>
+      <div class="stats-grid">
+        <div class="stat">
+          <strong>07</strong>
+          <span>University Cohorts</span>
+        </div>
 
-      <!-- Active Chapters -->
-      <div>
-        <h4 class="footer-heading">Active Chapters</h4>
-        <ul class="footer-links">
-          <li><a href="uniben.html">UNIBEN Chapter</a></li>
-          <li><a href="unilag.html">UNILAG Chapter</a></li>
-          <li><a href="oau.html">OAU Chapter</a></li>
-          <li><a href="ui.html">UI Chapter</a></li>
-          <li><a href="unn.html">UNN Chapter</a></li>
-          <li><a href="abu.html">ABU Chapter</a></li>
-          <li><a href="futa.html">FUTA Chapter</a></li>
-        </ul>
-      </div>
+        <div class="stat">
+          <strong>200+</strong>
+          <span>Active Volunteers</span>
+        </div>
 
-      <!-- Application Portals -->
-      <div>
-        <h4 class="footer-heading">Get Involved</h4>
-        <ul class="footer-links">
-          <li><a href="https://forms.gle/rwqQNkpCnB7ekiNJ7" target="_blank" rel="noopener noreferrer">Join a Cohort</a></li>
-          <li><a href="https://forms.gle/sWG5v69bNKXqP93R7" target="_blank" rel="noopener noreferrer">Application Portal</a></li>
-          <li><a href="https://forms.gle/DPb9s9FyxqtHMaM2A" target="_blank" rel="noopener noreferrer">Launch New Cohort</a></li>
-          <li><a href="/PICS AND VIDOES/COHORT LOGOS/THE COHORT EXPANSION PROTOCOL_ LAUNCHING A NEW HIVE.pdf" target="_blank">Expansion Protocol</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Bottom Copyright & Legal Bar -->
-    <div class="footer-bottom">
-      <p>&copy; 2026 The Hive Network Africa. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Governance</a>
+        <div class="stat">
+          <strong>60+</strong>
+          <span>Events Organized</span>
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- IMPACT STORIES -->
+<section class="impact section" id="impact">
+  <!-- Keep your existing impact section content here -->
+</section>
+
+       <!-- ========================
+     IMPACT STORIES
+========================== -->
+<section class="impact section" id="impact">
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div class="section-heading centered">
+            <span class="eyebrow">Impact Stories</span>
+            <h2>
+                The people behind
+                <span>the impact.</span>
+            </h2>
+            <p>
+                Every cohort is a collection of people, ideas, and stories. Here are some of the individuals who have helped shape the Hive community.
+            </p>
+        </div>
+
+      <!-- 4 Impact Stories Grid -->
+<div class="stories-grid">
+    
+    <!-- Story Card 1 -->
+    <div class="story-card">
+        <blockquote class="story-text">
+            "Joining the Hive gave me the platform, confidence, and network to step up as a true community builder and orchestrate campus initiatives."
+        </blockquote>
+        <div class="story-meta">
+            <h4>Emmanuel Ogheneogaga</h4>
+            <p class="story-details">UNIBEN, 2026</p>
+        </div>
+    </div>
+
+    <!-- Story Card 2 -->
+    <div class="story-card">
+        <blockquote class="story-text">
+            "Collaborating across cohorts helped me transition from learning design theory to building live, user-centered web applications."
+        </blockquote>
+        <div class="story-meta">
+            <h4>Adaeze Okonkwo</h4>
+            <p class="story-details">UNILAG, 2025</p>
+        </div>
+    </div>
+
+    <!-- Story Card 3 -->
+    <div class="story-card">
+        <blockquote class="story-text">
+            "The peer-to-peer accountability structure made all the difference in staying consistent through intense project sprints."
+        </blockquote>
+        <div class="story-meta">
+            <h4>Tunde Adeleke</h4>
+            <p class="story-details">OAU, 2026</p>
+        </div>
+        </div>
+
+    <!-- Story Card 4 -->
+    <div class="story-card">
+        <blockquote class="story-text">
+            "Guiding new cohort members through our outreach programs showed me the real power of youth development and structured mentorship."
+        </blockquote>
+        <div class="story-meta">
+            <h4>Chiamaka Eze</h4>
+            <p class="story-details">UNN, 2025</p>
+        </div>
+    </div>
+
+    </div>
+
+        <!-- Featured Alumni Spotlight Section -->
+        <div class="impact-feature" id="alumni-spotlight">
+
+            <!-- Left: Featured Alumni Image -->
+            <div class="impact-image">
+                <img src="https://via.placeholder.com/600x400" alt="Alumni Spotlight - Emmanuel Ogheneogaga" class="spotlight-img">
+            </div>
+
+            <!-- Right: Spotlight Content -->
+            <div class="impact-content">
+                <span class="eyebrow">ALUMNI SPOTLIGHT</span>
+                <h3>
+                    From cohort member <br>
+                    to community builder.
+                </h3>
+                <p>
+                    Our alumni continue to carry the spirit of the Hive beyond their university communities. Their stories reflect what can happen when people are given the space to connect, learn, and build.
+                </p>
+                <a href="#alumni-stories" class="secondary-button">
+                    Read Alumni Stories
+                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    </section>
+<!-- ==========================================
+     DUAL CTA SECTION (JOIN & LAUNCH)
+========================================== -->
+<section class="cta-combined-section" id="join">
+    <div class="container">
+
+        <!-- Card 1: Join an Existing Cohort -->
+        <div class="join-card">
+            <div class="join-content">
+                <span class="eyebrow">YOUR TURN</span>
+                <h2>
+                    Find your place
+                    <span>in the Hive.</span>
+                </h2>
+                <p>
+                    Are you a student at one of our cohort universities?
+                    Join a community of people who are learning,
+                    connecting and building together.
+                </p>
+                <a href="https://forms.gle/sWG5v69bNKXqP93R7" class="join-button">
+                    Join a Cohort
+                    <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Card 2: Start a New Campus Cohort -->
+        <div class="join-card launch-card" id="launch">
+            <div class="join-content">
+                <span class="eyebrow eyebrow-purple">EXPANSION</span>
+                <h2>
+                    Want The Hive Network
+                    <span>on Your Campus?</span>
+                </h2>
+                <p>
+                    We are expanding into select higher institutions across Africa. Apply to become a Campus Ambassador or secure institutional support to bring a new cohort to your university.
+                </p>
+                <div class="cta-button-group">
+                    <a href="https://forms.gle/DPb9s9FyxqtHMaM2A" class="join-button button-purple" target="_blank" rel="noopener noreferrer">
+                        Apply to Launch New Cohort
+                    </a>
+                    <a href="/PICS AND VIDOES/COHORT LOGOS/THE COHORT EXPANSION PROTOCOL_ LAUNCHING A NEW HIVE.pdf" class="btn-outline" target="_blank" rel="noopener noreferrer">
+                        Read Launch Criteria
+                    </a>
+                </div>
+            </div>
+        </div>
+
+         </div>
+      </section>
+    </main>
+
+    
+<!-- =========================
+     FOOTER SECTION
+========================== -->
+<footer class="site-footer">
+    <div class="container footer-container">
+
+        <div class="footer-top">
+
+            <!-- BRAND, CONTACT & SOCIALS -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img
+                        src="/images/THNA LOGO 1.png"
+                        alt="The Hive Network Africa Logo"
+                        class="footer-logo-img"
+                    >
+                </a>
+
+                <p class="footer-motto">
+                    Believe. Achieve.
+                    <span class="highlight">Succeed.</span>
+                </p>
+
+                <p class="footer-bio">
+                    Transforming African university campuses into
+                    launchpads for innovation, leadership, and youth impact.
+                </p>
+
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:thnafrica@gmail.com">
+                            thnafrica@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        <a href="tel:+2349061132003">
+                            +234 906 113 2003
+                        </a>
+                    </p>
+                </div>
+
+                <!-- ORGANISATION DETAILS -->
+                <div class="footer-organisation-details">
+                    <h4>Organisation Details</h4>
+
+                    <p>
+                        <i class="fas fa-map-marker-alt"
+                           aria-hidden="true"></i>
+                        <strong>Address:</strong>
+                        <span>Suite 1, 3rd Floor, 248 Ugbowo Lagos Road, Ugbowo, Benin City</span>
+                    </p>
+
+                    <p>
+                        <strong>Registration No.:</strong>
+                        <span>ADD VERIFIED NUMBER IF APPLICABLE</span>
+                    </p>
+                </div>
+
+                <!-- EXISTING SOCIAL LINKS -->
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/company/thnafrica/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/thnafrica"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/@thnafrica"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/thnafrica/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20"
+                                  rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#journey">Our Journey</a></li>
+                    <li><a href="#cohorts">Active Cohorts</a></li>
+                    <li><a href="#how-cohorts-function">Operational Model</a></li>
+                    <li><a href="#impact">Impact Stories</a></li>
+                </ul>
+            </div>
+
+            <!-- INITIATIVES -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Initiatives</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="programmes.html#tours-hero">
+                            Campus Training Tour
+                        </a>
+                    </li>
+                    <li>
+                        <a href="programmes.html">
+                            Creative Youth Mentoring
+                        </a>
+                    </li>
+                    <li>
+                        <a href="programmes.html">
+                            Creative Youth Arts &amp; Science Fairs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="programmes.html">
+                            Inter-Cohort Debate
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- GET INVOLVED -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Get Involved</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://forms.gle/sWG5v69bNKXqP93R7"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Join a Cohort
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://forms.gle/DPb9s9FyxqtHMaM2A"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Start a New Cohort
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://chat.whatsapp.com/GYVg5ymTWtjJziKOuH6UTS"
+                           class="btn btn-whatsapp-sm"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"
+                               aria-hidden="true"></i>
+                            Join Community
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- RESOURCES & NEWSLETTER -->
+            <div class="footer-col footer-resources">
+                <h4 class="footer-heading">Resources</h4>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="/documents/thna-annual-report.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fas fa-file-pdf"
+                               aria-hidden="true"></i>
+                            Download Annual Report
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">Stay Connected</h4>
+
+                    <p>
+                        Get updates on our programs, events,
+                        and opportunities.
+                    </p>
+
+                    <!-- Connect this form to a newsletter service -->
+                    <form class="newsletter-form"
+                          action="YOUR_NEWSLETTER_ENDPOINT"
+                          method="post">
+
+                        <label for="footer-newsletter-email"
+                               class="sr-only">
+                            Your email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="footer-newsletter-email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                        <button type="submit"
+                                class="newsletter-button">
+                            Subscribe
+                        </button>
+                    </form>
+
+                    <p class="newsletter-privacy">
+                        By subscribing, you agree to receive
+                        email updates from The Hive Network Africa.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT & LEGAL -->
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026
+                <strong>The Hive Network Africa</strong>.
+                All rights reserved.
+            </p>
+
+            <div class="legal-links">
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <span class="dot-separator">&bull;</span>
+                <a href="/terms.html">Terms of Service</a>
+            </div>
+        </div>
+
+    </div>
 </footer>
 </body>
 </html>

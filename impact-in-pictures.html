@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover events, learning opportunities, and community experiences with The Hive Network Africa.">
+  <title>Impact, in Pictures</title>
+  <link rel="icon" type="image/png" href="images/THNA LOGO 1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("thna-theme");
+        const theme = saved || (
+          matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+        );
+        document.documentElement.dataset.theme = theme;
+      } catch (_) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      color-scheme: light;
+      --page: #fffdfb;
+      --surface: #fff;
+      --surface-soft: #f8f3f1;
+      --ink: #24212a;
+      --muted: #706b73;
+      --line: #e9dfe1;
+      --burgundy: #8f0000;
+      --burgundy-dark: #650019;
+      --orange: #f47721;
+      --shadow: 0 18px 50px rgba(71,15,32,.09);
+      --header-bg: rgba(255,253,251,.92);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #151216;
+      --surface: #211b21;
+      --surface-soft: #2a2026;
+      --ink: #f8f0f2;
+      --muted: #c4b7bd;
+      --line: #43333b;
+      --burgundy: #ff7a8f;
+      --burgundy-dark: #2a111c;
+      --orange: #ff9a52;
+      --shadow: 0 18px 50px rgba(0,0,0,.24);
+      --header-bg: rgba(21,18,22,.93);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+      transition: background .2s, color .2s;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+
+    button, a, select {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(1200px, calc(100% - 48px));
+      height: 88px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 174px;
+      max-height: 62px;
+      object-fit: contain;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.2vw, 32px);
+      margin-left: auto;
+    }
+
+    .main-nav a {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 9px 0;
+      position: relative;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] {
+      color: var(--burgundy);
+    }
+
+    .main-nav a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .icon-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--orange);
+    }
+
+    .menu-toggle {
+      display: none;
+      border-radius: 12px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 19px;
+      height: 2px;
+      background: currentColor;
+      margin: 2px 0;
+    }
+
+    .hero {
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #f5eee4;
+      color: #32141f;
+      padding: 88px max(24px,calc((100vw - 1120px)/2)) 100px;
+      isolation: isolate;
+    }
+
+    /* A photo-wallpaper treatment keeps this gallery distinct from the main Impact page. */
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0 0 0 43%;
+      background-image:
+        linear-gradient(90deg, #f5eee4 0%, rgba(245,238,228,.58) 23%, rgba(44,12,26,.12) 100%),
+        url("images/IMPACT STORY- UNIBEN COHORT 18.png");
+      background-size: cover;
+      background-position: center 42%;
+      opacity: .78;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 260px;
+      height: 260px;
+      right: 8%;
+      bottom: -145px;
+      border: 1px solid rgba(117,0,30,.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 22px rgba(117,0,30,.035), 0 0 0 46px rgba(117,0,30,.025);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 770px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .76rem;
+      font-weight: 800;
+      color: var(--orange);
+      margin: 0 0 15px;
+    }
+
+    .hero .eyebrow { color: #8a1734; }
+
+    .hero .eyebrow span {
+      display: inline-block;
+      width: 26px;
+      height: 2px;
+      background: #e87535;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .hero h1,
+    .closing-cta h2 {
+      font-family: Manrope, sans-serif;
+      font-size: clamp(3rem,6.8vw,5.7rem);
+      line-height: 1.02;
+      letter-spacing: -.06em;
+      margin: 0;
+      max-width: 850px;
+      font-weight: 800;
+    }
+
+    .hero h1 em,
+    .closing-cta h2 em {
+      font-style: normal;
+      color: #b54424;
+    }
+
+    .hero-copy {
+      font-size: clamp(1.05rem,1.8vw,1.28rem);
+      max-width: 590px;
+      color: #5d4650;
+      margin: 24px 0 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: var(--orange);
+      color: #28130b;
+    }
+
+    .button-primary:hover { background: #ff9851; }
+
+    .button-outline {
+      background: transparent;
+      color: var(--burgundy);
+      border-color: var(--line);
+    }
+
+    .button-outline:hover {
+      border-color: var(--orange);
+      background: var(--surface-soft);
+    }
+
+    .button-light {
+      background: #fff;
+      color: #75001e;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .orb-one {
+      width: 390px;
+      height: 390px;
+      right: 6%;
+      top: 8%;
+      box-shadow:
+        0 0 0 36px rgba(255,255,255,.025),
+        0 0 0 74px rgba(255,255,255,.02);
+    }
+
+    .orb-two {
+      width: 180px;
+      height: 180px;
+      right: 20%;
+      bottom: -90px;
+      background: rgba(232,117,53,.17);
+      border: 0;
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 7%;
+      bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(50,20,31,.68);
+      font-size: .72rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .hero-note span:first-child {
+      font-weight: 800;
+      color: #32141f;
+      font-size: 1rem;
+    }
+
+    .section-wrap {
+      width: min(1160px,calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .impact {
+      padding-top: 80px;
+      padding-bottom: 78px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2,
+    .featured-copy h2 {
+      font-family: Manrope, sans-serif;
+      font-size: clamp(2rem,4vw,3.15rem);
+      letter-spacing: -.045em;
+      line-height: 1.12;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .section-heading h2 span { color: var(--burgundy); }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 13px 0 0;
+    }
+
+    .compact-heading { margin-bottom: 28px; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card {
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-card + .stat-card {
+      border-left: 1px solid var(--line);
+    }
+
+    .stat-number {
+      font-family: Manrope, sans-serif;
+      font-size: clamp(2.1rem,4vw,3.1rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.05em;
+      color: var(--burgundy);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .93rem;
+    }
+
+    .events-section { padding: 35px 0 80px; }
+
+    .filter-panel {
+      display: grid;
+      grid-template-columns: minmax(190px,1.5fr) repeat(3,minmax(135px,1fr)) auto;
+      gap: 10px;
+      padding: 13px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+    }
+
+    .search-box,
+    .select-wrap {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--muted);
+    }
+
+    .search-box input,
+    .select-wrap select {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      height: 46px;
+    }
+
+    .search-box input::placeholder { color: var(--muted); }
+    .select-wrap select { cursor: pointer; }
+
+    .select-wrap option {
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .reset-button { min-height: 46px; }
+
+    .event-results-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 22px 0 15px;
+    }
+
+    .event-results-line p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .result-mark {
+      width: 32px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--orange);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(40,12,20,.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-art {
+      height: 155px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(130deg,#650019,#a71e39 62%,#f47721);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-art::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      right: -20px;
+      bottom: -115px;
+      box-shadow:
+        0 0 0 25px rgba(255,255,255,.05),
+        0 0 0 50px rgba(255,255,255,.04);
+    }
+
+    .event-art i {
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 13px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 100px;
+      font-size: .73rem;
+      font-weight: 700;
+      background: var(--surface-soft);
+      color: var(--burgundy);
+    }
+
+    .pill.status-past { color: var(--muted); }
+
+    .event-card h3 {
+      margin: 0 0 9px;
+      font: 800 1.22rem/1.3 Manrope,sans-serif;
+    }
+
+    .event-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .event-detail-list {
+      list-style: none;
+      padding: 17px 0 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .event-detail-list i {
+      width: 17px;
+      color: var(--orange);
+    }
+
+    .event-card .text-link {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--burgundy);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    .text-link:hover { color: var(--orange); }
+
+    .empty-state {
+      padding: 45px 20px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .empty-state[hidden] { display: none; }
+
+    .empty-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      color: var(--burgundy);
+      font-size: 1.4rem;
+    }
+
+    .empty-state h3 {
+      font: 800 1.3rem Manrope,sans-serif;
+      margin: 0 0 7px;
+    }
+
+    .empty-state p {
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .content-note {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    .featured { padding-bottom: 85px; }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      min-height: 280px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+    }
+
+    .featured-symbol {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg,#74001e,#a20c2c 62%,#d95b23);
+      color: rgba(255,255,255,.9);
+    }
+
+    .featured-symbol::before,
+    .featured-symbol::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      width: 210px;
+      height: 210px;
+    }
+
+    .featured-symbol::after {
+      width: 270px;
+      height: 270px;
+    }
+
+    .featured-symbol span {
+      font: 800 8rem Manrope,sans-serif;
+      line-height: 1;
+      opacity: .8;
+    }
+
+    .featured-symbol i {
+      position: absolute;
+      top: 25%;
+      right: 26%;
+      font-size: 1.6rem;
+      color: #ffc18e;
+    }
+
+    .featured-copy {
+      padding: clamp(28px,5vw,55px);
+      align-self: center;
+    }
+
+    .featured-copy h2 {
+      font-size: clamp(1.8rem,3vw,2.6rem);
+    }
+
+    .featured-copy > p:not(.eyebrow) {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 15px 0 19px;
+    }
+
+    .testimonials-preview { padding: 10px 0 86px; }
+    .stories-heading { align-items: flex-end; }
+
+    .carousel-controls {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-track {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .quote-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      min-height: 265px;
+      box-shadow: 0 8px 24px rgba(40,12,20,.035);
+    }
+
+    .quote-icon {
+      color: var(--orange);
+      font-size: 1.35rem;
+      margin-bottom: 13px;
+    }
+
+    .quote-card blockquote {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .quote-card blockquote::after {
+      content: "…";
+      color: var(--burgundy);
+      font-weight: 800;
+    }
+
+    .quote-author {
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+    }
+
+    .quote-author strong {
+      display: block;
+      font-size: .95rem;
+    }
+
+    .quote-author span {
+      display: block;
+      color: var(--muted);
+      font-size: .8rem;
+      margin: 2px 0 10px;
+    }
+
+    .stories-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-top: 23px;
+    }
+
+    .carousel-status {
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    .closing-cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 80px 24px 86px;
+      background: linear-gradient(120deg,#650019,#8f0000 60%,#50132c);
+      color: #fff;
+    }
+
+    .closing-cta .eyebrow { color: #ffbc8a; }
+
+    .closing-cta h2 {
+      font-size: clamp(2.5rem,5vw,4.3rem);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .closing-cta > p:not(.eyebrow) {
+      max-width: 560px;
+      margin: 18px auto 25px;
+      color: rgba(255,255,255,.8);
+    }
+
+    .cta-decoration {
+      position: absolute;
+      right: 4%;
+      bottom: -55px;
+      font: 800 clamp(5rem,15vw,12rem) Manrope,sans-serif;
+      letter-spacing: -.08em;
+      color: rgba(255,255,255,.045);
+      pointer-events: none;
+    }
+
+    .site-footer {
+      padding: 36px 24px 24px;
+      text-align: center;
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-brand img {
+      width: 150px;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 22px 0 10px;
+    }
+
+    .footer-links a {
+      font-size: .86rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover { color: var(--burgundy); }
+
+    .site-footer p,
+    .site-footer small {
+      display: block;
+      color: var(--muted);
+      font-size: .8rem;
+      margin: 8px 0;
+    }
+
+    .testimonials-page-hero {
+      padding: 70px 24px 65px;
+      background: linear-gradient(115deg,#650019,#8f0000 65%,#371b2c);
+      color: #fff;
+    }
+
+    .testimonials-page-hero > div {
+      width: min(1000px,100%);
+      margin: auto;
+    }
+
+    .testimonials-page-hero h1 {
+      font: 800 clamp(2.8rem,6vw,4.8rem)/1.06 Manrope,sans-serif;
+      letter-spacing: -.055em;
+      margin: 0;
+    }
+
+    .testimonials-page-hero h1 em {
+      color: #ffad73;
+      font-style: normal;
+    }
+
+    .testimonials-page-hero p:not(.eyebrow) {
+      max-width: 650px;
+      color: rgba(255,255,255,.82);
+      font-size: 1.1rem;
+    }
+
+    .full-stories {
+      padding-top: 55px;
+      padding-bottom: 80px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .full-story {
+      padding: clamp(23px,4vw,40px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      scroll-margin-top: 110px;
+    }
+
+    .full-story:target {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(244,119,33,.12);
+    }
+
+    .full-story .story-number {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .full-story blockquote {
+      margin: 13px 0 23px;
+      white-space: pre-line;
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .full-story h2 {
+      margin: 0;
+      font: 800 1.3rem Manrope,sans-serif;
+    }
+
+    .full-story .affiliation {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--burgundy);
+      font-weight: 700;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 1000px) {
+      .header-inner { gap: 18px; }
+      .brand img { width: 145px; }
+      .main-nav { gap: 14px; }
+      .main-nav a { font-size: .84rem; }
+
+      .filter-panel {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .search-box { grid-column: span 2; }
+      .reset-button { width: 100%; }
+
+      .events-grid,
+      .testimonial-track {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .quote-card:nth-child(3) { display: none; }
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        width: calc(100% - 32px);
+        height: 76px;
+      }
+
+      .brand img {
+        width: 136px;
+        max-height: 52px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: calc(100% + 8px);
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+      }
+
+      .main-nav.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-nav a {
+        padding: 12px 10px;
+        font-size: .95rem;
+      }
+
+      .main-nav a[aria-current="page"]::after {
+        left: 10px;
+        right: auto;
+        width: 28px;
+      }
+
+      .hero {
+        padding: 70px 24px 85px;
+        min-height: 455px;
+      }
+
+      .hero::before {
+        inset: 0;
+        opacity: .22;
+        background-image: linear-gradient(90deg,rgba(245,238,228,.94),rgba(245,238,228,.72)), url("images/IMPACT STORY- UNIBEN COHORT 18.png");
+      }
+
+      .hero h1 { font-size: clamp(2.8rem,12vw,4.5rem); }
+      .hero-note { right: 24px; bottom: 20px; }
+      .orb-one { right: -170px; top: 12%; }
+
+      .section-wrap { width: calc(100% - 32px); }
+
+      .impact {
+        padding-top: 55px;
+        padding-bottom: 55px;
+      }
+
+      .stats-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .stat-card { padding: 23px 12px; }
+
+      .stat-card:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .stat-card:nth-child(4) {
+        border-top: 1px solid var(--line);
+      }
+
+      .stat-card:nth-child(2) {
+        border-left: 1px solid var(--line);
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .events-section { padding-bottom: 60px; }
+
+      .filter-panel {
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+      }
+
+      .search-box { grid-column: span 2; }
+
+      .events-grid { grid-template-columns: 1fr; }
+      .event-art { height: 140px; }
+      .featured { padding-bottom: 60px; }
+
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-symbol { min-height: 170px; }
+      .featured-symbol span { font-size: 6rem; }
+      .featured-copy { padding: 28px; }
+
+      .testimonials-preview { padding-bottom: 60px; }
+
+      .stories-heading {
+        flex-direction: row;
+        align-items: flex-end;
+      }
+
+      .testimonial-track { grid-template-columns: 1fr; }
+      .quote-card { min-height: 0; }
+
+      .quote-card:nth-child(2),
+      .quote-card:nth-child(3) {
+        display: none;
+      }
+
+      .stories-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .closing-cta { padding: 65px 22px; }
+
+      .footer-links { gap: 12px 18px; }
+    }
+
+    @media (max-width: 420px) {
+      .theme-toggle,
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .header-actions { gap: 6px; }
+      .brand img { width: 120px; }
+      .filter-panel { grid-template-columns: 1fr; }
+      .search-box { grid-column: auto; }
+
+      .stories-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .carousel-controls {
+        align-self: flex-end;
+        margin-top: -8px;
+      }
+
+      .button { font-size: .88rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    /* Events dropdown */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-toggle { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 10px 2px; }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; min-width: 190px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: 0 16px 35px #24121a1c; z-index: 50; }
+    .nav-dropdown-menu a { display: block; padding: 11px 12px; border-radius: 8px; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: var(--surface-soft); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .projects-section { padding-top: 35px; }
+    .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 30px; }
+    .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); box-shadow: 0 12px 35px #30101a0b; }
+    .project-video { display: block; position: relative; overflow: hidden; aspect-ratio: 16/9; background: #1b1115; }
+    .project-video img, .project-video iframe { width: 100%; height: 100%; display: block; object-fit: cover; border: 0; }
+    .project-video iframe { pointer-events: none; }
+    .video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px; display: grid; place-items: center; color: white; background: var(--burgundy); border-radius: 50%; box-shadow: 0 8px 28px #0004; transition: transform .2s ease; }
+    .project-video:hover .video-play { transform: translate(-50%,-50%) scale(1.08); }
+    .video-hint { position: absolute; left: 14px; bottom: 14px; padding: 7px 10px; border-radius: 7px; color: white; background: #171016c9; font-size: .78rem; }
+    .project-card-copy { padding: 24px; }
+    .project-card-copy h3 { margin: 7px 0 10px; }
+    .project-card-copy p:not(.eyebrow) { color: var(--muted); }
+    .photo-stories { padding-top: 25px; padding-bottom: 80px; }
+    .impact-photo-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 28px; }
+    .impact-photo-grid figure { margin: 0; overflow: hidden; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 10px 28px rgba(40,12,20,.06); }
+    .impact-photo-grid figure[hidden] { display: none; }
+    .impact-photo-trigger { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #1b1115; cursor: pointer; overflow: hidden; text-align: left; }
+    .impact-photo-grid img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .45s ease, filter .35s ease; }
+    .impact-photo-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 18px; color: #fff; text-align: center; background: linear-gradient(0deg,rgba(45,0,15,.88),rgba(45,0,15,.18)); opacity: 0; transition: opacity .3s ease; }
+    .impact-photo-overlay i { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; font-size: 1.05rem; }
+    .impact-photo-overlay strong { font: 800 1rem Manrope,sans-serif; }
+    .impact-photo-overlay span { font-size: .82rem; }
+    .impact-photo-trigger:hover img, .impact-photo-trigger:focus-visible img { transform: scale(1.06); filter: saturate(.82); }
+    .impact-photo-trigger:hover .impact-photo-overlay, .impact-photo-trigger:focus-visible .impact-photo-overlay { opacity: 1; }
+    .impact-photo-grid figcaption { padding: 14px 16px; font-weight: 700; }
+    .photo-gallery-actions { display: flex; justify-content: center; margin-top: 28px; }
+    .photo-note { color: var(--muted); font-size: .86rem; margin-top: 18px; text-align: center; }
+    .photo-lightbox { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 24px; background: rgba(12,7,10,.92); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease; }
+    .photo-lightbox.is-open { opacity: 1; visibility: visible; }
+    .photo-lightbox-dialog { position: relative; display: grid; grid-template-columns: minmax(0,1.3fr) minmax(250px,.7fr); width: min(1100px,100%); max-height: min(88vh,850px); overflow: hidden; border-radius: 18px; background: var(--surface); color: var(--ink); box-shadow: 0 25px 80px #0007; }
+    .photo-lightbox-image-wrap { min-height: 280px; display: grid; place-items: center; background: #100b0e; overflow: auto; }
+    .photo-lightbox-image { display: block; max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; }
+    .photo-lightbox-copy { position: relative; padding: 36px 30px 28px; overflow-y: auto; align-self: stretch; }
+    .photo-lightbox-copy .eyebrow { margin-top: 8px; }
+    .photo-lightbox-copy h3 { font: 800 clamp(1.35rem,2vw,1.9rem)/1.2 Manrope,sans-serif; margin: 0 0 14px; }
+    .photo-lightbox-copy p:not(.eyebrow) { color: var(--muted); font-size: .95rem; }
+    .photo-lightbox-close { position: absolute; top: 12px; right: 12px; z-index: 2; background: var(--surface); }
+    .photo-lightbox-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 25px; }
+    .photo-lightbox-count { color: var(--muted); font-size: .82rem; }
+    body.lightbox-open { overflow: hidden; }
+    @media (max-width: 850px) { .photo-lightbox-dialog { grid-template-columns: 1fr; max-width: 760px; overflow-y: auto; } .photo-lightbox-image-wrap { max-height: 55vh; } .photo-lightbox-image { max-height: 55vh; } .photo-lightbox-copy { padding: 26px 24px; } .photo-lightbox-close { position: fixed; top: 18px; right: 18px; } }
+    @media (hover: none) { .impact-photo-overlay { opacity: 1; background: linear-gradient(0deg,rgba(45,0,15,.78),transparent 70%); justify-content: flex-end; align-items: flex-start; } .impact-photo-overlay i { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .impact-photo-grid img, .impact-photo-overlay, .photo-lightbox { transition: none; } }
+    .site-footer { margin-top: 0; padding: 58px 0 20px; background: #1c1016; color: #f8f2f4; }
+    .footer-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 34px; padding-bottom: 38px; }
+    .footer-logo-img { width: 190px; max-width: 100%; height: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-motto { font-size: 1.15rem; font-weight: 800; margin: 22px 0 10px; }
+    .footer-motto span { color: var(--orange); }
+    .footer-bio, .contact-info p { color: #cfc2c8; line-height: 1.7; }
+    .contact-info p { display: flex; gap: 10px; align-items: center; }
+    .contact-info a { color: inherit; text-decoration: none; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-socials a { width: 38px; height: 38px; border: 1px solid #57434c; border-radius: 50%; display: grid; place-items: center; color: white; text-decoration: none; }
+    .footer-socials a:hover { background: var(--burgundy); border-color: var(--burgundy); }
+    .footer-col h4 { margin: 6px 0 18px; font-size: 1rem; }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .footer-col a, .footer-bottom a { color: #cfc2c8; text-decoration: none; }
+    .footer-col a:hover, .footer-bottom a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid #493740; padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: #cfc2c8; font-size: .86rem; }
+    .footer-bottom p { margin: 0; }
+    @media (max-width: 850px) { .footer-top { grid-template-columns: repeat(2,minmax(0,1fr)); } .impact-photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 600px) { .project-grid, .impact-photo-grid, .footer-top { grid-template-columns: 1fr; } .footer-container { width: min(100% - 32px, 1180px); } .nav-dropdown-menu { left: auto; right: 0; } }
+
+    /* Gallery-specific redesign: editorial, photo-led, and distinct from the Impact overview. */
+    .gallery-hero {
+      min-height: 660px;
+      padding: 78px max(24px,calc((100vw - 1160px)/2)) 86px;
+      display: grid;
+      grid-template-columns: minmax(0,.92fr) minmax(400px,1.08fr);
+      align-items: center;
+      gap: clamp(35px,6vw,90px);
+      background: #f7f1e8;
+      color: #261720;
+      isolation: isolate;
+    }
+
+    .gallery-hero::before {
+      inset: 0;
+      background: radial-gradient(circle at 8% 95%,rgba(244,119,33,.12),transparent 30%), linear-gradient(120deg,#fbf7f0 0%,#f3e8dd 100%);
+      opacity: 1;
+    }
+
+    .gallery-hero::after { content: none; }
+    .gallery-hero-content { max-width: 610px; }
+    .gallery-hero .eyebrow { color: #8f1735; font-size: .72rem; letter-spacing: .14em; }
+    .gallery-hero .eyebrow span { background: #f47721; width: 30px; }
+    .gallery-hero h1 { font-size: clamp(3.8rem,7.1vw,6.5rem); line-height: .99; letter-spacing: -.075em; max-width: 620px; }
+    .gallery-hero h1 em { color: #a5223c; position: relative; }
+
+    .gallery-hero h1 em::after {
+      content: "";
+      display: block;
+      width: 76%;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 99px;
+      background: #f47721;
+      transform: rotate(-2deg);
+    }
+
+    .gallery-hero .hero-copy { color: #66535b; font-size: clamp(1.02rem,1.6vw,1.2rem); max-width: 470px; margin: 27px 0 29px; }
+    .gallery-hero .button-primary { border-radius: 999px; padding: 15px 23px; background: #8f1735; color: #fff; box-shadow: 0 10px 24px rgba(143,23,53,.17); }
+    .gallery-hero .button-primary:hover { background: #6f1028; }
+    .gallery-hero-meta { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-top: 34px; color: #77656c; font-size: .78rem; font-weight: 600; }
+    .meta-dot { width: 8px; height: 8px; border-radius: 50%; background: #f47721; }
+    .meta-divider { color: #c4a7a7; padding: 0 3px; }
+    .gallery-collage { position: relative; height: 500px; min-width: 0; }
+    .collage-photo { position: absolute; margin: 0; overflow: hidden; border: 7px solid #fffaf4; border-radius: 20px; box-shadow: 0 25px 60px rgba(55,17,31,.16); background: #e9d9ce; }
+    .collage-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .collage-photo figcaption { position: absolute; left: 13px; bottom: 13px; padding: 7px 11px; border-radius: 999px; background: rgba(255,250,244,.94); color: #431c2a; font-size: .72rem; font-weight: 800; }
+    .collage-main { inset: 28px 70px 40px 20px; transform: rotate(-3deg); }
+    .collage-top { width: 43%; height: 42%; right: 0; top: 0; transform: rotate(5deg); }
+    .collage-bottom { width: 43%; height: 40%; right: 0; bottom: 0; transform: rotate(4deg); }
+    .collage-sticker { position: absolute; left: 0; bottom: 14px; width: 118px; height: 118px; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 7px; text-align: center; color: #fffaf4; background: #f47721; box-shadow: 0 12px 30px rgba(112,45,19,.18); transform: rotate(-9deg); font-size: .72rem; font-weight: 800; line-height: 1.25; }
+    .collage-sticker i { font-size: 1.15rem; }
+    .photo-stories { padding-top: 76px; padding-bottom: 92px; }
+    .photo-stories .section-heading { padding: 0 0 24px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+    .photo-stories .section-heading h2 { font-size: clamp(2.2rem,4vw,3.6rem); }
+    .photo-stories .section-heading h2 span { color: #a5223c; }
+    .photo-stories .eyebrow { color: #a5223c; }
+    .impact-photo-grid { grid-template-columns: repeat(12,minmax(0,1fr)); gap: 22px; }
+    .impact-photo-grid figure { grid-column: span 4; border-radius: 15px; box-shadow: 0 12px 30px rgba(40,12,20,.07); transition: transform .25s ease, box-shadow .25s ease; }
+    .impact-photo-grid figure:hover { transform: translateY(-5px); box-shadow: 0 22px 42px rgba(40,12,20,.12); }
+    .impact-photo-grid figure:nth-child(1), .impact-photo-grid figure:nth-child(4) { grid-column: span 6; }
+    .impact-photo-grid figure:nth-child(1) img, .impact-photo-grid figure:nth-child(4) img { aspect-ratio: 16/10; }
+    .impact-photo-grid figure:nth-child(2) img, .impact-photo-grid figure:nth-child(3) img, .impact-photo-grid figure:nth-child(5) img, .impact-photo-grid figure:nth-child(6) img, .impact-photo-grid figure:nth-child(7) img, .impact-photo-grid figure:nth-child(8) img { aspect-ratio: 4/3; }
+    .impact-photo-grid figcaption { padding: 15px 17px 17px; font-size: .93rem; }
+    .brand-fallback { display: inline-flex; flex-direction: column; color: var(--ink); font-family: Manrope,sans-serif; font-weight: 500; line-height: 1.05; font-size: 1.1rem; }
+    .brand-fallback strong { color: var(--burgundy); font-weight: 800; }
+
+    :root[data-theme="dark"] .gallery-hero { background: #241a20; color: #fff4f0; }
+    :root[data-theme="dark"] .gallery-hero::before { background: radial-gradient(circle at 8% 95%,rgba(244,119,33,.12),transparent 30%), linear-gradient(120deg,#241a20 0%,#302028 100%); }
+    :root[data-theme="dark"] .gallery-hero .hero-copy, :root[data-theme="dark"] .gallery-hero-meta { color: #d3bdc4; }
+    :root[data-theme="dark"] .gallery-hero .eyebrow, :root[data-theme="dark"] .gallery-hero h1 em, :root[data-theme="dark"] .photo-stories .section-heading h2 span { color: #ff9a52; }
+    :root[data-theme="dark"] .collage-photo { border-color: #35242c; }
+    :root[data-theme="dark"] .collage-photo figcaption { background: rgba(35,24,30,.92); color: #fff4f0; }
+
+    @media (max-width: 950px) {
+      .gallery-hero { grid-template-columns: 1fr; gap: 35px; padding-top: 62px; }
+      .gallery-hero-content { max-width: 740px; }
+      .gallery-collage { width: min(700px,100%); height: 420px; margin: 0 auto; }
+      .gallery-hero h1 { font-size: clamp(3.7rem,10vw,6rem); }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-hero { padding: 48px 20px 52px; gap: 20px; }
+      .gallery-hero h1 { font-size: clamp(3.15rem,14vw,4.6rem); }
+      .gallery-hero h1 em::after { height: 5px; }
+      .gallery-hero-meta { margin-top: 24px; font-size: .72rem; }
+      .gallery-collage { height: 310px; margin-top: 8px; }
+      .collage-main { inset: 18px 54px 27px 9px; border-width: 5px; border-radius: 14px; }
+      .collage-top { width: 44%; height: 39%; border-width: 5px; border-radius: 14px; }
+      .collage-bottom { width: 44%; height: 38%; border-width: 5px; border-radius: 14px; }
+      .collage-photo figcaption { left: 7px; bottom: 7px; font-size: .6rem; padding: 5px 7px; }
+      .collage-sticker { width: 84px; height: 84px; font-size: .57rem; left: -2px; bottom: 2px; }
+      .collage-sticker i { font-size: .9rem; }
+      .photo-stories { padding-top: 52px; padding-bottom: 58px; }
+      .impact-photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+      .impact-photo-grid figure, .impact-photo-grid figure:nth-child(1), .impact-photo-grid figure:nth-child(4) { grid-column: span 1; }
+      .impact-photo-grid figure:nth-child(1) img, .impact-photo-grid figure:nth-child(4) img { aspect-ratio: 4/3; }
+      .impact-photo-grid figcaption { font-size: .78rem; padding: 11px 10px; }
+    }
+
+    @media (max-width: 390px) {
+      .impact-photo-grid { grid-template-columns: 1fr; }
+      .gallery-collage { height: 275px; }
+    }
+
+    /* Impact in Pictures is presented as personal transformation stories, not event photography. */
+    .transformation-hero {
+      display: grid;
+      grid-template-columns: minmax(0,1.05fr) minmax(300px,.75fr);
+      gap: clamp(36px,6vw,86px);
+      align-items: center;
+      min-height: 590px;
+      padding-top: 74px;
+      padding-bottom: 78px;
+      background: linear-gradient(115deg,#fffaf5 0%,#f7eee8 60%,#f3e3dd 100%);
+    }
+
+    .transformation-hero::before {
+      inset: 0;
+      background: radial-gradient(circle at 87% 15%,rgba(244,119,33,.12),transparent 26%), radial-gradient(circle at 8% 100%,rgba(143,0,35,.08),transparent 32%);
+      opacity: 1;
+    }
+
+    .transformation-hero::after {
+      content: "";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(143,0,35,.12);
+      border-radius:50%;
+      right:-230px;
+      top:-240px;
+      box-shadow:0 0 0 35px rgba(143,0,35,.025),0 0 0 70px rgba(143,0,35,.02);
+    }
+
+    .transformation-hero .hero-content { max-width: 680px; }
+    .transformation-hero .eyebrow { color:#8f1735; }
+    .transformation-hero h1 { font-size:clamp(3.1rem,5.8vw,5.6rem); letter-spacing:-.065em; }
+    .transformation-hero h1 em { color:#a5223c; }
+
+    .transformation-hero h1 em::after {
+      content:"";
+      display:block;
+      width:130px;
+      height:6px;
+      margin-top:11px;
+      background:#f47721;
+      border-radius:10px;
+      transform:rotate(-2deg);
+    }
+
+    .transformation-hero .hero-copy { max-width:620px; color:#5e4c53; line-height:1.85; }
+    .transformation-hero .button-primary { border-radius:9px; background:#8f1735; color:#fff; box-shadow:0 12px 28px rgba(143,23,53,.17); }
+    .transformation-hero .button-primary:hover { background:#6f1028; }
+
+    .featured-impact-story {
+      position:relative;
+      max-width:430px;
+      justify-self:center;
+      width:100%;
+      padding:15px;
+      border-radius:20px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(143,23,53,.14);
+      box-shadow:0 26px 70px rgba(75,23,37,.16);
+      transform:rotate(1.5deg);
+    }
+
+    .featured-story-image {
+      height:clamp(310px,38vw,470px);
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .featured-story-image img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .featured-impact-story.image-unavailable .featured-story-image { background:linear-gradient(145deg,#78122c,#b63b43); }
+
+    .featured-impact-story.image-unavailable .featured-story-image::after {
+      content:"A story of growth, courage, and possibility";
+      color:white;
+      padding:28px;
+      font:800 1.8rem/1.25 Manrope,sans-serif;
+      text-align:center;
+    }
+
+    .featured-story-note { display:flex; gap:13px; align-items:center; padding:16px 5px 3px; transform:rotate(-1.5deg); }
+    .story-note-mark { width:42px; height:42px; display:grid; place-items:center; flex:0 0 42px; border-radius:50%; background:#fbe4d5; color:#8f1735; }
+    .featured-story-note strong { display:block; font:800 1rem Manrope,sans-serif; color:#401a28; }
+    .featured-story-note p { margin:3px 0 0; font-size:.82rem; color:#75616a; }
+    .transformation-hero .gallery-hero-meta { color:#79666d; }
+    .photo-stories .section-heading { max-width:850px; }
+    .photo-stories .section-intro { max-width:740px; line-height:1.85; }
+    .impact-photo-grid { align-items:stretch; }
+    .impact-photo-grid figure { background:#f7f0ec; }
+    .impact-photo-trigger { background:#f7f0ec; padding:10px; }
+    .impact-photo-grid img { aspect-ratio: 4/5; object-fit:contain; background:#fff; border-radius:8px; }
+
+    .impact-photo-grid figure:nth-child(1) img,
+    .impact-photo-grid figure:nth-child(4) img,
+    .impact-photo-grid figure:nth-child(2) img,
+    .impact-photo-grid figure:nth-child(3) img,
+    .impact-photo-grid figure:nth-child(5) img,
+    .impact-photo-grid figure:nth-child(6) img,
+    .impact-photo-grid figure:nth-child(7) img,
+    .impact-photo-grid figure:nth-child(8) img {
+      aspect-ratio:4/5;
+    }
+
+    .impact-photo-grid figcaption { background:var(--surface); border-top:1px solid var(--line); min-height:68px; display:flex; align-items:center; }
+    .brand img { width:174px; max-height:62px; object-fit:contain; }
+    .brand-fallback { min-width:160px; gap:2px; color:#8f1735; }
+    .brand-fallback-name { font:800 1.25rem/1 Manrope,sans-serif; letter-spacing:.06em; }
+    .brand-fallback-name strong { color:#8f1735; }
+    .brand-fallback-sub { font:700 .59rem/1.2 "DM Sans",sans-serif; letter-spacing:.2em; color:var(--muted); }
+
+    :root[data-theme="dark"] .transformation-hero { background:linear-gradient(115deg,#21191e 0%,#2b1d25 65%,#301d27 100%); color:#fff4f0; }
+    :root[data-theme="dark"] .transformation-hero .hero-copy, :root[data-theme="dark"] .transformation-hero .gallery-hero-meta { color:#d4c0c7; }
+    :root[data-theme="dark"] .transformation-hero .eyebrow, :root[data-theme="dark"] .transformation-hero h1 em { color:#ff9a52; }
+    :root[data-theme="dark"] .featured-impact-story { background:#30242b; border-color:#543541; }
+    :root[data-theme="dark"] .featured-story-image, :root[data-theme="dark"] .impact-photo-grid img { background:#fff; }
+    :root[data-theme="dark"] .featured-story-note strong { color:#fff1f3; }
+    :root[data-theme="dark"] .featured-story-note p { color:#d4c0c7; }
+    :root[data-theme="dark"] .impact-photo-grid figure, :root[data-theme="dark"] .impact-photo-trigger { background:#2b2026; }
+
+    @media (max-width:850px) {
+      .transformation-hero { grid-template-columns:1fr; gap:38px; padding-top:60px; }
+      .transformation-hero .hero-content { max-width:740px; }
+      .featured-impact-story { width:min(420px,100%); }
+      .featured-story-image { height:min(112vw,480px); }
+    }
+
+    @media (max-width:600px) {
+      .transformation-hero { padding:48px 22px 55px; }
+      .transformation-hero h1 { font-size:clamp(2.9rem,13vw,4.2rem); }
+      .transformation-hero .hero-copy { font-size:1rem; }
+      .featured-impact-story { padding:10px; }
+      .featured-story-image { height:390px; }
+      .impact-photo-grid img { aspect-ratio:4/5; }
+    }
+
+   /* Fix image fitting and prevent unnecessary empty space in gallery cards */
+.impact-photo-grid {
+  align-items: start !important;
+}
+
+.impact-photo-grid figure.impact-photo-card {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.impact-photo-grid .impact-photo-trigger {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.impact-photo-grid .impact-photo-trigger img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover !important;
+  object-position: center;
+}
+
+/* Keep the featured image fitted inside its existing box */
+.featured-impact-story .featured-story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center;
+}
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/THNA LOGO 1.png" alt="no image">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programmes.html">Programmes</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Impact <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="impact.html">Impact Overview</a>
+            <a href="impact-in-pictures.html" aria-current="page">Impact, in Pictures</a>
+            <a href="impactstories.html">Impact Stories</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Events <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="nav-dropdown-menu">
+            <a href="events.html#past-events">Past Events</a>
+            <a href="events.html#upcoming-events">Upcoming Events</a>
+            <a href="events.html">All Events</a>
+          </div>
+        </div>
+        <a href="community.html">Community</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button"
+          aria-label="Switch to dark mode" title="Toggle colour theme">
+          <i class="fa-regular fa-moon" aria-hidden="true"></i>
+        </button>
+
+        <button class="icon-button menu-toggle" type="button"
+          aria-expanded="false" aria-controls="main-nav"
+          aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero gallery-hero transformation-hero">
+      <div class="hero-content gallery-hero-content">
+        <p class="eyebrow"><span></span> Stories of growth and transformation</p>
+        <h1>Every changed life<br>has a <em>story.</em></h1>
+        <p class="hero-copy">Behind every impact is a person with a journey: a voice growing stronger, confidence taking root, skills finding purpose, and possibilities becoming real. These are the stories of people whose lives have been touched by The Hive Network Africa.</p>
+        <a class="button button-primary" href="#photo-stories-title">Real Lives. Real transformation <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+        <div class="gallery-hero-meta"><span class="meta-dot"></span> Real voices <span class="meta-divider">/</span> Personal journeys <span class="meta-divider">/</span> Lasting growth</div>
+      </div>
+      <div class="featured-impact-story">
+        <div class="featured-story-image"><img src="images/IMPACT STORY- UNIBEN COHORT 18.png" alt="Impact story of Muomaife Chibueze Kingsley describing his personal and professional growth" onerror="this.closest('.featured-impact-story').classList.add('image-unavailable')"></div>
+        <div class="featured-story-note"><span class="story-note-mark"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span><div><strong>A journey, not just a moment.</strong><p>Read each story in the person's own words.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section-wrap photo-stories" aria-labelledby="photo-stories-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">People before numbers</p>
+          <h2 id="photo-stories-title">Real lives. <span>Real transformation.</span></h2>
+          <p class="section-intro">These are not event snapshots. Each image tells a personal story of growth, new confidence, lessons learned, and the difference community can make. Open a story and take time with the journey.</p>
+        </div>
+      </div>
+
+      <div class="impact-photo-grid" id="impact-photo-grid">
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="0" aria-label="Open impact story 1, UNIBEN Cohort">
+            <img src="images/IMPACT STORY - UNIBEN COHORT 1.png" alt="A personal impact story from a member of the UNIBEN cohort" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>A personal journey · UNIBEN</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="1" aria-label="Open impact story 2, UNIBEN Cohort">
+            <img src="images/Impact Story Uniben Cohorts June 13th.png" alt="A personal transformation story from a UNIBEN cohort member" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>Growth and new possibilities</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="2" aria-label="Open impact story 3, UNIBEN Cohort">
+            <img src="images/Impact Story Uniben Cohorts June 20th (1).png" alt="A personal impact story sharing a member’s experience with THNA" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>Confidence through community</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="3" aria-label="Open impact story 4, UNIBEN Cohort">
+            <img src="images/Impact Story Uniben Cohorts June 20th (2).png" alt="A personal impact story sharing a member’s experience with THNA" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>Confidence through community</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="4" aria-label="Open impact story 5, UNIBEN Cohort">
+            <img src="images/Impact Story Uniben Cohorts June 20th (4).png" alt="A personal impact story sharing a member’s experience with THNA" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>Confidence through community</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="5" aria-label="Open impact story 6, UNIBEN Cohort">
+            <img src="images/Impact Story Uniben Cohorts June 20th (5).png" alt="A personal impact story sharing a member’s experience with THNA" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>Confidence through community</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="6" aria-label="Open impact story 7, UNIBEN Cohort">
+            <img src="images/IMPACT STORY- UNIBEN COHORT 18.png" alt="Muomaife Chibueze Kingsley’s story of personal and professional growth" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>UNIBEN Cohort 18 · Impact Story</figcaption>
+        </figure>
+
+        <figure class="impact-photo-card">
+          <button class="impact-photo-trigger" type="button" data-photo-index="7" aria-label="Open impact story 8, UNIBEN Cohort">
+            <img src="images/IMPACT STORY- UNIBEN COHORT 3.png" alt="Impact story from UNIBEN Cohort 3" loading="lazy">
+            <span class="impact-photo-overlay"><i class="fa-solid fa-up-right-and-down-left-from-center" aria-hidden="true"></i><strong>Explore this impact story</strong><span>Click to view full image</span></span>
+          </button>
+          <figcaption>UNIBEN Cohort 3 · Impact Story</figcaption>
+        </figure>
+      </div>
+
+      <p class="photo-note">Want to read more from our community? Visit the <a href="impactstories.html">Impact Stories page</a>, or return to the <a href="impact.html">Impact overview</a>.</p>
+    </section>
+
+    <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-labelledby="photo-lightbox-title" aria-hidden="true">
+      <div class="photo-lightbox-dialog" role="document">
+        <button class="icon-button photo-lightbox-close" id="photo-lightbox-close" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <div class="photo-lightbox-image-wrap">
+          <img class="photo-lightbox-image" id="photo-lightbox-image" src="" alt="">
+        </div>
+        <div class="photo-lightbox-copy">
+          <p class="eyebrow">Impact in pictures</p>
+          <h3 id="photo-lightbox-title">A personal journey · UNIBEN</h3>
+          <p id="photo-lightbox-description">View the full impact story image. The image includes the story details shared by The Hive Network Africa.</p>
+          <a class="text-link" href="impactstories.html">Explore written impact stories <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <div class="photo-lightbox-nav">
+            <button class="button button-outline" id="photo-prev" type="button"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Previous</button>
+            <span class="photo-lightbox-count" id="photo-lightbox-count" aria-live="polite">1 of 8</span>
+            <button class="button button-outline" id="photo-next" type="button">Next <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <a href="index.html" class="footer-logo"><img src="images/THNA LOGO 1.png" alt="The Hive Network Africa" class="footer-logo-img"></a>
+          <p class="footer-motto">Believe. Achieve. <span>Succeed.</span></p>
+          <p class="footer-bio">Transforming African university campuses into launchpads for innovation, leadership, and youth impact.</p>
+          <div class="contact-info"><p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:thnafrica@gmail.com">thnafrica@gmail.com</a></p><p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+2349061132003">+234 906 113 2003</a></p></div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/thnafrica" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@thnafrica" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.instagram.com/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programmes.html">Programmes</a></li><li><a href="impact.html">Impact</a></li><li><a href="community.html">Community</a></li><li><a href="events.html">Events</a></li></ul></div>
+        <div class="footer-col"><h4>Initiatives</h4><ul><li><a href="programmes.html#tours-hero">Campus Training Tour</a></li><li><a href="programmes.html">Creative Youth Mentoring</a></li><li><a href="programmes.html">Creative Youth Arts &amp; Science Fairs</a></li><li><a href="programmes.html">Inter-Cohort Debate</a></li></ul></div>
+        <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="community.html">Join the Community</a></li><li><a href="events.html#upcoming-events">Upcoming Events</a></li><li><a href="https://forms.gle/sWG5v69bNKXqP93R7" target="_blank" rel="noopener noreferrer">Join a Cohort</a></li><li><a href="https://forms.gle/DPb9s9FyxqtHMaM2A" target="_blank" rel="noopener noreferrer">Start a New Cohort</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© <span id="current-year"></span> <strong>The Hive Network Africa</strong>. All rights reserved.</p><div><a href="privacy-policy.html">Privacy Policy</a><span> · </span><a href="terms.html">Terms of Service</a></div></div>
+    </div>
+  </footer>
+
+  <script>
+    const testimonials = [
+      {
+        slug: "idiake-destiny",
+        name: "Idiake Destiny",
+        affiliation: "Uniben, 2025.",
+        text: "Before I joined The Hive Network Africa, I was a very shy student. I had great ideas in my head, but I was terrified of sharing them. I'd avoid group projects and networking events, which made me feel isolated and held me back. My motivation was low because I didn't see a clear way to turn my passion into a reality.\n\nThe program was a game-changer. They taught me how to communicate. They encouraged me to step out of my comfort zone and practice pitching my ideas, which was initially terrifying. Slowly, my confidence grew.\n\nNow, I'm a much bolder person. I'm actively leading a student-run project and have no problem speaking up in class or at professional events.\nThe program didn't just give me skills; it gave me the motivation to keep going and the social skills to build a network of people who support me. I went from being a student with great ideas to a confident leader who can turn those ideas into action."
+      },
+      {
+        slug: "grace-onogberiome",
+        name: "Grace Onogberiome",
+        affiliation: "Uniben, 2026.",
+        text: "Joining The Hive Network Africa has helped me grow both personally and professionally. I have learned on the job through practical experiences, mentorship, and collaboration, which have strengthened my leadership, communication, partnership-building, and problem-solving skills. Beyond the professional growth, I have also built meaningful friendships with like-minded people who inspire and support me. The experience has increased my confidence, expanded my professional network, and equipped me to contribute more effectively to youth development and community impact initiatives. It has also inspired me to continue learning, leading, and creating meaningful change wherever I serve."
+      },
+      {
+        slug: "adeyeye-godspurpose",
+        name: "Adeyeye God'spurpose",
+        affiliation: "Uniben, 2026.",
+        text: "I had the opportunity to join the Hive Network Africa through one of its projects the Benin Skills Fest and since then THNA has impacted me so much. They created a room for me to learn my desired skill and improve myself. Beyond that, I was able to see and think beyond my limitations. My mind got opened and I understood more about giving one self a service to create value..\n\nAlthough, I just joined the hive network long after which I would have wished for, the time spent has been amazing and impact has been implanted. I'm really grateful to be here."
+      },
+      {
+        slug: "oghene-flourish",
+        name: "Oghene Flourish",
+        affiliation: "Uniben, 2026.",
+        text: "Every moment being a Hiver is a testimony. I'm so glad that even in this brief moment I could be part of of a community this impactful. The Hive Network Africa, has taught me that life is filled with opportunity, all I need to be ready to grasp it."
+      },
+      {
+        slug: "ihinosen-akhabue",
+        name: "Ihinosen Akhabue",
+        affiliation: "Uniben, 2026.",
+        text: "Before joining The Hive Network Africa, I struggled with multitasking and managing different responsibilities effectively. Since joining the network, I have developed the ability to handle multiple tasks efficiently, and my efforts now produce better results."
+      }
+    ];
+
+    // Add only verified event information here.
+    // Leave empty until real event details are provided.
+    const events = [];
+
+    const $ = (selector, root = document) =>
+      root.querySelector(selector);
+
+    const $$ = (selector, root = document) =>
+      [...root.querySelectorAll(selector)];
+
+    function setupTheme() {
+      const toggle = $(".theme-toggle");
+      if (!toggle) return;
+
+      const paint = () => {
+        const dark =
+          document.documentElement.dataset.theme === "dark";
+
+        toggle.innerHTML = `<i class="fa-regular ${
+          dark ? "fa-sun" : "fa-moon"
+        }" aria-hidden="true"></i>`;
+
+        toggle.setAttribute(
+          "aria-label",
+          dark ? "Switch to light mode" : "Switch to dark mode"
+        );
+      };
+
+      paint();
+
+      toggle.addEventListener("click", () => {
+        const next =
+          document.documentElement.dataset.theme === "dark"
+            ? "light"
+            : "dark";
+
+        document.documentElement.dataset.theme = next;
+
+        try {
+          localStorage.setItem("thna-theme", next);
+        } catch (_) {}
+
+        paint();
+      });
+    }
+
+    function setupMenu() {
+      const toggle = $(".menu-toggle");
+      const nav = $("#main-nav");
+
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute(
+          "aria-label",
+          open ? "Close navigation menu" : "Open navigation menu"
+        );
+      });
+
+      document.addEventListener("click", event => {
+        if (
+          !nav.contains(event.target) &&
+          !toggle.contains(event.target)
+        ) {
+          nav.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open navigation menu");
+        }
+      });
+    }
+
+    function setupCounters() {
+      const counters = $$("[data-count]");
+      if (!counters.length) return;
+
+      const reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      const format = value =>
+        Number(value).toLocaleString("en-US");
+
+      const finish = counter => {
+        counter.textContent =
+          format(counter.dataset.count) +
+          (counter.dataset.suffix || "");
+      };
+
+      const animate = counter => {
+        if (counter.dataset.done) return;
+        counter.dataset.done = "true";
+
+        const target = Number(counter.dataset.count);
+
+        if (reduced) {
+          finish(counter);
+          return;
+        }
+
+        const duration = 1300;
+        const start = performance.now();
+
+        const tick = now => {
+          const progress = Math.min(
+            (now - start) / duration,
+            1
+          );
+
+          const eased = 1 - Math.pow(1 - progress, 3);
+
+          counter.textContent =
+            format(Math.round(target * eased)) +
+            (progress === 1
+              ? (counter.dataset.suffix || "")
+              : "");
+
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          }
+        };
+
+        requestAnimationFrame(tick);
+      };
+
+      if (!("IntersectionObserver" in window)) {
+        counters.forEach(animate);
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              counters.forEach(animate);
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      observer.observe(
+        counters[0].closest(".stats-grid") || counters[0]
+      );
+    }
+
+    function renderEvents() {
+      const grid = $("#events-grid");
+      if (!grid) return;
+
+      const search = $("#event-search");
+      const category = $("#category-filter");
+      const status = $("#status-filter");
+      const sort = $("#sort-filter");
+      const empty = $("#events-empty");
+      const count = $("#event-count");
+      const reset = $("#reset-filters");
+
+      if (
+        !search || !category || !status ||
+        !sort || !empty || !count || !reset
+      ) {
+        return;
+      }
+
+      const render = () => {
+        const query = (search.value || "")
+          .trim()
+          .toLowerCase();
+
+        let shown = events.filter(event => {
+          const text = (
+            `${event.title} ${event.description} ` +
+            `${event.category} ${event.venue || ""}`
+          ).toLowerCase();
+
+          const statusMatch =
+            status.value === "all" ||
+            event.status === status.value;
+
+          const categoryMatch =
+            category.value === "all" ||
+            event.category === category.value;
+
+          return (
+            text.includes(query) &&
+            statusMatch &&
+            categoryMatch
+          );
+        });
+
+        shown.sort((a, b) =>
+          sort.value === "title"
+            ? a.title.localeCompare(b.title)
+            : sort.value === "latest"
+              ? new Date(b.date) - new Date(a.date)
+              : new Date(a.date) - new Date(b.date)
+        );
+
+        grid.innerHTML = shown.map(event => `
+          <article class="event-card">
+            <div class="event-art" aria-hidden="true">
+              <i class="fa-solid ${
+                event.icon || "fa-calendar-days"
+              }"></i>
+            </div>
+
+            <div class="event-card-body">
+              <div class="event-meta">
+                <span class="pill">
+                  ${escapeHTML(event.category)}
+                </span>
+
+                <span class="pill ${
+                  event.status === "past" ? "status-past" : ""
+                }">
+                  ${
+                    event.status === "past"
+                      ? "Past event"
+                      : "Upcoming"
+                  }
+                </span>
+              </div>
+
+              <h3>${escapeHTML(event.title)}</h3>
+              <p>${escapeHTML(event.description)}</p>
+
+              <ul class="event-detail-list">
+                ${
+                  event.date
+                    ? `<li>
+                        <i class="fa-regular fa-calendar"
+                           aria-hidden="true"></i>
+                        ${escapeHTML(event.dateLabel || event.date)}
+                      </li>`
+                    : ""
+                }
+
+                ${
+                  event.time
+                    ? `<li>
+                        <i class="fa-regular fa-clock"
+                           aria-hidden="true"></i>
+                        ${escapeHTML(event.time)}
+                      </li>`
+                    : ""
+                }
+
+                ${
+                  event.venue
+                    ? `<li>
+                        <i class="fa-solid fa-location-dot"
+                           aria-hidden="true"></i>
+                        ${escapeHTML(event.venue)}
+                      </li>`
+                    : ""
+                }
+              </ul>
+
+              ${
+                event.url
+                  ? `<a class="text-link"
+                        href="${escapeAttribute(event.url)}"
+                        ${
+                          event.status === "past"
+                            ? ""
+                            : 'target="_blank" rel="noopener noreferrer"'
+                        }>
+                      ${
+                        event.status === "past"
+                          ? "Explore highlights"
+                          : "Event details"
+                      }
+                      <i class="fa-solid fa-arrow-right"
+                         aria-hidden="true"></i>
+                    </a>`
+                  : ""
+              }
+            </div>
+          </article>
+        `).join("");
+
+        empty.hidden = shown.length > 0;
+
+        count.textContent = shown.length
+          ? `${shown.length} ${
+              shown.length === 1 ? "event" : "events"
+            } found`
+          : events.length
+            ? "No matching events"
+            : "No published events yet";
+      };
+
+      [search, category, status, sort].forEach(control => {
+        control.addEventListener("input", render);
+        control.addEventListener("change", render);
+      });
+
+      reset.addEventListener("click", () => {
+        search.value = "";
+        category.value = "all";
+        status.value = "all";
+        sort.value = "soonest";
+        render();
+      });
+
+      render();
+    }
+
+    function escapeHTML(value = "") {
+      return String(value).replace(
+        /[&<>"']/g,
+        char =>
+          ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+          })[char]
+      );
+    }
+
+    function escapeAttribute(value = "") {
+      return escapeHTML(value);
+    }
+
+    function renderTestimonials() {
+      const track = $("#testimonial-track");
+      if (!track) return;
+
+      const onTestimonialsPage =
+        document.body.dataset.page === "testimonials";
+
+      const excerpt = text => {
+        const compact = text.replace(/\s+/g, " ").trim();
+        const limit = Math.min(
+          245,
+          Math.ceil(compact.length * 0.48)
+        );
+
+        const cut = compact.slice(0, limit);
+        const lastSpace = cut.lastIndexOf(" ");
+
+        return cut
+          .slice(0, lastSpace > 100 ? lastSpace : limit)
+          .trim();
+      };
+
+      if (onTestimonialsPage) {
+        track.innerHTML = testimonials.map(
+          (story, index) => `
+            <article class="full-story" id="${story.slug}">
+              <span class="story-number">
+                Community story ${String(index + 1).padStart(2, "0")}
+              </span>
+
+              <blockquote>${escapeHTML(story.text)}</blockquote>
+
+              <h2>${escapeHTML(story.name)}</h2>
+
+              <p class="affiliation">
+                ${escapeHTML(story.affiliation)}
+              </p>
+
+              <a class="back-link" href="impactstories.html">
+                <i class="fa-solid fa-arrow-left"
+                   aria-hidden="true"></i>
+                All testimonials
+              </a>
+            </article>
+          `
+        ).join("");
+
+        if (location.hash) {
+          requestAnimationFrame(() => {
+            document.getElementById(
+              decodeURIComponent(location.hash.slice(1))
+            )?.scrollIntoView();
+          });
+        }
+
+        return;
+      }
+
+      let start = 0;
+
+      const draw = () => {
+        const mobile = window.matchMedia(
+          "(max-width: 720px)"
+        ).matches;
+
+        const tablet = window.matchMedia(
+          "(max-width: 1000px)"
+        ).matches;
+
+        const visible = mobile ? 1 : tablet ? 2 : 3;
+
+        const items = Array.from(
+          {
+            length: Math.min(visible, testimonials.length)
+          },
+          (_, offset) =>
+            testimonials[
+              (start + offset) % testimonials.length
+            ]
+        );
+
+        track.innerHTML = items.map(
+          story => `
+            <article class="quote-card">
+              <i class="fa-solid fa-quote-left quote-icon"
+                 aria-hidden="true"></i>
+
+              <blockquote>${escapeHTML(excerpt(story.text))}</blockquote>
+
+              <div class="quote-author">
+                <strong>${escapeHTML(story.name)}</strong>
+                <span>${escapeHTML(story.affiliation)}</span>
+
+                <a class="text-link"
+                   href="testimonials.html#${story.slug}">
+                  Read Story
+                  <i class="fa-solid fa-arrow-right"
+                     aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          `
+        ).join("");
+
+        const status = $("#carousel-status");
+
+        if (status) {
+          status.textContent =
+            `Showing ${visible} of ${testimonials.length} community stories`;
+        }
+      };
+
+      $("#story-prev")?.addEventListener("click", () => {
+        start =
+          (start - 1 + testimonials.length) %
+          testimonials.length;
+        draw();
+      });
+
+      $("#story-next")?.addEventListener("click", () => {
+        start = (start + 1) % testimonials.length;
+        draw();
+      });
+
+      window.addEventListener("resize", draw);
+
+      draw();
+    }
+
+    function setupImpactPhotoGallery() {
+      const grid = document.querySelector("#impact-photo-grid");
+      const lightbox = document.querySelector("#photo-lightbox");
+      if (!grid || !lightbox) return;
+
+      const cards = Array.from(grid.querySelectorAll(".impact-photo-card"));
+      const triggers = Array.from(grid.querySelectorAll(".impact-photo-trigger"));
+      const toggle = document.querySelector("#toggle-impact-photos");
+      const image = document.querySelector("#photo-lightbox-image");
+      const title = document.querySelector("#photo-lightbox-title");
+      const description = document.querySelector("#photo-lightbox-description");
+      const count = document.querySelector("#photo-lightbox-count");
+      const closeButton = document.querySelector("#photo-lightbox-close");
+      const previousButton = document.querySelector("#photo-prev");
+      const nextButton = document.querySelector("#photo-next");
+
+      const photoDetails = [
+        { title: "A personal journey · UNIBEN", description: "A closer look at a community story shared through The Hive Network Africa. Open the image to read the full story as presented in the original artwork." },
+        { title: "Growth and new possibilities", description: "An impact story from the UNIBEN cohort, captured in the original story artwork." },
+        { title: "Confidence through community", description: "An impact story from the UNIBEN cohort, captured in the original story artwork." },
+        { title: "Confidence through community", description: "An impact story from the UNIBEN cohort, captured in the original story artwork." },
+        { title: "Confidence through community", description: "An impact story from the UNIBEN cohort, captured in the original story artwork." },
+        { title: "Confidence through community", description: "An impact story from the UNIBEN cohort, captured in the original story artwork." },
+        { title: "UNIBEN Cohort 18 · Impact Story", description: "An impact story from UNIBEN Cohort 18, captured in the original story artwork." },
+        { title: "UNIBEN Cohort 3 · Impact Story", description: "An impact story from UNIBEN Cohort 3, captured in the original story artwork." }
+      ];
+
+      let activeIndex = 0;
+      let lastFocused = null;
+      const sourceFor = index => triggers[index].querySelector("img").getAttribute("src");
+
+      const showPhoto = index => {
+        activeIndex = (index + triggers.length) % triggers.length;
+        const source = sourceFor(activeIndex);
+        image.src = source;
+        image.alt = triggers[activeIndex].querySelector("img").alt;
+        title.textContent = photoDetails[activeIndex].title;
+        description.textContent = photoDetails[activeIndex].description;
+        count.textContent = `${activeIndex + 1} of ${triggers.length}`;
+        previousButton.disabled = triggers.length < 2;
+        nextButton.disabled = triggers.length < 2;
+      };
+
+      const openViewer = index => {
+        lastFocused = document.activeElement;
+        showPhoto(index);
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+        closeButton.focus();
+      };
+
+      const closeViewer = () => {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lightbox-open");
+        image.removeAttribute("src");
+        if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+      };
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener("click", () => openViewer(index));
+      });
+
+      previousButton.addEventListener("click", () => showPhoto(activeIndex - 1));
+      nextButton.addEventListener("click", () => showPhoto(activeIndex + 1));
+      closeButton.addEventListener("click", closeViewer);
+
+      lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) closeViewer();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (event.key === "Escape") closeViewer();
+        if (event.key === "ArrowLeft") showPhoto(activeIndex - 1);
+        if (event.key === "ArrowRight") showPhoto(activeIndex + 1);
+      });
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          cards.forEach((card, index) => {
+            if (index >= 3) card.hidden = expanded;
+          });
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          toggle.innerHTML = expanded
+            ? 'Explore More Impact Moments <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>'
+            : 'Show Fewer Impact Moments <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+        });
+      }
+    }
+
+    const navDropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
+
+    navDropdowns.forEach(dropdown => {
+      const button = dropdown.querySelector(".nav-dropdown-toggle");
+
+      button.addEventListener("click", () => {
+        const shouldOpen = !dropdown.classList.contains("open");
+
+        navDropdowns.forEach(item => {
+          item.classList.remove("open");
+          item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+        });
+
+        if (shouldOpen) {
+          dropdown.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (event.target.closest(".nav-dropdown")) return;
+
+      navDropdowns.forEach(dropdown => {
+        dropdown.classList.remove("open");
+        dropdown.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "Escape") return;
+
+      navDropdowns.forEach(dropdown => {
+        dropdown.classList.remove("open");
+        dropdown.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.querySelectorAll(".project-video[data-video-id]").forEach(link => {
+      let frame = null;
+
+      const startPreview = () => {
+        if (window.matchMedia("(hover: none)").matches || frame) return;
+
+        frame = document.createElement("iframe");
+        frame.src = `https://www.youtube-nocookie.com/embed/${link.dataset.videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${link.dataset.videoId}&playsinline=1&rel=0`;
+        frame.title = "Muted project video preview";
+        frame.allow = "autoplay; encrypted-media; picture-in-picture";
+        frame.setAttribute("allowfullscreen", "");
+
+        const thumbnail = link.querySelector("img");
+        if (thumbnail) thumbnail.replaceWith(frame);
+
+        link.querySelector(".video-play")?.style.setProperty("display", "none");
+      };
+
+      const stopPreview = () => {
+        if (!frame) return;
+
+        const thumbnail = document.createElement("img");
+        thumbnail.src = `https://img.youtube.com/vi/${link.dataset.videoId}/hqdefault.jpg`;
+        thumbnail.alt = "YouTube project video preview";
+        thumbnail.loading = "lazy";
+
+        frame.replaceWith(thumbnail);
+        frame = null;
+
+        link.querySelector(".video-play")?.style.removeProperty("display");
+      };
+
+      link.addEventListener("mouseenter", startPreview);
+      link.addEventListener("mouseleave", stopPreview);
+      link.addEventListener("focus", startPreview);
+      link.addEventListener("blur", stopPreview);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setupTheme();
+      setupMenu();
+      setupCounters();
+      renderEvents();
+      renderTestimonials();
+      setupImpactPhotoGallery();
+
+      const year = $("#current-year");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,115 +1,1103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Hive Network Africa</title>
-  <link rel="icon" type="image/png" href="/images/THNA LOGO 1.png">
-  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="The Hive Network Africa empowers African youth through leadership and entrepreneurship development, practical skills, mentorship and community-led initiatives.">
+  <meta name="theme-color" content="#650019">
+  <title>Home | The Hive Network Africa</title>
+  <link rel="icon" type="image/png" href="images/THNA LOGO 1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("thna-theme");
+        document.documentElement.dataset.theme = savedTheme ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (_) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+
+  <style>
+    /* =========================================
+       1. THNA BRAND SYSTEM
+    ========================================= */
+    :root {
+      color-scheme: light;
+      --page: #fffdf8;
+      --surface: #ffffff;
+      --surface-soft: #f6f2e9;
+      --surface-warm: #eee5d5;
+      --ink: #28231f;
+      --muted: #716b64;
+      --line: #e5ded2;
+      --burgundy: #8f0000;
+      --burgundy-dark: #650019;
+      --orange: #f47721;
+      --header-bg: rgba(255,253,248,.95);
+      --shadow: 0 18px 48px rgba(45,22,12,.09);
+      --card-shadow: 0 7px 24px rgba(45,22,12,.055);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #151311;
+      --surface: #201d19;
+      --surface-soft: #29251f;
+      --surface-warm: #342d23;
+      --ink: #f7f1e8;
+      --muted: #c5b9aa;
+      --line: #453b30;
+      --burgundy: #e05a3f;
+      --burgundy-dark: #3b1111;
+      --orange: #ff9a48;
+      --header-bg: rgba(21,19,17,.95);
+      --shadow: 0 18px 48px rgba(0,0,0,.27);
+      --card-shadow: 0 7px 24px rgba(0,0,0,.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+      transition: background .25s, color .25s;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    h1, h2, h3, h4 { font-family: Manrope, sans-serif; }
+    .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 12px;
+      color: var(--burgundy);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 25px; height: 3px; flex: 0 0 auto; border-radius: 4px; background: var(--orange); }
+    .section-title {
+      margin: 0;
+      font-size: clamp(2rem, 4.1vw, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: -.055em;
+    }
+    .section-title span { color: var(--burgundy); }
+    .section-intro { max-width: 650px; margin: 13px 0 0; color: var(--muted); font-size: .98rem; }
+    .section-heading { margin-bottom: 30px; }
+    .section-heading.centered { text-align: center; }
+    .section-heading.centered .eyebrow { justify-content: center; }
+    .section-heading.centered .section-intro { margin-inline: auto; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      font-size: .88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #2b160b; background: var(--orange); }
+    .button-primary:hover { background: #ff984e; }
+    .button-light { color: var(--burgundy-dark); background: #fffdf8; }
+    .button-light:hover { background: #f4ead9; }
+    .button-outline { color: var(--ink); border-color: var(--line); background: transparent; }
+    .button-outline:hover { border-color: var(--orange); background: var(--surface-soft); }
+    .button-outline-light { color: #fff; border-color: rgba(255,255,255,.4); background: transparent; }
+    .button-outline-light:hover { border-color: var(--orange); background: rgba(255,255,255,.07); }
+
+    /* =========================================
+       2. SHARED SITE HEADER
+    ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      width: min(1200px, calc(100% - 48px));
+      min-height: 86px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: inline-flex; align-items: center; flex: 0 0 auto; }
+    .brand img { width: 164px; max-height: 62px; object-fit: contain; }
+    .main-nav { display: flex; align-items: center; gap: clamp(11px, 1.45vw, 21px); margin-left: auto; }
+    .main-nav > a, .nav-dropdown-toggle {
+      position: relative;
+      padding: 9px 0;
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .main-nav > a:hover, .main-nav > a[aria-current="page"], .nav-dropdown-toggle:hover { color: var(--burgundy); }
+    .main-nav > a[aria-current="page"]::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--orange);
+    }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-dropdown-toggle i { font-size: .68rem; transition: transform .2s; }
+    .nav-dropdown.open .nav-dropdown-toggle i { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: -12px;
+      min-width: 205px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      z-index: 110;
+    }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 12px; border-radius: 7px; color: var(--muted); font-size: .86rem; }
+    .nav-dropdown-menu a:hover { color: var(--burgundy); background: var(--surface-soft); }
+    .header-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 41px;
+      height: 41px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+    .icon-button:hover { transform: translateY(-2px); border-color: var(--orange); }
+    .menu-toggle { display: none; border-radius: 11px; }
+    .menu-toggle span { display: block; width: 18px; height: 2px; margin: 4px 0; background: currentColor; transition: transform .2s, opacity .2s; }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+
+    /* =========================================
+       3. HOMEPAGE HERO
+    ========================================= */
+    .home-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 595px;
+      display: flex;
+      align-items: center;
+      padding: 76px 0 87px;
+      color: #fff;
+      background: linear-gradient(118deg, #650019 0%, #8f0000 55%, #351019 100%);
+    }
+    .home-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(ellipse at 78% 17%, rgba(244,119,33,.28), transparent 30%), radial-gradient(ellipse at 18% 90%, rgba(255,255,255,.07), transparent 39%);
+      pointer-events: none;
+    }
+    .hero-ring { position: absolute; z-index: -1; width: 430px; height: 430px; right: -95px; top: 2%; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.025), 0 0 0 72px rgba(255,255,255,.018); pointer-events: none; }
+    .hero-layout { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,.92fr); align-items: center; gap: 54px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-copy .eyebrow { color: #ffc18c; }
+    .hero-copy h1 { max-width: 720px; margin: 0; font-size: clamp(3.05rem,6.4vw,5.55rem); line-height: .99; letter-spacing: -.072em; font-weight: 800; }
+    .hero-copy h1 span { display: block; color: #ffad69; }
+    .hero-copy > p:not(.eyebrow) { max-width: 565px; margin: 23px 0 0; color: rgba(255,255,255,.83); font-size: 1.04rem; line-height: 1.85; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 32px; color: rgba(255,255,255,.7); font-size: .76rem; }
+    .hero-note i { color: #ffb36f; }
+    .hero-note span { display: inline-block; width: 1px; height: 17px; background: rgba(255,255,255,.32); }
+
+    .hero-visual { position: relative; min-width: 0; padding: 10px 17px 17px 0; }
+    .hero-photo-main { position: relative; overflow: hidden; aspect-ratio: 4 / 4.1; border-radius: 145px 145px 13px 13px; background: #39271b; border: 1px solid rgba(255,255,255,.17); box-shadow: 0 26px 65px rgba(0,0,0,.26); }
+    .hero-photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .7s; }
+    .hero-photo-main:hover img { transform: scale(1.04); }
+    .hero-photo-main::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 47%, rgba(22,7,12,.72)); }
+    .hero-photo-caption { position: absolute; z-index: 2; right: 22px; bottom: 22px; left: 22px; }
+    .hero-photo-caption small { display: block; margin-bottom: 5px; color: #ffbd83; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-photo-caption strong { display: block; max-width: 330px; font: 800 clamp(1.35rem,2.7vw,2rem)/1.2 Manrope,sans-serif; letter-spacing: -.04em; }
+    .hero-sticker { position: absolute; z-index: 3; top: 13%; right: -9px; display: grid; place-items: center; width: 82px; height: 82px; border: 6px solid #650019; border-radius: 50%; background: var(--orange); color: #321608; text-align: center; font: 800 .78rem/1.2 Manrope,sans-serif; transform: rotate(9deg); }
+    .hero-floating-card { position: absolute; z-index: 4; left: -34px; bottom: 41px; display: flex; align-items: center; gap: 12px; max-width: 205px; padding: 13px 15px; border: 1px solid rgba(255,255,255,.25); border-radius: 9px; background: #fffdf8; color: #28231f; box-shadow: 0 13px 35px rgba(0,0,0,.2); }
+    .hero-floating-card i { display: grid; place-items: center; width: 37px; height: 37px; flex: 0 0 auto; border-radius: 8px; background: #f7e9d7; color: #8f0000; }
+    .hero-floating-card strong { display: block; font: 800 .81rem/1.25 Manrope,sans-serif; }
+    .hero-floating-card small { display: block; margin-top: 3px; color: #716b64; font-size: .69rem; }
+
+    /* =========================================
+       4. IMPACT COUNTERS
+    ========================================= */
+    .stats-section { position: relative; z-index: 4; margin-top: -1px; padding: 0 0 74px; background: var(--page); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); box-shadow: var(--shadow); }
+    .stat-card { position: relative; padding: 28px 18px 26px; text-align: center; }
+    .stat-card + .stat-card { border-left: 1px solid var(--line); }
+    .stat-number { display: block; color: var(--burgundy); font: 800 clamp(2rem,4vw,3rem)/1.15 Manrope,sans-serif; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+    .stat-card p { margin: 8px 0 0; color: var(--muted); font-size: .85rem; font-weight: 700; }
+
+    /* =========================================
+       5. ABOUT / PURPOSE
+    ========================================= */
+    .purpose-section { padding: 73px 0 82px; background: var(--surface-soft); }
+    .purpose-layout { display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); gap: 65px; align-items: center; }
+    .purpose-visual { position: relative; min-width: 0; }
+    .purpose-image { overflow: hidden; aspect-ratio: 5 / 4.25; border-radius: 12px 115px 12px 12px; background: var(--surface-warm); box-shadow: var(--shadow); }
+    .purpose-image img { width: 100%; height: 100%; object-fit: cover; }
+    .purpose-stamp { position: absolute; right: -18px; bottom: -20px; display: grid; place-items: center; width: 112px; height: 112px; padding: 12px; border: 7px solid var(--surface-soft); border-radius: 50%; background: var(--orange); color: #35170b; text-align: center; font: 800 .74rem/1.25 Manrope,sans-serif; }
+    .purpose-copy h2 { margin: 0; font-size: clamp(2rem,4vw,3.15rem); line-height: 1.12; letter-spacing: -.055em; }
+    .purpose-copy h2 span { color: var(--burgundy); }
+    .purpose-copy > p:not(.eyebrow) { margin: 17px 0 0; color: var(--muted); font-size: .96rem; line-height: 1.9; }
+    .purpose-quote { margin: 23px 0 25px; padding: 17px 20px; border-left: 4px solid var(--orange); border-radius: 0 8px 8px 0; background: var(--surface); color: var(--ink); font: 700 1rem/1.65 Manrope,sans-serif; }
+    .purpose-quote span { display: block; margin-top: 7px; color: var(--muted); font: 600 .75rem "DM Sans",sans-serif; }
+
+    /* =========================================
+       6. OUR PILLARS
+    ========================================= */
+    .pillars-section { padding: 82px 0 88px; background: var(--page); }
+    .pillar-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 19px; }
+    .pillar-card { position: relative; overflow: hidden; min-height: 260px; padding: 27px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--card-shadow); transition: transform .23s,border-color .23s,box-shadow .23s; }
+    .pillar-card:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: var(--shadow); }
+    .pillar-card::after { content: ""; position: absolute; right: -60px; bottom: -100px; width: 180px; height: 180px; border: 1px solid rgba(143,0,0,.13); border-radius: 50%; box-shadow: 0 0 0 22px rgba(143,0,0,.025),0 0 0 46px rgba(143,0,0,.018); pointer-events: none; }
+    .pillar-icon { display: grid; place-items: center; width: 53px; height: 53px; margin-bottom: 23px; border-radius: 12px; background: var(--surface-soft); color: var(--burgundy); font-size: 1.35rem; }
+    .pillar-card h3 { margin: 0 0 9px; font-size: 1.25rem; letter-spacing: -.035em; }
+    .pillar-card p { max-width: 340px; margin: 0; color: var(--muted); font-size: .89rem; line-height: 1.8; }
+
+    /* =========================================
+       7. PROGRAMME FOCUS AREAS
+    ========================================= */
+    .programmes-section { padding: 78px 0 87px; background: var(--surface-soft); }
+    .programmes-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 25px; margin-bottom: 29px; }
+    .programme-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 15px; }
+    .programme-card { display: flex; flex-direction: column; min-height: 240px; padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); transition: transform .22s,border-color .22s; }
+    .programme-card:hover { transform: translateY(-4px); border-color: var(--orange); }
+    .programme-card .programme-index { color: var(--orange); font: 800 .76rem Manrope,sans-serif; letter-spacing: .12em; }
+    .programme-card h3 { margin: 20px 0 9px; font-size: 1.05rem; line-height: 1.35; letter-spacing: -.025em; }
+    .programme-card p { margin: 0 0 18px; color: var(--muted); font-size: .83rem; line-height: 1.75; }
+    .programme-card a { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; color: var(--burgundy); font-size: .79rem; font-weight: 800; }
+    .programme-card a i { transition: transform .2s; }
+    .programme-card a:hover i { transform: translateX(4px); }
+
+    /* =========================================
+       8. HOW WE WORK
+    ========================================= */
+    .approach-section { padding: 80px 0 85px; background: var(--page); }
+    .approach-layout { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 60px; align-items: start; }
+    .approach-intro { position: sticky; top: 125px; }
+    .approach-intro p:not(.eyebrow) { margin: 15px 0 23px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
+    .approach-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .approach-step { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 17px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .step-number { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; background: var(--burgundy-dark); color: #fff; font: 800 .78rem Manrope,sans-serif; }
+    .approach-step h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .approach-step p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.75; }
+
+    /* =========================================
+       9. IMPACT FEATURE
+    ========================================= */
+    .impact-feature { position: relative; isolation: isolate; overflow: hidden; padding: 76px 0; color: #fff; background: linear-gradient(118deg,#650019 0%,#8f0000 58%,#351019 100%); }
+    .impact-feature::before { content: ""; position: absolute; z-index: -1; width: 430px; height: 430px; right: -130px; top: -270px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.02); }
+    .impact-feature-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.9fr); gap: 55px; align-items: center; }
+    .impact-feature .eyebrow { color: #ffc18c; }
+    .impact-feature h2 { margin: 0; max-width: 620px; font-size: clamp(2.15rem,4.5vw,3.7rem); line-height: 1.08; letter-spacing: -.06em; }
+    .impact-feature h2 span { color: #ffad69; }
+    .impact-feature-copy > p:not(.eyebrow) { max-width: 560px; margin: 17px 0 25px; color: rgba(255,255,255,.79); font-size: .95rem; line-height: 1.85; }
+    .impact-image-stack { position: relative; padding: 0 15px 17px 0; }
+    .impact-image { overflow: hidden; aspect-ratio: 5 / 4; border-radius: 10px 100px 10px 10px; background: #352317; border: 1px solid rgba(255,255,255,.15); }
+    .impact-image img { width: 100%; height: 100%; object-fit: cover; }
+    .impact-image-caption { position: absolute; right: 0; bottom: 0; max-width: 225px; padding: 14px 17px; border: 4px solid #650019; border-radius: 8px; background: var(--orange); color: #321608; font: 800 .82rem/1.4 Manrope,sans-serif; }
+
+    /* =========================================
+       10. NEWS AND EVENTS PREVIEW
+    ========================================= */
+    .updates-section { padding: 83px 0 88px; background: var(--surface-soft); }
+    .updates-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+    .update-card { overflow: hidden; display: grid; grid-template-columns: 155px minmax(0,1fr); min-height: 190px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: var(--card-shadow); transition: transform .22s,border-color .22s; }
+    .update-card:hover { transform: translateY(-4px); border-color: var(--orange); }
+    .update-image { min-height: 190px; overflow: hidden; background: var(--surface-warm); }
+    .update-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .update-card:hover .update-image img { transform: scale(1.04); }
+    .update-content { display: flex; flex-direction: column; align-items: flex-start; padding: 18px 19px; }
+    .update-content small { color: var(--burgundy); font-size: .66rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .update-content h3 { margin: 8px 0 8px; font-size: 1.05rem; line-height: 1.35; letter-spacing: -.025em; }
+    .update-content p { margin: 0 0 13px; color: var(--muted); font-size: .81rem; line-height: 1.7; }
+    .update-content a { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--burgundy); font-size: .78rem; font-weight: 800; }
+    .update-content a i { transition: transform .2s; }
+    .update-content a:hover i { transform: translateX(4px); }
+
+    /* =========================================
+       11. CORE VALUES
+    ========================================= */
+    .values-section { padding: 79px 0 86px; background: var(--page); }
+    .values-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 13px; }
+    .value-card { padding: 20px; border-top: 3px solid var(--orange); background: var(--surface); box-shadow: var(--card-shadow); }
+    .value-card h3 { margin: 0 0 7px; font-size: 1rem; }
+    .value-card p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.75; }
+
+    /* =========================================
+       12. COMMUNITY CALL TO ACTION
+    ========================================= */
+    .community-cta-section { padding: 0 0 82px; background: var(--page); }
+    .community-cta { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: clamp(28px,4.5vw,48px); border-radius: 12px; background: var(--surface-soft); border: 1px solid var(--line); }
+    .community-cta::after { content: ""; position: absolute; z-index: -1; width: 220px; height: 220px; right: 15%; bottom: -165px; border: 1px solid rgba(143,0,0,.14); border-radius: 50%; box-shadow: 0 0 0 25px rgba(143,0,0,.025); }
+    .community-cta-copy { max-width: 650px; }
+    .community-cta h2 { margin: 0; font-size: clamp(1.9rem,3.8vw,2.8rem); line-height: 1.12; letter-spacing: -.05em; }
+    .community-cta p:not(.eyebrow) { margin: 11px 0 0; max-width: 550px; color: var(--muted); font-size: .91rem; }
+    .community-cta-actions { display: flex; flex-wrap: wrap; gap: 10px; flex: 0 0 auto; }
+
+    /* =========================================
+       13. FOOTER
+    ========================================= */
+    .site-footer { padding: 37px 24px 24px; text-align: center; background: var(--surface); border-top: 1px solid var(--line); }
+    .footer-logo img { width: 150px; max-height: 60px; margin: auto; object-fit: contain; }
+    .footer-motto { margin: 10px 0 4px; font-family: Manrope,sans-serif; font-weight: 800; }
+    .footer-motto span { color: var(--orange); }
+    .footer-bio { max-width: 580px; margin: 8px auto; color: var(--muted); font-size: .89rem; }
+    .footer-contact { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 22px; margin: 16px 0; }
+    .footer-contact a { color: var(--muted); font-size: .85rem; }
+    .footer-contact a:hover, .footer-links a:hover { color: var(--burgundy); }
+    .footer-socials { display: flex; justify-content: center; gap: 10px; margin: 17px 0; }
+    .footer-socials a { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; color: var(--burgundy); background: var(--surface); transition: color .2s,border-color .2s,transform .2s; }
+    .footer-socials a:hover { transform: translateY(-2px); border-color: var(--orange); color: var(--orange); }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 22px; margin: 20px 0 12px; }
+    .footer-links a { color: var(--muted); font-size: .84rem; }
+    .site-footer small { color: var(--muted); font-size: .79rem; }
+
+    /* =========================================
+       14. BACK TO TOP & REVEAL ANIMATION
+    ========================================= */
+    .back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 80; display: grid; place-items: center; width: 43px; height: 43px; border: 0; border-radius: 50%; background: var(--burgundy); color: #fff; box-shadow: var(--shadow); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s,visibility .2s,transform .2s; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .js-ready [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s ease,transform .6s ease; }
+    .js-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================================
+       15. RESPONSIVE STYLES
+    ========================================= */
+    @media (max-width: 1100px) {
+      .header-inner { gap: 13px; }
+      .brand img { width: 142px; }
+      .main-nav { gap: 10px; }
+      .main-nav > a,.nav-dropdown-toggle { font-size: .77rem; }
+      .hero-layout { gap: 34px; }
+      .programme-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .approach-layout { gap: 38px; }
+    }
+    @media (max-width: 950px) {
+      .header-inner { min-height: 78px; }
+      .menu-toggle { display: inline-grid; }
+      .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 13px 24px 21px; margin: 0; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); align-items: stretch; gap: 3px; }
+      .main-nav.is-open { display: flex; flex-direction: column; }
+      .main-nav > a,.nav-dropdown-toggle { display: flex; width: 100%; padding: 12px 4px; font-size: .94rem; }
+      .main-nav > a[aria-current="page"]::after { width: 35px; right: auto; }
+      .nav-dropdown { display: block; }
+      .nav-dropdown-toggle { justify-content: space-between; }
+      .nav-dropdown-menu { position: static; min-width: 0; margin: 0 0 7px 10px; box-shadow: none; }
+      .hero-layout { grid-template-columns: minmax(0,1fr) minmax(0,.85fr); gap: 25px; }
+      .hero-copy h1 { font-size: clamp(2.75rem,6vw,4.5rem); }
+      .purpose-layout { gap: 38px; }
+      .values-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .updates-grid { grid-template-columns: 1fr; }
+      .impact-feature-layout { gap: 32px; }
+    }
+    @media (max-width: 650px) {
+      .container { width: calc(100% - 32px); }
+      .header-inner { width: calc(100% - 32px); gap: 8px; }
+      .brand img { width: 124px; }
+      .header-actions { gap: 6px; }
+      .icon-button { width: 39px; height: 39px; }
+      .home-hero { min-height: 0; padding: 51px 0 55px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 38px; }
+      .hero-copy h1 { font-size: clamp(2.85rem,12.5vw,4.25rem); }
+      .hero-copy > p:not(.eyebrow) { font-size: .96rem; }
+      .hero-visual { width: calc(100% - 12px); margin-left: 12px; padding-right: 8px; }
+      .hero-photo-main { aspect-ratio: 4 / 3; border-radius: 90px 90px 11px 11px; }
+      .hero-floating-card { left: -10px; bottom: 18px; max-width: 185px; padding: 10px; }
+      .hero-sticker { right: -5px; width: 67px; height: 67px; font-size: .68rem; }
+      .stats-section { padding-bottom: 52px; }
+      .stats-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .stat-card { padding: 21px 12px; }
+      .stat-card + .stat-card { border-left: 0; }
+      .stat-card:nth-child(even) { border-left: 1px solid var(--line); }
+      .stat-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .purpose-section,.pillars-section,.programmes-section,.approach-section,.values-section { padding: 57px 0 62px; }
+      .purpose-layout { grid-template-columns: 1fr; gap: 34px; }
+      .purpose-image { aspect-ratio: 4 / 3; border-top-right-radius: 85px; }
+      .purpose-stamp { right: -8px; bottom: -15px; width: 90px; height: 90px; border-width: 5px; font-size: .66rem; }
+      .section-heading { margin-bottom: 23px; }
+      .pillar-grid { grid-template-columns: 1fr; gap: 13px; }
+      .pillar-card { min-height: 0; padding: 22px; }
+      .programme-grid { grid-template-columns: 1fr; gap: 11px; }
+      .programme-card { min-height: 0; padding: 20px; }
+      .programme-card h3 { margin-top: 12px; }
+      .programmes-heading { flex-direction: column; align-items: flex-start; gap: 15px; }
+      .approach-layout { grid-template-columns: 1fr; gap: 28px; }
+      .approach-intro { position: static; }
+      .approach-step { grid-template-columns: 44px minmax(0,1fr); gap: 12px; padding: 18px 0; }
+      .step-number { width: 38px; height: 38px; }
+      .impact-feature { padding: 57px 0; }
+      .impact-feature-layout { grid-template-columns: 1fr; gap: 32px; }
+      .impact-image { aspect-ratio: 4 / 3; border-top-right-radius: 85px; }
+      .impact-image-caption { max-width: 190px; padding: 11px 13px; font-size: .74rem; }
+      .updates-section { padding: 58px 0 62px; }
+      .update-card { grid-template-columns: 115px minmax(0,1fr); min-height: 165px; }
+      .update-image { min-height: 165px; }
+      .update-content { padding: 14px; }
+      .update-content h3 { font-size: .95rem; }
+      .update-content p { font-size: .76rem; }
+      .values-grid { grid-template-columns: 1fr; gap: 10px; }
+      .value-card { padding: 18px; }
+      .community-cta-section { padding-bottom: 56px; }
+      .community-cta { align-items: flex-start; flex-direction: column; padding: 25px 21px; }
+      .community-cta-actions { width: 100%; }
+      .community-cta-actions .button { flex: 1; }
+      .footer-contact { flex-direction: column; gap: 8px; }
+      .back-to-top { right: 14px; bottom: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .js-ready [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-
 <body>
-  <header>
-    <nav class="container nav">
-      <div class="logo">
-        <a href="#">
-          <img src="/images/THNA LOGO 1.png" alt="The Hive Network Africa Logo">
-        </a>
-      </div>
+  <!-- =========================================
+       SHARED THNA NAVIGATION
+  ========================================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="The Hive Network Africa home">
+        <img src="images/THNA LOGO 1.png" alt="The Hive Network Africa">
+      </a>
 
-      <div class="nav-links-container">
-        <ul class="nav-links">
-          <a href="#about">About</a>
-          <a href="#programs">Programs</a>
-          <a href="#partnerships">Partnerships</a>
-          <a href="#contact">Contact</a>
-        </ul>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="programmes.html">Programmes</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            Impact <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="impact.html">Impact Overview</a>
+            <a href="impact-in-pictures.html">Impact, in Pictures</a>
+            <a href="impactstories.html">Impact Stories</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            Events <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="events.html#upcoming-events">Upcoming Events</a>
+            <a href="events.html#past-events">Past Events</a>
+            <a href="events.html">All Events</a>
+          </div>
+        </div>
+
+        <a href="community.html">Community</a>
+        <a href="news.html">Media &amp; News</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle colour theme">
+          <i class="fa-regular fa-moon" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </nav>
+    </div>
   </header>
 
-
-  <!-- Hero Section -->
-  <section id="home">
-    <div class="hero-section">
-      <h1 class="container">The Hive Network Africa</h1>
-      <h2 class="container">Empowering Communities. Strengthening Systems. Creating Lasting Impact Across Africa</h2>
-
-      <p class="container">The Hive Network Africa is a nonprofit organization advancing sustainable development through
-        community-led
-        initiatives, strategic partnerships, youth empowerment, education, and social innovation. We work with
-        governments, institutions, development partners, and local communities to create measurable, scalable, and
-        lasting change.</p>
-
-      <a href="#" class="button container">Partner With Us</a>
-
-      <div class="container stats">
-
-        <div class="stat-item">
-          <span>10,000+</span>
-          <p>Lives Reached</p>
+  <main>
+    <!-- =========================================
+         HERO
+    ========================================= -->
+    <section class="home-hero">
+      <div class="hero-ring" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Believe. Achieve. Succeed.</p>
+          <h1>Building the leaders Africa needs. <span>One opportunity at a time.</span></h1>
+          <p>
+            The Hive Network Africa is a non-profit, non-political organisation
+            empowering young Africans through leadership and entrepreneurship
+            development, practical skills, mentorship and a community built for growth.
+          </p>
+          <div class="hero-actions">
+            <a href="programmes.html" class="button button-primary">Explore our programmes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="about.html" class="button button-outline-light">Discover our story</a>
+          </div>
+          <div class="hero-note">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            Rooted on campuses. Growing across Africa.
+            <span></span>
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            Youth-led potential
+          </div>
         </div>
 
-        <div class="stat-item">
-          <span>20+</span>
-          <p>Communities Engaged</p>
+        <div class="hero-visual" data-reveal>
+          <div class="hero-photo-main">
+            <!-- Replace this sample photo with an approved THNA programme photograph. -->
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Young people collaborating and sharing ideas">
+            <div class="hero-photo-caption">
+              <small>People. Ideas. Possibilities.</small>
+              <strong>Where potential finds room to grow.</strong>
+            </div>
+          </div>
+         </section>
+        
+        
+
+    <!-- =========================================
+         IMPACT AT A GLANCE
+         Figures align with the existing THNA Impact page.
+    ========================================= -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid" aria-label="THNA impact figures">
+          <article class="stat-card" data-reveal>
+            <span class="stat-number" data-count="120">0</span>
+            <p>Youths Empowered</p>
+          </article>
+          <article class="stat-card" data-reveal>
+            <span class="stat-number" data-count="165000">0</span>
+            <p>Youths Impacted</p>
+          </article>
+          <article class="stat-card" data-reveal>
+            <span class="stat-number" data-count="15" data-suffix="+">0</span>
+            <p>Countries Reached</p>
+          </article>
+          <article class="stat-card" data-reveal>
+            <span class="stat-number" data-count="60" data-suffix="+">0</span>
+            <p>Events Organised</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         WHO WE ARE / PURPOSE
+    ========================================= -->
+    <section class="purpose-section">
+      <div class="container purpose-layout">
+        <div class="purpose-visual" data-reveal>
+          <div class="purpose-image">
+            <!-- Replace with an approved THNA campus or training photograph. -->
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="A group of young people sharing ideas around a table" loading="lazy">
+          </div>
+          <div class="purpose-stamp">Skills for<br>real-world<br>growth</div>
         </div>
 
-        <div class="stat-item">
-          <span>15+</span>
-          <p>Strategic Partnerships</p>
+        <div class="purpose-copy" data-reveal>
+          <p class="eyebrow">Who we are</p>
+          <h2>Turning potential into <span>purposeful progress.</span></h2>
+          <p>
+            The Hive Network Africa was born from a simple belief: young Africans
+            have immense potential, and the right knowledge, guidance and environment
+            can help that potential become meaningful progress.
+          </p>
+          <p>
+            We work to bridge the gap between academic learning and the practical
+            leadership and entrepreneurial skills young people need to thrive.
+            Through learning experiences, campus communities and strategic connections,
+            we create room for young people to grow and contribute.
+          </p>
+          <blockquote class="purpose-quote">
+            “We are a training ground, not a talk shop.”
+            <span>The Hive Network Africa · Our mandate</span>
+          </blockquote>
+          <a href="about.html" class="button button-primary">More about THNA <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         OUR PILLARS
+    ========================================= -->
+    <section class="pillars-section">
+      <div class="container">
+        <div class="section-heading centered" data-reveal>
+          <p class="eyebrow">What drives us</p>
+          <h2 class="section-title">Three connected pillars. <span>One bigger purpose.</span></h2>
+          <p class="section-intro">Our work is centred on helping young people build the capacity, confidence and initiative to shape their communities and futures.</p>
         </div>
 
-        <div class="stat-item">
-          <span>5+</span>
-          <p>States Reached</p>
+        <div class="pillar-grid">
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon"><i class="fa-solid fa-compass" aria-hidden="true"></i></div>
+            <h3>Leadership</h3>
+            <p>Developing thoughtful, responsible and visionary young leaders equipped to influence positive change.</p>
+          </article>
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+            <h3>Entrepreneurship</h3>
+            <p>Strengthening the skills, ideas and confidence young innovators need to build sustainable ventures and solutions.</p>
+          </article>
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+            <h3>Empowerment</h3>
+            <p>Creating platforms that unlock potential, encourage continuous learning and amplify the contributions of African youth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         PROGRAMME FOCUS AREAS
+    ========================================= -->
+    <section class="programmes-section">
+      <div class="container">
+        <div class="programmes-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Learn, develop, grow</p>
+            <h2 class="section-title">Opportunities to <span>move you forward.</span></h2>
+            <p class="section-intro">Explore the areas that shape our work, from campus leadership and practical skills to entrepreneurship and mentorship.</p>
+          </div>
+          <a href="programmes.html" class="button button-outline">View all programmes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
 
+        <div class="programme-grid">
+          <article class="programme-card" data-reveal>
+            <span class="programme-index">01 / LEADERSHIP</span>
+            <h3>Leadership Development</h3>
+            <p>Learning experiences that help young people lead with purpose, integrity and responsibility.</p>
+            <a href="programmes.html">Explore this area <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="programme-card" data-reveal>
+            <span class="programme-index">02 / ENTERPRISE</span>
+            <h3>Entrepreneurship & Innovation</h3>
+            <p>Building entrepreneurial thinking and helping young people turn ideas into practical possibilities.</p>
+            <a href="programmes.html">Explore this area <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="programme-card" data-reveal>
+            <span class="programme-index">03 / SKILLS</span>
+            <h3>Practical Skills Development</h3>
+            <p>Creating opportunities to learn relevant skills, practise new ideas and build real-world capability.</p>
+            <a href="programmes.html">Explore this area <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="programme-card" data-reveal>
+            <span class="programme-index">04 / GROWTH</span>
+            <h3>Mentorship & Community</h3>
+            <p>Connecting learners with people, experiences and networks that can support their continued growth.</p>
+            <a href="programmes.html">Explore this area <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </section>
+    <!-- =========================================
+         HOW WE CREATE CHANGE
+    ========================================= -->
+    <section class="approach-section">
+      <div class="container approach-layout">
+        <div class="approach-intro" data-reveal>
+          <p class="eyebrow">Our approach</p>
+          <h2 class="section-title">Learning that leads to <span>lasting impact.</span></h2>
+          <p>
+            We believe development takes more than inspiration. It takes intentional
+            learning, practical experiences, strong relationships and opportunities
+            to put new knowledge into action.
+          </p>
+          <a href="about.html#toc-section" class="text-link">Explore our Theory of Change <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
 
-
-  <section class="mission-cards container">
-   <h2>Our Mission</h2>
-     <div class="missionitems">
-      
-<div class="mission-card">
-      <div class="icon">
-        <i class="fa-solid fa-users"></i>
+        <div class="approach-list">
+          <article class="approach-step" data-reveal>
+            <span class="step-number">01</span>
+            <div><h3>Connect people and opportunities</h3><p>Build relationships across campuses, communities, institutions and strategic partners.</p></div>
+          </article>
+          <article class="approach-step" data-reveal>
+            <span class="step-number">02</span>
+            <div><h3>Equip young people with skills</h3><p>Deliver structured learning experiences, practical training and opportunities to develop.</p></div>
+          </article>
+          <article class="approach-step" data-reveal>
+            <span class="step-number">03</span>
+            <div><h3>Support growth through mentorship</h3><p>Encourage collaboration, guidance, continuous learning and the exchange of experience.</p></div>
+          </article>
+          <article class="approach-step" data-reveal>
+            <span class="step-number">04</span>
+            <div><h3>Turn learning into contribution</h3><p>Help develop leaders and entrepreneurs who can create opportunities and contribute to sustainable development.</p></div>
+          </article>
+        </div>
       </div>
-      <h3>Leadership</h3>
-      <p>
-        Raising a new generation of visionary leaders equipped to influence change across africa and beyond
-      </p>
-    </div>
+    </section>
 
-    <div class="mission-card">
-      <div class="icon">
-        <i class="fa-solid fa-briefcase"></i>
+    <!-- =========================================
+         IMPACT FEATURE
+    ========================================= -->
+    <section class="impact-feature">
+      <div class="container impact-feature-layout">
+        <div class="impact-feature-copy" data-reveal>
+          <p class="eyebrow">The work. The people. The difference.</p>
+          <h2>Impact is more than a number. <span>It's a story of growth.</span></h2>
+          <p>
+            Every skill developed, connection made and opportunity created is part
+            of a bigger journey. Discover the experiences and people behind the work
+            of The Hive Network Africa.
+          </p>
+          <div class="hero-actions">
+            <a href="impact.html" class="button button-primary">Explore our impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="impactstories.html" class="button button-outline-light">Read impact stories</a>
+          </div>
+        </div>
+        <div class="impact-image-stack" data-reveal>
+          <div class="impact-image">
+            <!-- Replace with an approved THNA impact or cohort photograph. -->
+            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Young people taking part in a collaborative learning activity" loading="lazy">
+          </div>
+          <div class="impact-image-caption">Every person has potential worth investing in.</div>
+        </div>
       </div>
-      <h3>Entrepreneurship</h3>
-      <p>
-        Empower young innovators with the tools, skills and support to build sustainable businesses
-      </p>
-    </div>
+    </section>
 
-    <div class="mission-card">
-      <div class="icon">
-        <i class="fa-solid fa-seedling"></i>
+    <!-- =========================================
+         LATEST NEWS & EVENTS
+    ========================================= -->
+    <section class="updates-section">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Stay in the know</p>
+            <h2 class="section-title">What's happening <span>in the Hive.</span></h2>
+            <p class="section-intro">Catch up on stories, announcements and opportunities to connect with the THNA community.</p>
+          </div>
+        </div>
+
+        <div class="updates-grid">
+          <article class="update-card" data-reveal>
+            <div class="update-image">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=600&amp;q=85" alt="Participants learning together" loading="lazy">
+            </div>
+            <div class="update-content">
+              <small>News & Articles · Benin Skill Fest 2026</small>
+              <h3>Benin Skill Fest opens doors to digital skills, learning and mentorship</h3>
+              <p>Explore the summit, skill tracks and training experience at BSF26.</p>
+              <a href="news.html#newsroom">Read the story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="update-card" data-reveal>
+            <div class="update-image">
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&amp;fit=crop&amp;w=600&amp;q=85" alt="A group sharing ideas during a discussion" loading="lazy">
+            </div>
+            <div class="update-content">
+              <small>Events & Experiences</small>
+              <h3>Find your next opportunity to learn, connect and grow</h3>
+              <p>Explore THNA workshops, webinars, bootcamps, conferences and community events.</p>
+              <a href="events.html">Explore THNA events <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
       </div>
-      <h3>Empowerment</h3>
-      <p>
-        Creating platforms that unlock potentials, ignite purpose and amplifies the voices of african youth.
-      </p>
-    </div>
+    </section>
+
+    <!-- =========================================
+         CORE VALUES
+    ========================================= -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-heading centered" data-reveal>
+          <p class="eyebrow">The way we work</p>
+          <h2 class="section-title">Our values keep us <span>grounded.</span></h2>
+          <p class="section-intro">The principles that guide how we learn, work together and serve our communities.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card" data-reveal><h3>Integrity</h3><p>We honour our word, act transparently and uphold strong ethical standards.</p></article>
+          <article class="value-card" data-reveal><h3>Discipline</h3><p>We value consistency, responsibility, reliability and seeing things through.</p></article>
+          <article class="value-card" data-reveal><h3>Continuous Learning</h3><p>We remain curious, adaptable and open to feedback, growth and improvement.</p></article>
+          <article class="value-card" data-reveal><h3>Collaboration</h3><p>We build strong relationships, share knowledge and make progress together.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         COMMUNITY / COHORT CALL TO ACTION
+    ========================================= -->
+    <section class="community-cta-section">
+      <div class="container">
+        <div class="community-cta" data-reveal>
+          <div class="community-cta-copy">
+            <p class="eyebrow">There's room for you in the Hive</p>
+            <h2>Your next chapter can start <span style="color:var(--burgundy)">here.</span></h2>
+            <p>Connect with a community of young people who are learning, building and growing. Take a step towards your next opportunity.</p>
+          </div>
+          <div class="community-cta-actions">
+            <a href="cohort.html" class="button button-primary">Join a Cohort <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="community.html" class="button button-outline">Our Community</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================
+       SHARED THNA FOOTER
+  ========================================= -->
+  <footer class="site-footer">
+    <a href="index.html" class="footer-logo">
+      <img src="images/THNA LOGO 1.png" alt="The Hive Network Africa">
+    </a>
+    <p class="footer-motto">Believe. Achieve. <span>Succeed.</span></p>
+    <p class="footer-bio">Transforming African university campuses into launchpads for innovation, leadership, and youth impact.</p>
+
+    <div class="footer-contact">
+      <a href="mailto:thnafrica@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> thnafrica@gmail.com</a>
+      <a href="tel:+2349061132003"><i class="fa-solid fa-phone" aria-hidden="true"></i> +234 906 113 2003</a>
     </div>
 
- 
-  </section>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/company/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/thnafrica" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/@thnafrica" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="impact.html">Impact</a>
+      <a href="events.html">Events</a>
+      <a href="community.html">Community</a>
+      <a href="news.html">Media &amp; News</a>
+      <a href="newsletter.html">Newsletter</a>
+    </nav>
+
+    <small>© <span id="current-year"></span> The Hive Network Africa. All rights reserved.</small>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    /* =========================================
+       1. THEME SWITCHER
+    ========================================= */
+    function setupTheme() {
+      const toggle = document.querySelector(".theme-toggle");
+      if (!toggle) return;
+
+      function updateIcon() {
+        const dark = document.documentElement.dataset.theme === "dark";
+        toggle.innerHTML = `<i class="fa-regular ${dark ? "fa-sun" : "fa-moon"}" aria-hidden="true"></i>`;
+        toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      }
+
+      updateIcon();
+      toggle.addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem("thna-theme", next); } catch (_) {}
+        updateIcon();
+      });
+    }
+
+    /* =========================================
+       2. MOBILE NAVIGATION
+    ========================================= */
+    function setupMenu() {
+      const toggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("#main-nav");
+      if (!toggle || !nav) return;
+
+      function closeMenu() {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation menu");
+        document.body.classList.remove("menu-open");
+      }
+
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        document.body.classList.toggle("menu-open", open);
+      });
+
+      nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+      document.addEventListener("click", event => {
+        if (!nav.contains(event.target) && !toggle.contains(event.target)) closeMenu();
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 950) closeMenu();
+      });
+    }
+
+    /* =========================================
+       3. IMPACT COUNTERS
+    ========================================= */
+    function setupCounters() {
+      const counters = [...document.querySelectorAll("[data-count]")];
+      if (!counters.length) return;
+
+      const animateCounter = element => {
+        if (element.dataset.counted === "true") return;
+        element.dataset.counted = "true";
+        const target = Number(element.dataset.count);
+        const suffix = element.dataset.suffix || "";
+        const duration = 1500;
+        const start = performance.now();
+
+        function frame(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          const current = Math.round(target * eased);
+          element.textContent = current.toLocaleString("en-US") + suffix;
+          if (progress < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .45 });
+        counters.forEach(counter => observer.observe(counter));
+      } else {
+        counters.forEach(animateCounter);
+      }
+    }
+
+    /* =========================================
+       4. REVEAL SECTIONS AS THEY ENTER VIEW
+    ========================================= */
+    function setupReveal() {
+      const elements = document.querySelectorAll("[data-reveal]");
+      if (!("IntersectionObserver" in window)) {
+        elements.forEach(element => element.classList.add("is-visible"));
+        return;
+      }
+
+      document.documentElement.classList.add("js-ready");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      elements.forEach(element => observer.observe(element));
+    }
+
+    /* =========================================
+       5. DROPDOWN MENUS
+    ========================================= */
+    function setupDropdowns() {
+      const dropdowns = [...document.querySelectorAll(".nav-dropdown")];
+
+      dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector(".nav-dropdown-toggle");
+        button.addEventListener("click", () => {
+          const shouldOpen = !dropdown.classList.contains("open");
+          dropdowns.forEach(item => {
+            item.classList.remove("open");
+            item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+          });
+          if (shouldOpen) {
+            dropdown.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      document.addEventListener("click", event => {
+        if (event.target.closest(".nav-dropdown")) return;
+        dropdowns.forEach(item => {
+          item.classList.remove("open");
+          item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+        dropdowns.forEach(item => {
+          item.classList.remove("open");
+          item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    /* =========================================
+       6. BACK TO TOP
+    ========================================= */
+    function setupBackToTop() {
+      const button = document.querySelector("#backToTop");
+      if (!button) return;
+
+      window.addEventListener("scroll", () => {
+        button.classList.toggle("visible", window.scrollY > 550);
+      }, { passive: true });
+
+      button.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    /* =========================================
+       7. INITIALISE
+    ========================================= */
+    document.addEventListener("DOMContentLoaded", () => {
+      setupTheme();
+      setupMenu();
+      setupDropdowns();
+      setupCounters();
+      setupReveal();
+      setupBackToTop();
+      const year = document.querySelector("#current-year");
+      if (year) year.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
-
 </html>

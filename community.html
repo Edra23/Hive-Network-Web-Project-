@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Connect with The Hive Network Africa community, join our WhatsApp group, and subscribe to our newsletter.">
+<title>Community | The Hive Network Africa</title>
+<link rel="icon" type="image/png" href="images/THNA LOGO 1.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+(() => {
+  try {
+    document.documentElement.dataset.theme = localStorage.getItem("thna-theme") ||
+      (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  } catch (_) {
+    document.documentElement.dataset.theme = "light";
+  }
+})();
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --page:#fffdfb; --surface:#fff; --surface-soft:#f8f3f1;
+  --ink:#24212a; --muted:#706b73; --line:#e9dfe1;
+  --burgundy:#8f0000; --burgundy-dark:#650019; --orange:#f47721;
+  --shadow:0 18px 50px rgba(71,15,32,.09);
+  --header-bg:rgba(255,253,251,.94);
+}
+:root[data-theme="dark"] {
+  color-scheme:dark;
+  --page:#151216; --surface:#211b21; --surface-soft:#2a2026;
+  --ink:#f8f0f2; --muted:#c4b7bd; --line:#43333b;
+  --burgundy:#ff8a9b; --burgundy-dark:#2a111c; --orange:#ff9a52;
+  --shadow:0 18px 50px rgba(0,0,0,.24);
+  --header-bg:rgba(21,18,22,.94);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--page);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65;transition:background .2s,color .2s}
+a{color:inherit;text-decoration:none}
+button{font:inherit;-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+h1,h2,h3,h4{font-family:Manrope,sans-serif}
+
+/* Navigation */
+.site-header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.header-inner{width:min(1200px,calc(100% - 48px));min-height:88px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:inline-flex;align-items:center;flex-shrink:0}
+.brand img{display:block;width:174px;max-height:62px;object-fit:contain}
+.main-nav{display:flex;align-items:center;gap:clamp(13px,1.8vw,25px);margin-left:auto}
+.main-nav>a,.nav-dropdown-toggle{position:relative;padding:9px 0;color:var(--muted);font-size:.9rem;font-weight:600}
+.main-nav>a:hover,.main-nav>a[aria-current="page"],.nav-dropdown-toggle:hover{color:var(--burgundy)}
+.main-nav>a[aria-current="page"]::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--orange);border-radius:2px}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{display:inline-flex;align-items:center;gap:8px;border:0;background:transparent;font:inherit;cursor:pointer}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;z-index:50;min-width:190px;padding:8px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:0 16px 35px #24121a1c}
+.nav-dropdown-menu a{display:block;padding:11px 12px;border-radius:8px;color:var(--muted);font-size:.9rem;white-space:nowrap}
+.nav-dropdown-menu a:hover{background:var(--surface-soft);color:var(--burgundy)}
+.nav-dropdown.open .nav-dropdown-menu{display:block}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-button{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);cursor:pointer;transition:transform .2s,border-color .2s}
+.icon-button:hover{transform:translateY(-2px);border-color:var(--orange)}
+.menu-toggle{display:none;border-radius:12px}
+.menu-toggle span{display:block;width:19px;height:2px;margin:3px 0;background:currentColor}
+
+/* OPTION A: the hero's burgundy-red gradient is used across all large sections */
+.community-hero,.community-section,.closing-cta{
+  background:linear-gradient(118deg,#650019 0%,#8f0000 52%,#371b2c 100%);
+  color:#fff;
+}
+.community-hero{position:relative;isolation:isolate;overflow:hidden}
+.community-hero::before{
+  content:"";position:absolute;z-index:-1;inset:0;
+  background:radial-gradient(circle at 76% 24%,rgba(244,119,33,.28),transparent 28%),
+    radial-gradient(circle at 8% 100%,rgba(255,255,255,.07),transparent 34%);
+  pointer-events:none;
+}
+.community-hero::after{
+  content:"";position:absolute;z-index:-1;top:-220px;right:-90px;width:520px;height:520px;
+  border:1px solid rgba(255,255,255,.12);border-radius:50%;
+  box-shadow:0 0 0 30px rgba(255,255,255,.025),0 0 0 65px rgba(255,255,255,.02),0 0 0 105px rgba(255,255,255,.015);
+}
+.hero-inner{width:min(1160px,calc(100% - 48px));min-height:570px;margin:auto;padding:65px 0 36px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.85fr);align-items:center;gap:clamp(30px,5vw,72px)}
+.hero-copy{position:relative;z-index:2;max-width:660px}
+.eyebrow{margin:0 0 15px;color:#ffbc8a;font-size:.73rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.eyebrow-mark{display:inline-block;width:28px;height:2px;margin-right:9px;vertical-align:middle;background:var(--orange)}
+.community-hero h1{margin:0;font-size:clamp(3.2rem,6.5vw,5.6rem);font-weight:800;line-height:.99;letter-spacing:-.075em}
+.community-hero h1 em{color:#ffad73;font-style:normal}
+.hero-description{max-width:570px;margin:24px 0 28px;color:rgba(255,255,255,.83);font-size:clamp(1rem,1.6vw,1.15rem);line-height:1.85}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 19px;border:1px solid transparent;border-radius:8px;font-weight:700;transition:transform .2s,background .2s,border-color .2s;cursor:pointer}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--orange);color:#28130b}
+.button-primary:hover{background:#ff9851}
+.button-outline-light{border-color:rgba(255,255,255,.4);background:transparent;color:#fff}
+.button-outline-light:hover{border-color:var(--orange);background:rgba(255,255,255,.07)}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px;color:rgba(255,255,255,.7);font-size:.74rem;font-weight:600}
+.meta-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(244,119,33,.13)}
+.meta-separator{color:rgba(255,255,255,.4)}
+
+/* Illustration */
+.community-art{position:relative;min-height:420px;display:grid;place-items:center}
+.art-ring{position:absolute;top:50%;left:50%;width:310px;height:310px;border:1px solid rgba(255,255,255,.2);border-radius:50%;transform:translate(-50%,-50%)}
+.art-ring.large{width:420px;height:420px;border-color:rgba(255,255,255,.09)}
+.art-core{position:relative;display:grid;place-items:center;width:215px;height:215px;border:9px solid rgba(255,255,255,.14);border-radius:50%;background:linear-gradient(145deg,#8f0000,#a71e39 62%,#f47721);color:#fff;box-shadow:0 25px 65px rgba(20,0,8,.3);animation:float 5s ease-in-out infinite}
+.art-core>i{font-size:5rem}
+.art-core span{position:absolute;right:4px;bottom:12px;display:grid;place-items:center;width:55px;height:55px;border:5px solid #750019;border-radius:50%;background:var(--orange);color:#32140f}
+.art-label{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid rgba(143,23,53,.12);border-radius:10px;background:#fffdfb;color:#32141f;box-shadow:0 12px 34px rgba(20,0,8,.18);font-size:.78rem;font-weight:800;animation:float 5s ease-in-out infinite}
+.art-label i{display:grid;place-items:center;width:31px;height:31px;border-radius:8px;background:#f8f3f1;color:#8f0000}
+.art-label.top{top:35px;right:0}
+.art-label.bottom{bottom:30px;left:-4px;animation-delay:-2s}
+.art-label.bottom i{background:#fff0df}
+.art-stamp{position:absolute;right:0;bottom:-4px;color:rgba(255,173,115,.38);font:800 clamp(1.8rem,4vw,3rem)/1 Manrope,sans-serif;letter-spacing:-.07em}
+.hero-foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;margin-top:5px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55);font-size:.65rem;font-weight:700;letter-spacing:.13em}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* Connected community section */
+.community-section{position:relative;overflow:hidden;padding:78px 0 88px}
+.community-section::before{content:"";position:absolute;top:50px;right:-130px;width:330px;height:330px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 25px rgba(255,255,255,.018),0 0 0 55px rgba(255,255,255,.012);pointer-events:none}
+.section-wrap{position:relative;z-index:1;width:min(1160px,calc(100% - 48px));margin:auto}
+.section-topline{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:36px}
+.section-heading{max-width:720px}
+.section-heading .eyebrow{color:#ffbc8a}
+.section-heading h2{margin:0;font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.08;letter-spacing:-.055em}
+.section-heading h2 span{color:#ffad73}
+.section-heading p:not(.eyebrow){max-width:670px;margin:15px 0 0;color:rgba(255,255,255,.78);line-height:1.85}
+.section-side-note{display:flex;align-items:center;gap:12px;flex-shrink:0;padding:6px 0 6px 18px;border-left:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.72);font-size:.68rem;font-weight:800;letter-spacing:.1em;line-height:1.5}
+.section-side-note i{color:var(--orange);font-size:1.5rem}
+.community-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:19px}
+.community-card{position:relative;display:flex;min-width:0;min-height:360px;flex-direction:column;overflow:hidden;padding:25px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--ink);box-shadow:0 10px 30px rgba(20,0,8,.12);transition:transform .25s,border-color .25s,box-shadow .25s}
+.community-card:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:0 20px 42px rgba(20,0,8,.2)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:25px}
+.community-icon{display:grid;place-items:center;width:58px;height:58px;flex-shrink:0;border-radius:13px;background:var(--surface-soft);color:var(--burgundy);font-size:1.65rem}
+.whatsapp-card .community-icon{background:#edf6ee;color:#16834a}
+.card-label{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:100px;background:var(--surface-soft);color:var(--muted);font-size:.63rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.community-card h3{margin:0 0 12px;font-size:1.3rem;line-height:1.25;letter-spacing:-.035em}
+.community-card>p{margin:0 0 22px;color:var(--muted);font-size:.9rem;line-height:1.85}
+.card-action{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:auto;padding:13px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--burgundy);font-size:.82rem;font-weight:800}
+.card-action i{transition:transform .2s}
+a.card-action:hover i,.newsletter-card:hover .card-action i{transform:translateX(4px)}
+.whatsapp-card .card-action{border-color:#16834a;background:#16834a;color:#fff}
+.whatsapp-card .card-action:hover{background:#11683a}
+.newsletter-card{background:var(--orange);border-color:var(--orange);color:#28130b}
+.newsletter-card .community-icon{background:rgba(255,255,255,.32);color:#650019}
+.newsletter-card .card-label{background:rgba(255,255,255,.32);color:#421313}
+.newsletter-card>p{color:#4b2515}
+.newsletter-card .card-action{border-color:#650019;background:#650019;color:#fff}
+.newsletter-card .card-action:hover{background:#4b0014}
+.placeholder-card{border-style:dashed;box-shadow:none}
+.placeholder-card:hover{box-shadow:none}
+.placeholder-card .card-action{background:var(--surface-soft);color:var(--muted);cursor:default}
+.coming-soon{display:inline-flex;align-items:center;gap:7px;margin-top:12px;color:var(--muted);font-size:.77rem}
+.community-note{display:flex;align-items:flex-start;gap:14px;max-width:900px;margin:30px auto 0;padding:20px 22px;border:1px solid rgba(255,255,255,.2);border-left:4px solid var(--orange);border-radius:9px;background:rgba(255,255,255,.08)}
+.note-icon{display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--orange);color:#32140f}
+.community-note p{margin:0;color:rgba(255,255,255,.8);font-size:.89rem;line-height:1.8}
+.community-note strong{color:#fff}
+
+/* Closing section */
+.closing-cta{position:relative;isolation:isolate;overflow:hidden;padding:70px 24px 78px;text-align:center}
+.closing-cta::before{content:"";position:absolute;z-index:-1;left:-170px;bottom:-270px;width:460px;height:460px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 35px rgba(255,255,255,.02),0 0 0 70px rgba(255,255,255,.015)}
+.closing-cta::after{content:"THNA";position:absolute;z-index:-1;right:2%;bottom:-45px;color:rgba(255,255,255,.04);font:800 clamp(5rem,16vw,12rem)/1 Manrope,sans-serif;letter-spacing:-.09em}
+.closing-cta .eyebrow{color:#ffbc8a}
+.closing-cta h2{max-width:800px;margin:0 auto;font-size:clamp(2.25rem,5vw,4rem);line-height:1.08;letter-spacing:-.06em}
+.closing-cta h2 em{color:#ffad73;font-style:normal}
+.closing-cta>p:not(.eyebrow){max-width:600px;margin:18px auto 25px;color:rgba(255,255,255,.8);line-height:1.85}
+.closing-cta .button{background:var(--orange);color:#28130b}
+.closing-cta .button:hover{background:#ff9851}
+
+/* Footer */
+.site-footer{padding:55px 0 20px;background:#1c1016;color:#f8f2f4}
+.footer-container{width:min(1180px,calc(100% - 40px));margin:auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1.2fr 1fr;gap:30px;padding-bottom:35px}
+.footer-logo-img{display:block;width:180px;max-width:100%;height:auto;filter:brightness(0) invert(1)}
+.footer-motto{margin:20px 0 8px;font-size:1.1rem;font-weight:800}
+.footer-motto span{color:var(--orange)}
+.footer-bio,.contact-info p{color:#cfc2c8;line-height:1.7}
+.contact-info p{display:flex;align-items:center;gap:10px}
+.contact-info a{color:inherit}
+.footer-socials{display:flex;gap:10px;margin-top:18px}
+.footer-socials a{display:grid;place-items:center;width:38px;height:38px;border:1px solid #57434c;border-radius:50%;color:#fff}
+.footer-socials a:hover{background:var(--burgundy);border-color:var(--burgundy)}
+.footer-col h4{margin:6px 0 17px;font-size:1rem}
+.footer-col ul{display:grid;gap:11px;margin:0;padding:0;list-style:none}
+.footer-col a,.footer-bottom a{color:#cfc2c8;font-size:.88rem}
+.footer-col a:hover,.footer-bottom a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding-top:20px;border-top:1px solid #493740;color:#cfc2c8;font-size:.83rem}
+.footer-bottom p{margin:0}
+:root[data-theme="dark"] .community-card{background:var(--surface);color:var(--ink);border-color:var(--line)}
+:root[data-theme="dark"] .newsletter-card{background:var(--orange);color:#28130b;border-color:var(--orange)}
+:root[data-theme="dark"] .newsletter-card>p{color:#4b2515}
+:root[data-theme="dark"] .newsletter-card h3{color:#28130b}
+:root[data-theme="dark"] .newsletter-card .card-action{background:#650019;color:#fff}
+:root[data-theme="dark"] .community-note{background:rgba(0,0,0,.13)}
+
+@media(max-width:1050px){
+  .header-inner{gap:15px}.brand img{width:145px}.main-nav{gap:12px}
+  .main-nav>a,.nav-dropdown-toggle{font-size:.82rem}
+  .footer-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .community-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:850px){
+  .header-inner{min-height:78px}.brand img{width:140px}.menu-toggle{display:inline-grid}
+  .main-nav{display:none;position:absolute;top:100%;left:0;right:0;align-items:stretch;flex-direction:column;gap:4px;margin:0;padding:14px 24px 22px;border-bottom:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  .main-nav.is-open{display:flex}
+  .main-nav>a,.nav-dropdown-toggle{display:flex;width:100%;padding:12px 4px;font-size:.95rem}
+  .nav-dropdown{display:block}.nav-dropdown-toggle{justify-content:space-between}
+  .nav-dropdown-menu{position:static;min-width:0;margin:0 0 8px 10px;box-shadow:none}
+  .hero-inner{grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:20px;min-height:500px}
+  .art-core{width:175px;height:175px}.art-core>i{font-size:4rem}
+  .art-ring{width:260px;height:260px}.art-ring.large{width:335px;height:335px}
+  .section-side-note{display:none}
+}
+@media(max-width:650px){
+  .header-inner{width:calc(100% - 32px)}.brand img{width:125px}.header-actions{gap:6px}.icon-button{width:40px;height:40px}
+  .hero-inner{width:calc(100% - 36px);grid-template-columns:1fr;gap:0;padding:48px 0 25px}
+  .community-hero h1{font-size:clamp(3rem,13vw,4.6rem)}
+  .hero-description{font-size:1rem;margin:20px 0 23px}
+  .hero-actions{flex-direction:column;align-items:stretch}.hero-actions .button{width:100%}
+  .hero-meta{gap:8px;margin-top:24px;font-size:.66rem}
+  .community-art{min-height:275px;margin-top:6px}
+  .art-core{width:150px;height:150px;border-width:7px}.art-core>i{font-size:3.6rem}
+  .art-core span{width:45px;height:45px;right:1px;bottom:8px}
+  .art-ring{width:220px;height:220px}.art-ring.large{width:285px;height:285px}
+  .art-label{gap:7px;padding:8px 10px;font-size:.66rem}.art-label i{width:27px;height:27px}
+  .art-label.top{top:5px;right:0}.art-label.bottom{bottom:0;left:0}
+  .hero-foot{flex-direction:column;gap:7px;font-size:.58rem}
+  .community-section{padding:52px 0 58px}
+  .section-wrap{width:calc(100% - 32px)}
+  .section-topline{margin-bottom:27px}
+  .section-heading h2{font-size:clamp(2rem,9vw,3rem)}
+  .section-heading p:not(.eyebrow){font-size:.92rem}
+  .community-grid{grid-template-columns:1fr;gap:15px}
+  .community-card{min-height:0;padding:23px}
+  .card-top{margin-bottom:20px}
+  .community-note{padding:16px;gap:10px}
+  .note-icon{width:35px;height:35px;flex-basis:35px}
+  .closing-cta{padding:54px 20px}
+  .closing-cta h2{font-size:clamp(2.2rem,10vw,3.3rem)}
+  .closing-cta .button{width:100%}
+  .footer-container{width:calc(100% - 32px)}
+  .footer-top{grid-template-columns:1fr;gap:25px}
+  .footer-bottom{flex-direction:column;gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+/* Keep the colour on the top and bottom sections only */
+.community-section {
+  background: var(--page) !important;
+  color: var(--ink) !important;
+}
+
+/* Restore the normal heading colours */
+.community-section .section-heading .eyebrow {
+  color: var(--burgundy) !important;
+}
+
+.community-section .section-heading h2 {
+  color: var(--ink);
+}
+
+.community-section .section-heading h2 span {
+  color: var(--burgundy) !important;
+}
+
+.community-section .section-heading p:not(.eyebrow) {
+  color: var(--muted) !important;
+}
+
+/* Keep the small section label subtle */
+.community-section .section-side-note {
+  color: var(--muted);
+  border-left-color: var(--line);
+}
+
+/* Make the decorative circles subtle on the normal background */
+.community-section::before {
+  border-color: rgba(143, 0, 0, .08);
+  box-shadow:
+    0 0 0 25px rgba(143, 0, 0, .015),
+    0 0 0 55px rgba(143, 0, 0, .01);
+}
+
+/* Give the welcome note a clean, light appearance */
+.community-section .community-note {
+  background: var(--surface);
+  border-color: var(--line);
+  border-left: 4px solid var(--orange);
+}
+
+.community-section .community-note p {
+  color: var(--muted) !important;
+}
+
+.community-section .community-note strong {
+  color: var(--ink);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="The Hive Network Africa home">
+      <img src="images/THNA LOGO 1.png" alt="The Hive Network Africa">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Impact <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="nav-dropdown-menu">
+          <a href="impact.html">Impact Overview</a>
+          <a href="impact-in-pictures.html">Impact, in Pictures</a>
+          <a href="impactstories.html">Impact Stories</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Events <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="nav-dropdown-menu">
+          <a href="events.html#past-events">Past Events</a>
+          <a href="events.html#upcoming-events">Upcoming Events</a>
+          <a href="events.html">All Events</a>
+        </div>
+      </div>
+      <a href="community.html" aria-current="page">Community</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle colour theme"><i class="fa-regular fa-moon" aria-hidden="true"></i></button>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="community-hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-mark"></span>The Hive Network Africa</p>
+        <h1>Find your people.<br><em>Grow together.</em></h1>
+        <p class="hero-description">A community is more than a group of people. It is a place to share ideas, learn from one another, discover opportunities, and grow alongside people who believe in what is possible.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://chat.whatsapp.com/GYVg5ymTWtjJziKOuH6UTS" target="_blank" rel="noopener noreferrer">Join our WhatsApp Community <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a class="button button-outline-light" href="#community-spaces">Explore our spaces <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+        <div class="hero-meta"><span class="meta-dot"></span>Real connections <span class="meta-separator">/</span> Shared opportunities <span class="meta-separator">/</span> Collective growth</div>
+      </div>
+      <div class="community-art" aria-hidden="true">
+        <div class="art-ring"></div><div class="art-ring large"></div>
+        <div class="art-core"><i class="fa-solid fa-people-group"></i><span><i class="fa-solid fa-heart"></i></span></div>
+        <div class="art-label top"><i class="fa-solid fa-lightbulb"></i><span>Ideas grow here</span></div>
+        <div class="art-label bottom"><i class="fa-solid fa-handshake-angle"></i><span>Better together</span></div>
+        <div class="art-stamp">YOU BELONG HERE.</div>
+      </div>
+      <div class="hero-foot"><span>THE HIVE NETWORK AFRICA</span><span>CONNECT · LEARN · GROW</span></div>
+    </div>
+  </section>
+
+  <section class="community-section" id="community-spaces">
+    <div class="section-wrap">
+      <div class="section-topline">
+        <div class="section-heading">
+          <p class="eyebrow">Your community starts here</p>
+          <h2>Stay connected with <span>THNA.</span></h2>
+          <p>Find your way into the community. Join conversations on WhatsApp, subscribe to our newsletter, and stay close to the opportunities and stories happening across the network.</p>
+        </div>
+        <div class="section-side-note"><i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i><span>CHOOSE YOUR<br>WAY TO CONNECT</span></div>
+      </div>
+
+      <div class="community-grid">
+        <article class="community-card whatsapp-card">
+          <div class="card-top">
+            <div class="community-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+            <span class="card-label"><i class="fa-solid fa-users" aria-hidden="true"></i> Community group</span>
+          </div>
+          <h3>THNA WhatsApp Community</h3>
+          <p>Connect with fellow members, keep up with community updates, and be part of conversations and opportunities from The Hive Network Africa.</p>
+          <a class="card-action" href="https://chat.whatsapp.com/GYVg5ymTWtjJziKOuH6UTS" target="_blank" rel="noopener noreferrer"><span>Join the WhatsApp Community</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+
+        <a class="community-card newsletter-card" href="newsletter.html" aria-label="Subscribe to our newsletter">
+          <div class="card-top">
+            <div class="community-icon"><i class="fa-regular fa-envelope-open" aria-hidden="true"></i></div>
+            <span class="card-label"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Read and discover</span>
+          </div>
+          <h3>Stay Connected with THNA</h3>
+          <p>Get closer to the stories, updates, and opportunities happening in our network. Visit our newsletter page to sign up and stay in the loop.</p>
+          <span class="card-action"><span>Subscribe to Our Newsletter</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+
+        <article class="community-card placeholder-card">
+          <div class="card-top">
+            <div class="community-icon"><i class="fa-solid fa-people-arrows-left-right" aria-hidden="true"></i></div>
+            <span class="card-label"><i class="fa-regular fa-clock" aria-hidden="true"></i> Coming soon</span>
+          </div>
+          <h3>More Ways to Connect</h3>
+          <p>We are making room for more ways for members to connect, collaborate, share ideas, and support one another. Details will be added when another community space is ready.</p>
+          <span class="card-action" aria-disabled="true"><span>More spaces coming soon</span><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></span>
+          <span class="coming-soon"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>Stay tuned for updates.</span>
+        </article>
+      </div>
+
+      <div class="community-note">
+        <div class="note-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+        <p><strong>New here? You're welcome.</strong> Start with the WhatsApp community or subscribe to our newsletter. Whether you're here to learn, connect, or discover new possibilities, there's room for you in the Hive.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-cta">
+    <p class="eyebrow">Believe. Achieve. Succeed.</p>
+    <h2>There's room for you <em>in the Hive.</em></h2>
+    <p>Meaningful impact grows when people connect, share what they know, and create opportunities together. Take the next step and join a THNA cohort.</p>
+    <a class="button" href="cohort.html">Join a Cohort <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <a href="index.html" class="footer-logo"><img src="images/THNA LOGO 1.png" alt="The Hive Network Africa" class="footer-logo-img"></a>
+        <p class="footer-motto">Believe. Achieve. <span>Succeed.</span></p>
+        <p class="footer-bio">Transforming African university campuses into launchpads for innovation, leadership, and youth impact.</p>
+        <div class="contact-info">
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:thnafrica@gmail.com">thnafrica@gmail.com</a></p>
+          <p><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+2349061132003">+234 906 113 2003</a></p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/thnafrica" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@thnafrica" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/thnafrica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programmes.html">Programmes</a></li><li><a href="impact.html">Impact</a><li><a href="events.html">Events</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Initiatives</h4><ul>
+        <li><a href="programmes.html#tours-hero">Campus Training Tour</a></li><li><a href="programmes.html">Creative Youth Mentoring</a></li><li><a href="programmes.html">Creative Youth Arts &amp; Science Fairs</a></li><li><a href="programmes.html">Inter-Cohort Debate</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Get Involved</h4><ul>
+        <li><a href="community.html" aria-current="page">Join the Community</a></li><li><a href="https://chat.whatsapp.com/GYVg5ymTWtjJziKOuH6UTS" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li><li><a href="newsletter.html">Subscribe to Our Newsletter</a></li><li><a href="cohort.html">Join a Cohort</a></li><li><a href="events.html#upcoming-events">Upcoming Events</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="current-year"></span> <strong>The Hive Network Africa</strong>. All rights reserved.</p><div><a href="privacy-policy.html">Privacy Policy</a><span> · </span><a href="terms.html">Terms of Service</a></div></div>
+  </div>
+</footer>
+
+<script>
+const $ = (selector, root = document) => root.querySelector(selector);
+
+function setupTheme() {
+  const toggle = $(".theme-toggle");
+  if (!toggle) return;
+  const paint = () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    toggle.innerHTML = `<i class="fa-regular ${dark ? "fa-sun" : "fa-moon"}" aria-hidden="true"></i>`;
+    toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  };
+  paint();
+  toggle.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("thna-theme", next); } catch (_) {}
+    paint();
+  });
+}
+
+function setupMenu() {
+  const toggle = $(".menu-toggle");
+  const nav = $("#main-nav");
+  if (!toggle || !nav) return;
+  const close = () => {
+    nav.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
+  };
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+  });
+  nav.querySelectorAll("a").forEach(link => link.addEventListener("click", close));
+  document.addEventListener("click", event => {
+    if (!nav.contains(event.target) && !toggle.contains(event.target)) close();
+  });
+}
+
+function setupDropdowns() {
+  const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
+  dropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector(".nav-dropdown-toggle");
+    button.addEventListener("click", () => {
+      const shouldOpen = !dropdown.classList.contains("open");
+      dropdowns.forEach(item => {
+        item.classList.remove("open");
+        item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+      });
+      if (shouldOpen) {
+        dropdown.classList.add("open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+  document.addEventListener("click", event => {
+    if (event.target.closest(".nav-dropdown")) return;
+    dropdowns.forEach(item => {
+      item.classList.remove("open");
+      item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+    });
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    dropdowns.forEach(item => {
+      item.classList.remove("open");
+      item.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupTheme();
+  setupMenu();
+  setupDropdowns();
+  const year = $("#current-year");
+  if (year) year.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>

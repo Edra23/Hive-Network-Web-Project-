@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read community stories from The Hive Network Africa.">
+  <title>Testimonials | The Hive Network Africa</title>
+  <link rel="icon" type="image/png" href="images/THNA LOGO 1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="impact.css">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("thna-theme");
+        document.documentElement.dataset.theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (_) { document.documentElement.dataset.theme = "light"; }
+    })();
+  </script>
+</head>
+<body data-page="testimonials">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="The Hive Network Africa home"><img src="images/THNA LOGO 1.png" alt="The Hive Network Africa"></a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="programmes.html">Programmes</a><a href="impact.html">Impact</a><a href="testimonials.html" aria-current="page">Testimonials</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme"><i class="fa-regular fa-moon" aria-hidden="true"></i></button>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="testimonials-page-hero"><div><p class="eyebrow">The people behind the progress</p><h1>Stories that stay <em>with us.</em></h1><p>Every journey is different. These are the experiences shared by members of The Hive Network Africa community.</p><a class="button button-primary" href="impact.html">Explore Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></section>
+    <section class="section-wrap full-stories" id="testimonial-track" aria-label="Community testimonials"></section>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html"><img src="images/THNA LOGO 1.png" alt="The Hive Network Africa"></a><div class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="programmes.html">Programmes</a><a href="impact.html">Impact</a><a href="testimonials.html">Testimonials</a></div><p>Learning, connection, and community impact.</p><small>© <span id="current-year"></span> The Hive Network Africa</small></footer>
+  <script src="impact.js" defer></script>
+</body>
+</html>
